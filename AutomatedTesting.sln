@@ -3,9 +3,40 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ADA0228B-25EF-47FA-9E40-E0A726C1DA1E}"
+	ProjectSection(SolutionItems) = preProject
+		documentation\Automated Developer Testing Technical Training.docx = documentation\Automated Developer Testing Technical Training.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{01999E3D-1DCF-42F4-8B74-BC0308AE0411}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5149049A-C303-4F99-A7A5-249E7D31173B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.Console", "RPGCombatKata\RPGCombatKata.Console.csproj", "{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCombatKata.Tests", "RPGCombatKata.Tests\RPGCombatKata.Tests.csproj", "{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
+		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04D2F3F9-74CC-4850-A15F-7E28E3781D94}
