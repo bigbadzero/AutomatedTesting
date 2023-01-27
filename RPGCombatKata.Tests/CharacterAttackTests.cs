@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RPGCombatKata.Tests
 {
-    public class AttackTests
+    public class CharacterAttackTests
     {
         [Fact]
         public void AttackPerformed()
@@ -22,7 +22,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact] 
-        public void Damage_Calculated_Correctly()
+        public void CharacterAttacked_RemainingHealthCalculatedCorrectly()
         {
             var character1 = new Character();
             var character2 = new Character();
@@ -32,7 +32,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact]
-        public void Health_Calculated_Correctly_Upon_Death()
+        public void CharacterAttacked_HealthCalculatedCorrectlyUponDeath()
         {
             var character1 = new Character();
             var character2 = new Character();
@@ -42,7 +42,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact]
-        public void Death_Triggered()
+        public void CharacterAttacked_DeathTriggered()
         {
             var character1 = new Character();
             var character2 = new Character();
@@ -52,7 +52,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact]
-        public void Health_Does_Not_Drop_Below_0()
+        public void CharacterAttacked_HealthDoesNotDropBelow0()
         {
             var character1 = new Character();
             var character2 = new Character();

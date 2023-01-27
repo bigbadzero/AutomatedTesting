@@ -23,7 +23,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact]
-        public void OverHealing()
+        public void CharacterRecivingHealing_OverHealingCannotOccur()
         {
             var character1 = new Character();
             var character2 = new Character();
@@ -33,7 +33,7 @@ namespace RPGCombatKata.Tests
         }
 
         [Fact]
-        public void HealingDeathStatus()
+        public void DeadCharacters_CannotRecieveHealing()
         {
             var character1 = new Character();
             var character2 = new Character();
