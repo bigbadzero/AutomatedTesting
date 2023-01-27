@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{01999E3D-1DC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5149049A-C303-4F99-A7A5-249E7D31173B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.Console", "RPGCombatKata\RPGCombatKata.Console.csproj", "{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.ConsoleApp", "RPGCombatKata\RPGCombatKata.ConsoleApp.csproj", "{AA51497A-05B8-48FA-9F0F-CCF4ADDF0690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCombatKata.Tests", "RPGCombatKata.Tests\RPGCombatKata.Tests.csproj", "{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.Tests", "RPGCombatKata.Tests\RPGCombatKata.Tests.csproj", "{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

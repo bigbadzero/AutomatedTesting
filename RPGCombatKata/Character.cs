@@ -1,44 +1,81 @@
-﻿namespace RPGCombatKata.Console;
+﻿namespace RPGCombatKata.ConsoleApp;
 
-public class Character:ICharacterSkills
+public class Character
 {
+    public Guid Id { get; set; }
+    public double Health { get; set; }
+    public int Level { get; set; }
+    public bool Alive { get; set; }
+
     public Character()
     {
         Health= 1000;  
         Level= 1;
         Alive = true;
+        Id = Guid.NewGuid();
     }
-    public int Health { get; set; }
-    public int Level { get; set; }
-    public bool Alive { get; set; }
+   
 
-    public void Attack(Character character, int incomingDamage)
+    public void Attack(Character character, double incomingDamage)
     {
-        if(character.Health < incomingDamage)
+        double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
+        if(Id != character.Id )
         {
-            character.Health = 0;
-            character.Alive = false;
-        }
-        if(character.Health > incomingDamage)
-        {
-            character.Health = character.Health - incomingDamage;
-        }
-    }
-
-    public void Heal(Character character, int incomingHeal)
-    {
-        if(character.Alive)
-        {
-            var health = character.Health + incomingHeal;
-            if(health > 1000)
+            if (character.Health < incomingDamageAdjustedForLevel)
             {
-                character.Health = 1000;
+                character.Health = 0;
+                character.Alive = false;
+            }
+            if (character.Health > incomingDamageAdjustedForLevel)
+            {
+                character.Health = character.Health - incomingDamageAdjustedForLevel;
+            }
+        }
+        else
+        {
+            Console.WriteLine("You cannot attack yourself");
+        }
+    }
+
+    private double CalculateIncomingDamage(double incomingDamage, int targetLevel)
+    {
+        double incomingDamageAdjustedForLevel;
+        if ((targetLevel - Level) >= 5)
+        {
+            incomingDamageAdjustedForLevel = (incomingDamage * .5);
+        }
+        else if ((Level - targetLevel) >= 5)
+        {
+            incomingDamageAdjustedForLevel = incomingDamage + (incomingDamage * .5);
+        }
+        else
+        {
+            incomingDamageAdjustedForLevel = incomingDamage;
+        }
+        return incomingDamageAdjustedForLevel;
+    }
+
+    public void Heal(int incomingHeal)
+    {
+        if (Alive)
+        {
+            var health = Health + incomingHeal;
+            if (health > 1000)
+            {
+                Health = 1000;
+                Console.WriteLine("Healing Recieved");
             }
             else
             {
-                character.Health = health;
+                Health = health;
+                Console.WriteLine("Healing Recieved");
             }
         }
+    }
 
+    public void IsDead()
+    {
+        Alive = false;
+        Health= 0;
     }
 }

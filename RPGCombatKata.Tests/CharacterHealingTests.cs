@@ -1,4 +1,4 @@
-﻿using RPGCombatKata.Console;
+﻿using RPGCombatKata.ConsoleApp;
 using Shouldly;
 using System;
 using System.Collections.Generic;
@@ -16,32 +16,32 @@ namespace RPGCombatKata.Tests
             var character1 = new Character();
             var character2 = new Character();
 
-            character1.Attack(character2, 500);
-            character1.Heal(character2, 100);
+            character1.Health = 500;
+            character1.Heal(100);
 
             character2.Health.ShouldBeGreaterThan(500);
         }
 
+
+        //badTest
         [Fact]
-        public void CharacterRecivingHealing_OverHealingCannotOccur()
+        public void OverHealingCannotOccur()
         {
             var character1 = new Character();
-            var character2 = new Character();
 
-            character1.Heal(character2, 500);
-            character2.Health.ShouldBe(1000);
+            character1.Health = 400;
+            character1.Heal(5000);
+            character1.Health.ShouldBe(1000);
         }
 
         [Fact]
         public void DeadCharacters_CannotRecieveHealing()
         {
             var character1 = new Character();
-            var character2 = new Character();
 
-            character2.Alive = false;
-            character2.Health = 0;
-            character1.Heal(character2, 500);
-            character2.Health.ShouldBe(0);
+            character1.IsDead();
+            character1.Heal(500);
+            character1.Alive.ShouldBeFalse();
         }
     }
 }

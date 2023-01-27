@@ -1,4 +1,4 @@
-using RPGCombatKata.Console;
+using RPGCombatKata.ConsoleApp;
 using Shouldly;
 
 namespace RPGCombatKata.Tests
@@ -24,6 +24,15 @@ namespace RPGCombatKata.Tests
         {
             var newCharacter = new Character();
             newCharacter.Alive = true;
+        }
+
+        [Fact]
+        public void CharacterCreation_GeneratesUniqueIds()
+        {
+            var newCharacter1 = new Character();
+            var newCharacter2 = new Character();
+
+            newCharacter1.Id.ShouldNotBe(newCharacter2.Id);
         }
 
 
