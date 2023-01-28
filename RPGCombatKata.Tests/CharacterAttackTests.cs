@@ -12,25 +12,65 @@ namespace RPGCombatKata.Tests
     {
         //iteration 1
         [Fact]
-        public void AttackPerformed()
+        public void InRangeAttackPerformedByMeleeCharacter()
         {
-            StringWriter sw = new StringWriter();
-            Console.SetOut(sw);
-            var character1 = new Character();
-            var character2 = new Character();
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
 
             character1.Attack(character2, 500);
+
             character2.Health.ShouldNotBe(1000);
-            
+        }
+
+        [Fact]
+        public void OutOfRangeAttackPerformedByMeleeCharacter()
+        {
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 10;
+
+            character1.Attack(character2, 500);
+
+            character2.Health.ShouldBe(1000);
+        }
+
+        [Fact]
+        public void InRangeAttackPerformedByRangeCharacter()
+        {
+            var character1 = new MeleeCharacter();
+            var character2 = new RangeCharacter();
+            character1.Position = 1;
+            character2.Position = 21;
+
+            character2.Attack(character1, 500);
+            character1.Health.ShouldNotBe(1000);
+
+        }
+
+        [Fact]
+        public void OutOfRangeAttackPerformedByRangeCharacter()
+        {
+            var character1 = new MeleeCharacter();
+            var character2 = new RangeCharacter();
+            character1.Position = 1;
+            character2.Position = 26;
+
+            character2.Attack(character1, 500);
+            character1.Health.ShouldBe(1000);
+
         }
 
 
         [Fact] 
         public void CharacterAttacked_RemainingHealthCalculatedCorrectly()
         {
-            var character1 = new Character();
-            var character2 = new Character();
-
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character1.Attack(character2, 500);
             character2.Health.ShouldBe(500);
         }
@@ -38,9 +78,10 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttacked_HealthCalculatedCorrectlyUponDeath()
         {
-            var character1 = new Character();
-            var character2 = new Character();
-
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character1.Attack(character2, 1500);
             character2.Health.ShouldBe(0);
         }
@@ -48,9 +89,10 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttacked_DeathTriggered()
         {
-            var character1 = new Character();
-            var character2 = new Character();
-
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character1.Attack(character2, 1500);
             character2.Alive.ShouldBe(false);
         }
@@ -58,9 +100,10 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttacked_HealthDoesNotDropBelow0()
         {
-            var character1 = new Character();
-            var character2 = new Character();
-
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character1.Attack(character2, 1500);
             character2.Health.ShouldBe(0);
         }
@@ -69,7 +112,7 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttack_CannotAttackItself()
         {
-            var character1 = new Character();
+            var character1 = new MeleeCharacter();
             var currentHealth = character1.Health;
             character1.Attack(character1, 500);
             character1.Health.ShouldBe(currentHealth);
@@ -78,8 +121,10 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttack_TargetLevelFiveOrGreaterThanAttackerDamageCalculatedCorrectly()
         {
-            var character1 = new Character();
-            var character2 = new Character();
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character2.Level = 6;
             var incomingDamage = 500;
             var expectedHealthAfterAttack = character1.Health - (incomingDamage * .5);
@@ -90,8 +135,10 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void CharacterAttack_TargetLevelFiveOrLessThanAttackerDamageCalculatedCorrectly()
         {
-            var character1 = new Character();
-            var character2 = new Character();
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
             character1.Level = 25;
             var incomingDamage = 500;
             var expectedHealthAfterAttack = character1.Health - (incomingDamage + (incomingDamage * .5));

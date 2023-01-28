@@ -1,11 +1,16 @@
-﻿namespace RPGCombatKata.ConsoleApp;
+﻿using System;
+using System.Globalization;
 
-public class Character
+namespace RPGCombatKata.ConsoleApp;
+
+public abstract class Character
 {
     public Guid Id { get; set; }
     public double Health { get; set; }
     public int Level { get; set; }
     public bool Alive { get; set; }
+    public int Position { get; set; }
+    public int Range { get; set; }
 
     public Character()
     {
@@ -13,13 +18,14 @@ public class Character
         Level= 1;
         Alive = true;
         Id = Guid.NewGuid();
+        Position = ChooseRandomPosition();
     }
-   
 
-    public void Attack(Character character, double incomingDamage)
+    public  void Attack(Character character, double incomingDamage)
     {
+        var rangeCheck = RangeCheck(character.Position);
         double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
-        if(Id != character.Id )
+        if (Id != character.Id && rangeCheck)
         {
             if (character.Health < incomingDamageAdjustedForLevel)
             {
@@ -37,23 +43,6 @@ public class Character
         }
     }
 
-    private double CalculateIncomingDamage(double incomingDamage, int targetLevel)
-    {
-        double incomingDamageAdjustedForLevel;
-        if ((targetLevel - Level) >= 5)
-        {
-            incomingDamageAdjustedForLevel = (incomingDamage * .5);
-        }
-        else if ((Level - targetLevel) >= 5)
-        {
-            incomingDamageAdjustedForLevel = incomingDamage + (incomingDamage * .5);
-        }
-        else
-        {
-            incomingDamageAdjustedForLevel = incomingDamage;
-        }
-        return incomingDamageAdjustedForLevel;
-    }
 
     public void Heal(int incomingHeal)
     {
@@ -78,4 +67,58 @@ public class Character
         Alive = false;
         Health= 0;
     }
+
+    public void OverridePosition(int newPosition)
+    {
+        //is position taken
+        var available = Board.Positions.Contains(newPosition);
+        if(available)
+        {
+            Board.Positions.Remove(newPosition);
+            Board.Positions.Add(Position);
+            Position= newPosition;
+        }
+        else
+        {
+            Console.WriteLine("Position Not Available");
+        }
+    }
+
+    protected double CalculateIncomingDamage(double incomingDamage, int targetLevel)
+    {
+        double incomingDamageAdjustedForLevel;
+        if ((targetLevel - Level) >= 5)
+        {
+            incomingDamageAdjustedForLevel = (incomingDamage * .5);
+        }
+        else if ((Level - targetLevel) >= 5)
+        {
+            incomingDamageAdjustedForLevel = incomingDamage + (incomingDamage * .5);
+        }
+        else
+        {
+            incomingDamageAdjustedForLevel = incomingDamage;
+        }
+        return incomingDamageAdjustedForLevel;
+    }
+
+    private int ChooseRandomPosition()
+    {
+        var random = new Random();
+        var index = random.Next(Board.Positions.Count);
+        var choosenNumber = Board.Positions[index];
+        Board.Positions.Remove(choosenNumber);
+        return choosenNumber;
+    }
+
+    protected bool RangeCheck(int opponentsPosition)
+    {
+        if (Range >= Math.Abs(Position - opponentsPosition))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
 }

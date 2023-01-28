@@ -13,21 +13,19 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void Healing_Occurred()
         {
-            var character1 = new Character();
-            var character2 = new Character();
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
 
             character1.Health = 500;
             character1.Heal(100);
 
             character2.Health.ShouldBeGreaterThan(500);
         }
-
-
-        //badTest
+        
         [Fact]
         public void OverHealingCannotOccur()
         {
-            var character1 = new Character();
+            var character1 = new MeleeCharacter();
 
             character1.Health = 400;
             character1.Heal(5000);
@@ -37,7 +35,7 @@ namespace RPGCombatKata.Tests
         [Fact]
         public void DeadCharacters_CannotRecieveHealing()
         {
-            var character1 = new Character();
+            var character1 = new MeleeCharacter();
 
             character1.IsDead();
             character1.Heal(500);
