@@ -145,5 +145,20 @@ namespace RPGCombatKata.Tests
             character1.Attack(character2, incomingDamage);
             character2.Health.ShouldBe(expectedHealthAfterAttack);
         }
+        [Fact]
+        public void CharacterAttack_CannotAttackAlly()
+        {
+            var character1 = new MeleeCharacter();
+            var character2 = new MeleeCharacter();
+            character1.Position = 1;
+            character2.Position = 2;
+            character1.JoinFaction("Horde");
+            character2.JoinFaction("Horde");
+            var currentHealth = character2.Health;
+            var incomingDamage = 500;
+            character1.Attack(character2, incomingDamage);
+            character2.Health.ShouldBe(currentHealth);
+        }
+
     }
 }

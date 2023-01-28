@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RPGCombatKata.ConsoleApp;
 
@@ -11,6 +13,7 @@ public abstract class Character
     public bool Alive { get; set; }
     public int Position { get; set; }
     public int Range { get; set; }
+    public List<string> Factions { get; set; }
 
     public Character()
     {
@@ -19,13 +22,15 @@ public abstract class Character
         Alive = true;
         Id = Guid.NewGuid();
         Position = ChooseRandomPosition();
+        Factions= new List<string>();
     }
 
     public  void Attack(Character character, double incomingDamage)
     {
+        var isAlly = IsAlly(character);
         var rangeCheck = RangeCheck(character.Position);
         double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
-        if (Id != character.Id && rangeCheck)
+        if (Id != character.Id && rangeCheck && !isAlly)
         {
             if (character.Health < incomingDamageAdjustedForLevel)
             {
@@ -43,24 +48,44 @@ public abstract class Character
         }
     }
 
-
-    public void Heal(int incomingHeal)
+    public void HealSelf(int incomingHeal)
     {
         if (Alive)
         {
-            var health = Health + incomingHeal;
-            if (health > 1000)
+            var newHealth = Health + incomingHeal;
+            if (newHealth > 1000)
             {
                 Health = 1000;
                 Console.WriteLine("Healing Recieved");
             }
             else
             {
-                Health = health;
+                Health = newHealth;
                 Console.WriteLine("Healing Recieved");
             }
         }
     }
+
+    public void HealAlly(int incomingHeal, Character target )
+    {
+        var isAlly = IsAlly(target);
+        if (Alive && isAlly && target.Alive)
+        {
+            var newHealth = target.Health + incomingHeal;
+            if (newHealth > 1000)
+            {
+                target.Health = 1000;
+                Console.WriteLine("Healing Recieved");
+            }
+            else
+            {
+                target.Health = newHealth;
+                Console.WriteLine("Healing Recieved");
+            }
+        }
+    }
+
+    
 
     public void IsDead()
     {
@@ -84,7 +109,34 @@ public abstract class Character
         }
     }
 
-    protected double CalculateIncomingDamage(double incomingDamage, int targetLevel)
+    public void JoinFaction(string faction)
+    {
+        var memberOfFaction = Factions.Contains(faction);
+        if (!memberOfFaction)
+        {
+            Factions.Add(faction);
+        }
+        else
+        {
+            Console.WriteLine("Already a member of faction");
+        }
+    }
+
+    public void LeaveFaction(string faction)
+    {
+        var memberOfFaction = Factions.Contains(faction);
+        if (memberOfFaction)
+        {
+            Factions.Remove(faction);
+        }
+        else
+        {
+            Console.WriteLine("Not a member of faction");
+        }
+    }
+
+
+    private double CalculateIncomingDamage(double incomingDamage, int targetLevel)
     {
         double incomingDamageAdjustedForLevel;
         if ((targetLevel - Level) >= 5)
@@ -111,7 +163,7 @@ public abstract class Character
         return choosenNumber;
     }
 
-    protected bool RangeCheck(int opponentsPosition)
+    private bool RangeCheck(int opponentsPosition)
     {
         if (Range >= Math.Abs(Position - opponentsPosition))
         {
@@ -119,6 +171,12 @@ public abstract class Character
         }
         else
             return false;
+    }
+
+    private bool IsAlly(Character character)
+    {
+        bool ally = character.Factions.Any(x => Factions.Contains(x));
+        return ally;
     }
 
 }
