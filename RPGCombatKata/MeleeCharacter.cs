@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPGCombatKata.ConsoleApp
+namespace RPGCombatKata.ConsoleApp;
+
+public class MeleeCharacter : Character
 {
-    public class MeleeCharacter : Character
+    public MeleeCharacter()
     {
-        
-        public MeleeCharacter()
-        {
-            Range = 2;
-        }
-        
+        Range = 2;
     }
 }

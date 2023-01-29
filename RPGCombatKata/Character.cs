@@ -5,13 +5,10 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace RPGCombatKata.ConsoleApp;
 
-public abstract class Character
+public abstract class Character:BoardObject
 {
-    public Guid Id { get; set; }
-    public double Health { get; set; }
     public int Level { get; set; }
     public bool Alive { get; set; }
-    public int Position { get; set; }
     public int Range { get; set; }
     public List<string> Factions { get; set; }
 
@@ -20,31 +17,44 @@ public abstract class Character
         Health= 1000;  
         Level= 1;
         Alive = true;
-        Id = Guid.NewGuid();
-        Position = ChooseRandomPosition();
+        
         Factions= new List<string>();
     }
 
-    public  void Attack(Character character, double incomingDamage)
+    public  void Attack(BoardObject boardObject, double incomingDamage)
     {
-        var isAlly = IsAlly(character);
-        var rangeCheck = RangeCheck(character.Position);
-        double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
-        if (Id != character.Id && rangeCheck && !isAlly)
+        if (boardObject.Id != Id && RangeCheck(boardObject.Position))
         {
-            if (character.Health < incomingDamageAdjustedForLevel)
+            if(boardObject is Character)
             {
-                character.Health = 0;
-                character.Alive = false;
+                AttackCharacter((Character)boardObject, incomingDamage);
             }
-            if (character.Health > incomingDamageAdjustedForLevel)
+            else
             {
-                character.Health = character.Health - incomingDamageAdjustedForLevel;
+                boardObject.HandleDamage(incomingDamage);
             }
         }
-        else
+    }
+
+    protected void AttackCharacter(Character character, double incomingDamage)
+    {
+        var isAlly = IsAlly(character);
+        if (!isAlly)
         {
-            Console.WriteLine("You cannot attack yourself");
+            double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
+            character.HandleDamage(incomingDamageAdjustedForLevel);
+        }
+    }
+
+    public override void HandleDamage(double incomingDamage)
+    {
+        if (Health < incomingDamage)
+        {
+            FatalDamage();
+        }
+        if (Health > incomingDamage)
+        {
+            Health = Health - incomingDamage;
         }
     }
 
@@ -66,7 +76,7 @@ public abstract class Character
         }
     }
 
-    public void HealAlly(int incomingHeal, Character target )
+    public void HealAlly(int incomingHeal, Character target)
     {
         var isAlly = IsAlly(target);
         if (Alive && isAlly && target.Alive)
@@ -87,27 +97,13 @@ public abstract class Character
 
     
 
-    public void IsDead()
+    public override void FatalDamage()
     {
         Alive = false;
         Health= 0;
     }
 
-    public void OverridePosition(int newPosition)
-    {
-        //is position taken
-        var available = Board.Positions.Contains(newPosition);
-        if(available)
-        {
-            Board.Positions.Remove(newPosition);
-            Board.Positions.Add(Position);
-            Position= newPosition;
-        }
-        else
-        {
-            Console.WriteLine("Position Not Available");
-        }
-    }
+    
 
     public void JoinFaction(string faction)
     {
@@ -154,14 +150,7 @@ public abstract class Character
         return incomingDamageAdjustedForLevel;
     }
 
-    private int ChooseRandomPosition()
-    {
-        var random = new Random();
-        var index = random.Next(Board.Positions.Count);
-        var choosenNumber = Board.Positions[index];
-        Board.Positions.Remove(choosenNumber);
-        return choosenNumber;
-    }
+    
 
     private bool RangeCheck(int opponentsPosition)
     {

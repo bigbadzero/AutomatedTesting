@@ -32,7 +32,7 @@ public class CharacterHealingTests
     {
         var character1 = new MeleeCharacter();
 
-        character1.IsDead();
+        character1.FatalDamage();
         character1.HealSelf(500);
         character1.Alive.ShouldBeFalse();
         character1.Health.ShouldBe(0);
@@ -87,7 +87,7 @@ public class CharacterHealingTests
         character1.JoinFaction("Horde");
         character2.JoinFaction("Horde");
 
-        character1.IsDead();
+        character1.FatalDamage();
         character2.HealAlly(500, character1);
 
         character1.Alive.ShouldBeFalse();
@@ -102,7 +102,7 @@ public class CharacterHealingTests
         character1.JoinFaction("Horde");
         character2.JoinFaction("Horde");
         character2.Health = 500;
-        character1.IsDead();
+        character1.FatalDamage();
         character1.HealAlly(100, character2);
 
         character2.Health.ShouldBe(500);
