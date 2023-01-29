@@ -1,11 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿namespace RPGCombatKata.ConsoleApp;
 
-namespace RPGCombatKata.ConsoleApp;
-
-public abstract class Character:BoardObject
+public abstract class Character : BoardObject
 {
     public int Level { get; set; }
     public bool Alive { get; set; }
@@ -14,18 +9,17 @@ public abstract class Character:BoardObject
 
     public Character()
     {
-        Health= 1000;  
-        Level= 1;
+        Health = 1000;
+        Level = 1;
         Alive = true;
-        
-        Factions= new List<string>();
+        Factions = new List<string>();
     }
 
-    public  void Attack(BoardObject boardObject, double incomingDamage)
+    public void Attack(BoardObject boardObject, double incomingDamage)
     {
         if (boardObject.Id != Id && RangeCheck(boardObject.Position))
         {
-            if(boardObject is Character)
+            if (boardObject is Character)
             {
                 AttackCharacter((Character)boardObject, incomingDamage);
             }
@@ -36,26 +30,12 @@ public abstract class Character:BoardObject
         }
     }
 
-    protected void AttackCharacter(Character character, double incomingDamage)
-    {
-        var isAlly = IsAlly(character);
-        if (!isAlly)
-        {
-            double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
-            character.HandleDamage(incomingDamageAdjustedForLevel);
-        }
-    }
-
     public override void HandleDamage(double incomingDamage)
     {
         if (Health < incomingDamage)
-        {
             FatalDamage();
-        }
-        if (Health > incomingDamage)
-        {
+        else
             Health = Health - incomingDamage;
-        }
     }
 
     public void HealSelf(int incomingHeal)
@@ -95,77 +75,65 @@ public abstract class Character:BoardObject
         }
     }
 
-    
-
     public override void FatalDamage()
     {
         Alive = false;
-        Health= 0;
+        Health = 0;
     }
-
-    
 
     public void JoinFaction(string faction)
     {
         var memberOfFaction = Factions.Contains(faction);
         if (!memberOfFaction)
-        {
             Factions.Add(faction);
-        }
         else
-        {
             Console.WriteLine("Already a member of faction");
-        }
     }
 
     public void LeaveFaction(string faction)
     {
         var memberOfFaction = Factions.Contains(faction);
         if (memberOfFaction)
-        {
             Factions.Remove(faction);
-        }
         else
-        {
             Console.WriteLine("Not a member of faction");
-        }
     }
 
+    protected void AttackCharacter(Character character, double incomingDamage)
+    {
+        var isAlly = IsAlly(character);
+        if (!isAlly)
+        {
+            double incomingDamageAdjustedForLevel = CalculateIncomingDamage(incomingDamage, character.Level);
+            character.HandleDamage(incomingDamageAdjustedForLevel);
+        }
+    }
 
     private double CalculateIncomingDamage(double incomingDamage, int targetLevel)
     {
         double incomingDamageAdjustedForLevel;
         if ((targetLevel - Level) >= 5)
-        {
             incomingDamageAdjustedForLevel = (incomingDamage * .5);
-        }
+
         else if ((Level - targetLevel) >= 5)
-        {
             incomingDamageAdjustedForLevel = incomingDamage + (incomingDamage * .5);
-        }
+
         else
-        {
             incomingDamageAdjustedForLevel = incomingDamage;
-        }
+
         return incomingDamageAdjustedForLevel;
     }
-
-    
 
     private bool RangeCheck(int opponentsPosition)
     {
         if (Range >= Math.Abs(Position - opponentsPosition))
-        {
             return true;
-        }
         else
             return false;
     }
 
     private bool IsAlly(Character character)
     {
-        bool ally = character.Factions.Any(x => Factions.Contains(x));
-        return ally;
+        return character.Factions.Any(x => Factions.Contains(x));
     }
-
 }

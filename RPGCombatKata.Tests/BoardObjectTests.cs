@@ -35,5 +35,6 @@ namespace RPGCombatKata.Tests
 
             meleeCharacter.Health.ShouldBe(1000);
         }
+
     }
 }
