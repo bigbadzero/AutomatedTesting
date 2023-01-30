@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ZombieSurvivorKata.ConsoleApp;
 
-namespace ZombieSurvivorKata.ConsoleApp
+public class UserInput
 {
-    internal class UserInput
+    public int GetIntFromUser()
     {
+        bool isValid = false;
+        int response;
+        while (!isValid)
+        {
+            try
+            {
+                response = Convert.ToInt32(Console.ReadLine());
+                isValid= true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Invalid entry");
+            }
+        }
+
+        return response;
     }
 }
