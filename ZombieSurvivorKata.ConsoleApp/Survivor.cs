@@ -58,13 +58,15 @@ public class Survivor
             if(replaceEquipment == 1)
 			{
 				var equipmentToRemove = GetEquipmentToRemove(allEquipment);
-
                 RemoveEquipment(equipmentToRemove);
             }
         }
 		else
 		{
-			allEquipment.Add(newEquipment);
+			if(_inHandEquipment.Count < 2)
+				_inHandEquipment.Add(newEquipment);
+			else
+				_reserveEquipment.Add(newEquipment);
 		}
 	}
 	
@@ -82,10 +84,6 @@ public class Survivor
         }
 	}
 
-	public void AddEquipment(Equipment newEquipment)
-	{
-
-	}
 
 	private Equipment GetEquipmentToRemove(List<Equipment> allEquipment)
 	{
