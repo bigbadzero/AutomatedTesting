@@ -10,8 +10,8 @@ public class Survivor
 	public int _wounds { get; set; }
 	public int _actionsPerTurn { get; set; }
 	public bool _alive { get; set; }
-	public List<string> _inHandEquipment { get; set; }
-	public List<string> _reserveEquipment { get; set; }
+	public List<Equipment> _inHandEquipment { get; set; }
+	public List<Equipment> _reserveEquipment { get; set; }
 	public int _maxWeaponCount { get; set; }
 
 	public Survivor(string name)
@@ -20,8 +20,8 @@ public class Survivor
 		_wounds = 0;
 		_actionsPerTurn = 3;
 		_alive= true;
-		_inHandEquipment = new List<string>();
-		_reserveEquipment = new List<string>();
+		_inHandEquipment = new List<Equipment>();
+		_reserveEquipment = new List<Equipment>();
 		_maxWeaponCount = 5;
 	}
 
@@ -33,9 +33,8 @@ public class Survivor
             _wounds++;
 			if (MaxWeaponsExceeded(allEquipment))
 			{
-                
                 Console.WriteLine("Due to Wounds you must remove a weapon");
-				RemoveEquipment(allEquipment);
+				
             }
         }
 		if (_wounds > 1)
@@ -47,20 +46,21 @@ public class Survivor
 		_alive = false;
 	}
 
-	public void AddEquipment(string newEquipment)
+	public void AddEquipment(Equipment newEquipment)
 	{
 		var allEquipment = CombineEquipmentLists(_inHandEquipment, _reserveEquipment);
-        if (allEquipment.Count >= 5)
+		var totalWeaponsCount = _inHandEquipment.Count + _reserveEquipment.Count;
+        if (totalWeaponsCount >= 5)
 		{
 			EquipmentFullMessage();
             var userInput = new UserInput();
 			var replaceEquipment = userInput.GetIntFromUserWithRange(1, 2);
             if(replaceEquipment == 1)
 			{
-				RemoveEquipment(allEquipment);
-				allEquipment.Add(newEquipment);
-			}
-			CheckIfInHandWeaponDiscarded(allEquipment);
+				var equipmentToRemove = GetEquipmentToRemove(allEquipment);
+
+                RemoveEquipment(equipmentToRemove);
+            }
         }
 		else
 		{
@@ -68,19 +68,47 @@ public class Survivor
 		}
 	}
 	
-	public void RemoveEquipment(List<string> currentEquipment)
+	public void RemoveEquipment(Equipment equipmentToRemove)
 	{
-		UserInput userInput= new UserInput();
-		PrintCurrentEquipment(currentEquipment);
-		var indexOfEqiupmentToReplace = userInput.GetIntFromUserWithRange(0, currentEquipment.Count - 1);
-		currentEquipment.Remove(currentEquipment[indexOfEqiupmentToReplace]);
+		if(isEquipmentInEquipmentList(_inHandEquipment, equipmentToRemove))
+		{
+			_inHandEquipment.Remove(equipmentToRemove);
+			Console.WriteLine("Weapon dropped from In Hand Weapons");
+		}
+		else
+		{
+			_reserveEquipment.Remove(equipmentToRemove);
+            Console.WriteLine("Weapon dropped from Reserve Weapons");
+        }
 	}
 
-	public void PrintCurrentEquipment(List<string> allEquipment)
+	public void AddEquipment(Equipment newEquipment)
+	{
+
+	}
+
+	private Equipment GetEquipmentToRemove(List<Equipment> allEquipment)
+	{
+        UserInput userInput = new UserInput();
+        PrintCurrentEquipment(allEquipment);
+        var indexOfEqiupmentToReplace = userInput.GetIntFromUserWithRange(0, allEquipment.Count - 1);
+        Equipment equipmentToRemove = allEquipment[indexOfEqiupmentToReplace];
+		return equipmentToRemove;
+    }
+
+	private bool isEquipmentInEquipmentList(List<Equipment> listOfEquipment, Equipment equipmentToRemove)
+	{
+		if (listOfEquipment.Contains(equipmentToRemove))
+			return true;
+		else
+			return false;
+	}
+
+	public void PrintCurrentEquipment(List<Equipment> allEquipment)
 	{
 		for (int i = 0; i < allEquipment.Count; i++)
 		{
-			Console.WriteLine(i + ": " + allEquipment[i]);
+			Console.WriteLine(i + ": " + allEquipment[i].Name);
 		}
 	}
 
@@ -91,27 +119,16 @@ public class Survivor
         Console.WriteLine("1 = yes, 2 = no");
     }
 
-	private List<string> CombineEquipmentLists(List<string> inHand,List<string> reserve)
+	private List<Equipment> CombineEquipmentLists(List<Equipment> inHand,List<Equipment> reserve)
 	{
-		var combined = new List<string>();
+		var combined = new List<Equipment>();
 		combined.AddRange(inHand);
 		combined.AddRange(reserve);
 		return combined;
 	}
 
-	private void CheckIfInHandWeaponDiscarded(List<string> allEquipment)
-	{
-        foreach (var equipment in _inHandEquipment)
-        {
-            if (!allEquipment.Contains(equipment))
-            {
-				_inHandEquipment.Remove(equipment);
-				Console.WriteLine($"{equipment} Was removed From In Hand Weapons");
-            }
-        }
-    }
 
-	private bool MaxWeaponsExceeded(List<string> allEquipment)
+	private bool MaxWeaponsExceeded(List<Equipment> allEquipment)
 	{
 		if (allEquipment.Count > _maxWeaponCount)
 			return true;
