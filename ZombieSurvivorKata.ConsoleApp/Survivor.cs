@@ -50,7 +50,7 @@ public class Survivor
 	{
 		var allEquipment = CombineEquipmentLists(_inHandEquipment, _reserveEquipment);
 		var totalWeaponsCount = _inHandEquipment.Count + _reserveEquipment.Count;
-        if (totalWeaponsCount >= 5)
+        if (totalWeaponsCount >= _maxWeaponCount)
 		{
 			EquipmentFullMessage();
             var userInput = new UserInput();
