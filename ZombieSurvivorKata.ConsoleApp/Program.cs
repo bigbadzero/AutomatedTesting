@@ -4,5 +4,9 @@ using ZombieSurvivorKata.ConsoleApp;
 
 var services = new ServiceCollection();
 services.AddScoped<IUserInput, UserInput>();
+
 var sp = services.BuildServiceProvider();
-Console.WriteLine("Hello, World!");
+var userInput = sp.GetService<IUserInput>();
+Game.Configure(userInput);
+
+

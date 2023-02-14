@@ -41,6 +41,7 @@ public class Survivor
     public void Die()
     {
         _alive = false;
+        Game.AnySurvivorsLeft();
     }
 
     public void AddEquipment(Equipment newEquipment)
