@@ -1,6 +1,6 @@
 ﻿namespace ZombieSurvivorKata.ConsoleApp;
 
-public class UserInput
+public class UserInput:IUserInput
 {
     public int GetIntFromUser()
     {

@@ -1,138 +1,131 @@
-﻿using System.Drawing;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-
-namespace ZombieSurvivorKata.ConsoleApp;
+﻿namespace ZombieSurvivorKata.ConsoleApp;
 
 public class Survivor
 {
+    private readonly IUserInput _userInput;
     public string _name { get; set; }
-	public int _wounds { get; set; }
-	public int _actionsPerTurn { get; set; }
-	public bool _alive { get; set; }
-	public List<Equipment> _inHandEquipment { get; set; }
-	public List<Equipment> _reserveEquipment { get; set; }
-	public int _maxWeaponCount { get; set; }
+    public int _wounds { get; set; }
+    public int _actionsPerTurn { get; set; }
+    public bool _alive { get; set; }
+    public List<Equipment> _equipment { get; set; }
+    public int _maxEquipmentCount { get; set; }
 
-	public Survivor(string name)
-	{
-		_name= name;
-		_wounds = 0;
-		_actionsPerTurn = 3;
-		_alive= true;
-		_inHandEquipment = new List<Equipment>();
-		_reserveEquipment = new List<Equipment>();
-		_maxWeaponCount = 5;
-	}
+    public Survivor(string name, IUserInput userInput)
+    {
+        _name = name;
+        _wounds = 0;
+        _actionsPerTurn = 3;
+        _alive = true;
+        _equipment = new List<Equipment>();
+        _maxEquipmentCount = 5;
+        _userInput = userInput;
+    }
 
-	public void RecieveWound()
-	{
-        var allEquipment = CombineEquipmentLists(_inHandEquipment, _reserveEquipment);
+    public void RecieveWound()
+    {
         if (_alive)
-		{
+        {
             _wounds++;
-			if (MaxWeaponsExceeded(allEquipment))
-			{
+            _maxEquipmentCount = +_maxEquipmentCount - _wounds;
+            if (_equipment.Count > _maxEquipmentCount)
+            {
                 Console.WriteLine("Due to Wounds you must remove a weapon");
-				
-            }
-        }
-		if (_wounds > 1)
-			Die();
-	}
-
-	public void Die()
-	{
-		_alive = false;
-	}
-
-	public void AddEquipment(Equipment newEquipment)
-	{
-		var allEquipment = CombineEquipmentLists(_inHandEquipment, _reserveEquipment);
-		var totalWeaponsCount = _inHandEquipment.Count + _reserveEquipment.Count;
-        if (totalWeaponsCount >= _maxWeaponCount)
-		{
-			EquipmentFullMessage();
-            var userInput = new UserInput();
-			var replaceEquipment = userInput.GetIntFromUserWithRange(1, 2);
-            if(replaceEquipment == 1)
-			{
-				var equipmentToRemove = GetEquipmentToRemove(allEquipment);
+                var equipmentToRemove = GetEquipmentToRemove();
                 RemoveEquipment(equipmentToRemove);
             }
         }
-		else
-		{
-			if(_inHandEquipment.Count < 2)
-				_inHandEquipment.Add(newEquipment);
-			else
-				_reserveEquipment.Add(newEquipment);
-		}
-	}
-	
-	public void RemoveEquipment(Equipment equipmentToRemove)
-	{
-		if(isEquipmentInEquipmentList(_inHandEquipment, equipmentToRemove))
-		{
-			_inHandEquipment.Remove(equipmentToRemove);
-			Console.WriteLine("Weapon dropped from In Hand Weapons");
-		}
-		else
-		{
-			_reserveEquipment.Remove(equipmentToRemove);
-            Console.WriteLine("Weapon dropped from Reserve Weapons");
+        if (_wounds > 1)
+            Die();
+    }
+
+    public void Die()
+    {
+        _alive = false;
+    }
+
+    public void AddEquipment(Equipment newEquipment)
+    {
+        if (_equipment.Count >= _maxEquipmentCount)
+        {
+            EquipmentFullMessage();
         }
-	}
-
-
-	private Equipment GetEquipmentToRemove(List<Equipment> allEquipment)
-	{
-        UserInput userInput = new UserInput();
-        PrintCurrentEquipment(allEquipment);
-        var indexOfEqiupmentToReplace = userInput.GetIntFromUserWithRange(0, allEquipment.Count - 1);
-        Equipment equipmentToRemove = allEquipment[indexOfEqiupmentToReplace];
-		return equipmentToRemove;
+        else
+            _equipment.Add(newEquipment);
     }
 
-	private bool isEquipmentInEquipmentList(List<Equipment> listOfEquipment, Equipment equipmentToRemove)
-	{
-		if (listOfEquipment.Contains(equipmentToRemove))
-			return true;
-		else
-			return false;
-	}
+    public void RemoveEquipment(Equipment equipmentToRemove)
+    {
+        foreach (var equipment in _equipment)
+        {
+            if (equipment == equipmentToRemove)
+            {
+                _equipment.Remove(equipment);
+                break;
+            }
+        }
+    }
 
-	public void PrintCurrentEquipment(List<Equipment> allEquipment)
-	{
-		for (int i = 0; i < allEquipment.Count; i++)
-		{
-			Console.WriteLine(i + ": " + allEquipment[i].Name);
-		}
-	}
+    public void SetEquipmtentToMainHand(int indexOfWeaponToBeMainHand)
+    {
+        var inHandCount = GetInHandEquipmentCount();
+        if (inHandCount >= 2)
+        {
+            MaxInHandWeaponsMessage();
+        }
+        else
+            _equipment[indexOfWeaponToBeMainHand].InHand = true;
+    }
 
-	private void EquipmentFullMessage()
-	{
+    public void RemoveEquipmentFromMainHand(int indexOfWeaponToRemoveFromMainHand)
+    {
+        var inHandCount = GetInHandEquipmentCount();
+        if (inHandCount > 0 && inHandCount <= 2)
+        {
+            _equipment[indexOfWeaponToRemoveFromMainHand].InHand = false;
+        }
+        else
+            Console.WriteLine("No Equipment In Hand");
+    }
+
+    private int GetInHandEquipmentCount()
+    {
+        int mainHandCount = 0;
+        foreach (var equipment in _equipment)
+        {
+            if (equipment.InHand)
+                mainHandCount++;
+        }
+        return mainHandCount;
+    }
+
+
+    private Equipment GetEquipmentToRemove()
+    {
+        PrintCurrentEquipment(_equipment);
+        var indexOfEqiupmentToReplace = _userInput.GetIntFromUserWithRange(0, _equipment.Count - 1);
+        Equipment equipmentToRemove = _equipment[indexOfEqiupmentToReplace];
+        return equipmentToRemove;
+    }
+
+
+    public void PrintCurrentEquipment(List<Equipment> allEquipment)
+    {
+        for (int i = 0; i < allEquipment.Count; i++)
+        {
+            Console.WriteLine(i + ": " + allEquipment[i].Name);
+        }
+    }
+
+    private void EquipmentFullMessage()
+    {
         Console.WriteLine("You currently have the max equipment");
-        Console.WriteLine("Would you like to drop a piece of equipment for this one?");
-        Console.WriteLine("1 = yes, 2 = no");
+        Console.WriteLine("Remove a piece of Equipment to add a new piece");
     }
 
-	private List<Equipment> CombineEquipmentLists(List<Equipment> inHand,List<Equipment> reserve)
-	{
-		var combined = new List<Equipment>();
-		combined.AddRange(inHand);
-		combined.AddRange(reserve);
-		return combined;
-	}
-
-
-	private bool MaxWeaponsExceeded(List<Equipment> allEquipment)
-	{
-		if (allEquipment.Count > _maxWeaponCount)
-			return true;
-		else
-			return false;
-	}
-	
+    private void MaxInHandWeaponsMessage()
+    {
+        Console.WriteLine("You already have 2 In Hand Weapons");
+        Console.WriteLine("You will need unequip one first");
+    }
 
 }

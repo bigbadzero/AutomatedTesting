@@ -6,11 +6,13 @@ namespace ZombieSurvivorKata.ConsoleApp
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public bool InHand { get; set; }
 
         public Equipment(string name)
         {
             Name= name;
             Id= Guid.NewGuid();
+            InHand = false;
         }
     }
 }

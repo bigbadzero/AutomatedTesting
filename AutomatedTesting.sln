@@ -16,9 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.ConsoleApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.Tests", "RPGCombatKata.Tests\RPGCombatKata.Tests.csproj", "{1E1DED45-0FEB-401C-ACA8-157AFD24DB76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieSurvivorKata.ConsoleApp", "ZombieSurvivorKata.ConsoleApp\ZombieSurvivorKata.ConsoleApp.csproj", "{384F4AED-01D8-4266-B599-5976C7A71923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZombieSurvivorKata.ConsoleApp", "ZombieSurvivorKata.ConsoleApp\ZombieSurvivorKata.ConsoleApp.csproj", "{384F4AED-01D8-4266-B599-5976C7A71923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieSurvivorKata.Tests", "ZombieSurvivorKata.Tests\ZombieSurvivorKata.Tests.csproj", "{DAD3B920-61FE-4782-B908-B7E153567131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZombieSurvivorKata.Tests", "ZombieSurvivorKata.Tests\ZombieSurvivorKata.Tests.csproj", "{DAD3B920-61FE-4782-B908-B7E153567131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
