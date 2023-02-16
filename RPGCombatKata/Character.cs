@@ -20,13 +20,9 @@ public abstract class Character : BoardObject
         if (boardObject.Id != Id && RangeCheck(boardObject.Position))
         {
             if (boardObject is Character)
-            {
                 AttackCharacter((Character)boardObject, incomingDamage);
-            }
             else
-            {
                 boardObject.HandleDamage(incomingDamage);
-            }
         }
     }
 

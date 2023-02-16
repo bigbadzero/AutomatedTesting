@@ -21,6 +21,7 @@ namespace RPGCombatKata.Tests
 
             character1.Attack(character2, 500);
 
+            //should be 500
             character2.Health.ShouldNotBe(1000);
         }
 
@@ -46,6 +47,8 @@ namespace RPGCombatKata.Tests
             character2.Position = 21;
 
             character2.Attack(character1, 500);
+            //same problem as test 1
+
             character1.Health.ShouldNotBe(1000);
 
         }
@@ -59,6 +62,7 @@ namespace RPGCombatKata.Tests
             character2.Position = 26;
 
             character2.Attack(character1, 500);
+
             character1.Health.ShouldBe(1000);
 
         }
@@ -71,7 +75,9 @@ namespace RPGCombatKata.Tests
             var character2 = new MeleeCharacter();
             character1.Position = 1;
             character2.Position = 2;
+
             character1.Attack(character2, 500);
+
             character2.Health.ShouldBe(500);
         }
 

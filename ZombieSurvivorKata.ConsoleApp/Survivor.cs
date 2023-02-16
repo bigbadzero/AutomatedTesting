@@ -1,5 +1,6 @@
-﻿namespace ZombieSurvivorKata.ConsoleApp;
+﻿using ZombieSurvivorKata.ConsoleApp.Enums;
 
+namespace ZombieSurvivorKata.ConsoleApp;
 public class Survivor
 {
     private readonly IUserInput _userInput;
@@ -9,6 +10,8 @@ public class Survivor
     public bool _alive { get; set; }
     public List<Equipment> _equipment { get; set; }
     public int _maxEquipmentCount { get; set; }
+    public LevelEnums _currentLevel { get; set; }
+    public int _currentExperience { get; set; }
 
     public Survivor(string name, IUserInput userInput)
     {
@@ -19,6 +22,8 @@ public class Survivor
         _equipment = new List<Equipment>();
         _maxEquipmentCount = 5;
         _userInput = userInput;
+        _currentLevel = LevelEnums.Blue;
+        _currentExperience = 0;
     }
 
     public void RecieveWound()
@@ -114,6 +119,36 @@ public class Survivor
         for (int i = 0; i < allEquipment.Count; i++)
         {
             Console.WriteLine(i + ": " + allEquipment[i].Name);
+        }
+    }
+
+    public void GainExperience()
+    {
+        _currentExperience++;
+        if(_currentExperience == 7 || _currentExperience == 19 || _currentExperience == 43)
+        {
+            LevelUp();
+        }
+    }
+
+    public void LevelUp()
+    {
+
+        switch (_currentLevel)
+        {
+            case LevelEnums.Blue:
+                _currentLevel = LevelEnums.Yellow;
+                break;
+            case LevelEnums.Yellow:
+                _currentLevel = LevelEnums.Orange;
+                break;
+            case LevelEnums.Orange:
+                _currentLevel = LevelEnums.Red;
+                break;
+            case LevelEnums.Red:
+                break;
+            default:
+                break;
         }
     }
 
