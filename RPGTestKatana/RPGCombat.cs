@@ -222,7 +222,7 @@ namespace RPGTestKatana
         }
 
         public class Prop : ITargetable
-        {
+        { 
             public string Name { get; set; }
             public int Health { get; private set; } = 1000;
             public bool Destroyed { get; private set; }
