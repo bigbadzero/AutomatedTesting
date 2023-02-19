@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGTestKatana", "RPGTestKat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZombieSurvivorKatana.ConsoleApp", "ZombieSurvivorKatana.Console\ZombieSurvivorKatana.ConsoleApp.csproj", "{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieZurvivorKatana.Tests", "ZombieZurvivorKatana.Tests\ZombieZurvivorKatana.Tests.csproj", "{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{1E1DED45-0FEB-401C-ACA8-157AFD24DB76} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 		{6686F235-8500-4F4F-B923-8A48AC9A0156} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
 		{BBB2E633-9729-4BE7-9B68-5A988B5E77A3} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
+		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04D2F3F9-74CC-4850-A15F-7E28E3781D94}
