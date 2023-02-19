@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Microsoft.Extensions.DependencyInjection;
+using ZombieSurvivorKatana.ConsoleApp;
+
+var services = new ServiceCollection();
+services.AddScoped<IUserInput, UserInput>();
+
+var sp = services.BuildServiceProvider();
+
+

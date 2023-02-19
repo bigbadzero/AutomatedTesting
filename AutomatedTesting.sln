@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCombatKata.Tests", "RPGC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGTestKatana", "RPGTestKatana\RPGTestKatana.csproj", "{6686F235-8500-4F4F-B923-8A48AC9A0156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieSurvivorKatana.Console", "ZombieSurvivorKatana.Console\ZombieSurvivorKatana.Console.csproj", "{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZombieSurvivorKatana.ConsoleApp", "ZombieSurvivorKatana.Console\ZombieSurvivorKatana.ConsoleApp.csproj", "{BBB2E633-9729-4BE7-9B68-5A988B5E77A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
