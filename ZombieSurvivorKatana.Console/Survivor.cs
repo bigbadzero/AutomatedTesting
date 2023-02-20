@@ -14,7 +14,7 @@ namespace ZombieSurvivorKatana.ConsoleApp
         public int Wounds { get; internal set; }
         public int ActionsPerTurn { get; internal set; }
         public bool Active { get; internal set; }
-        public List<Equipment> Equipment { get; set; }
+        private List<Equipment> Equipment { get; set; }
         public int MaxEquipment { get; internal set; }
         public IUserInput _userInput;
         private Constants Constants {get; }
