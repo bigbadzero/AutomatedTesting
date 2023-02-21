@@ -6,7 +6,7 @@ using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using ZombieSurvivorKatana.ConsoleApp.Rules;
+using ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
 namespace ZombieSurvivorKatana.ConsoleApp
@@ -20,7 +20,8 @@ namespace ZombieSurvivorKatana.ConsoleApp
         public List<Equipment> Equipment { get; set; }
         public int MaxEquipment { get; internal set; }
         public IUserInput _userInput;
-        private List<IRules> InHandRules { get; set; }
+        private List<IInHandRules> InHandRules { get; set; }
+        private List<IAddEquipmentRules> AddEquipmentRules { get; set; }
 
         public Survivor(string name, IUserInput userInput)
         {
@@ -31,10 +32,15 @@ namespace ZombieSurvivorKatana.ConsoleApp
             Equipment = new List<Equipment>();
             MaxEquipment = 5;
             _userInput = userInput;
-            InHandRules = new List<IRules>()
+            InHandRules = new List<IInHandRules>()
             {
                 new MaxInHandEquipmentNotReachedRule(),
                 new MaxInHandEquipmentReachedRule()
+            };
+            AddEquipmentRules = new List<IAddEquipmentRules>()
+            {
+                new AddEquipmentMaxEquipmentNotReachedRule(),
+                new AddEquipmentMaxEquipmentReachedRule()
             };
         }
 
@@ -70,26 +76,12 @@ namespace ZombieSurvivorKatana.ConsoleApp
 
         public void AddEquipment(Equipment newEquipment)
         {
-            //check count vs maxEquipment
-            if (Equipment.Count == MaxEquipment)
+            var addEquipmentEvent = new AddEquipmentEvent(this, newEquipment);
+            foreach (var rule in AddEquipmentRules.OrderBy(x => x.Priority))
             {
-                Console.WriteLine(Constants.GetMaxEquipmentMessage());
-                var discardEquipment = _userInput.Proceed();
-                if (discardEquipment == true)
-                {
-                    var equipmentToDrop = GetEquipmentToDrop();
-                    DropEquipment(equipmentToDrop);
-                }
-                    
-                else
-                {
-                    Console.WriteLine($"{newEquipment.Name} Discarded");
-                    return;
-                }
-
+                if (rule.IsRuleApplicable(addEquipmentEvent))
+                    rule.ExecuteRule(addEquipmentEvent);
             }
-            else
-                Equipment.Add(newEquipment);
         }
 
         public void PrintCurrentEquipment()
@@ -112,7 +104,7 @@ namespace ZombieSurvivorKatana.ConsoleApp
             Console.WriteLine($"{equipment.Name} dropped");
         }
 
-        private Equipment GetEquipmentToDrop()
+        public Equipment GetEquipmentToDrop()
         {
             Console.WriteLine("Which weapon would you like to drop");
             PrintCurrentEquipment();

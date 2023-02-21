@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
-namespace ZombieSurvivorKatana.ConsoleApp.Rules
+namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules
 {
-    public interface IRules
+    public interface IInHandRules
     {
         int Priority { get; }
         public bool IsRuleApplicable(InHandEvent inHandEvent);

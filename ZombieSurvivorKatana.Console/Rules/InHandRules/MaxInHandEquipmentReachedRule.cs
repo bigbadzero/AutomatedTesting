@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules
 {
-    public class MaxInHandEquipmentReachedRule : IRules
+    public class MaxInHandEquipmentReachedRule : IInHandRules
     {
         public int Priority => 0;
 
