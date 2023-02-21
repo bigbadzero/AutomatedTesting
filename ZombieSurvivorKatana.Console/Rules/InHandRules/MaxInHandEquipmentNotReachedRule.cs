@@ -8,7 +8,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules
 {
     public class MaxInHandEquipmentNotReachedRule : IRules
     {
-
+        public int Priority => 0;
         public void ExecuteRule(InHandEvent inHandEvent)
         {
             inHandEvent.Survivor.Equipment[inHandEvent.IndexOfEquipmentToBeInHand].EquipmentType = EquipmentTypeEnum.InHand;

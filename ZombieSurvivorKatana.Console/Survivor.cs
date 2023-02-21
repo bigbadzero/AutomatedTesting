@@ -60,9 +60,9 @@ namespace ZombieSurvivorKatana.ConsoleApp
         public void SetEquipmentToInHand(int indexOfEquipmentToBeInHand)
         {
             var inHandEvent = new InHandEvent(this, _userInput, indexOfEquipmentToBeInHand);
-            foreach (var rule in InHandRules)
+            foreach (var rule in InHandRules.OrderBy(x => x.Priority))
             {
-                if (rule.IsRuleApplicable(inHandEvent))
+                 if (rule.IsRuleApplicable(inHandEvent))
                     rule.ExecuteRule(inHandEvent);
             }
         }

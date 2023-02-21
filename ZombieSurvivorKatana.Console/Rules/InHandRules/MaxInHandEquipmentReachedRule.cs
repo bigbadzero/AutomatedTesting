@@ -8,6 +8,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules
 {
     public class MaxInHandEquipmentReachedRule : IRules
     {
+        public int Priority => 0;
 
         public void ExecuteRule(InHandEvent inHandEvent)
         {

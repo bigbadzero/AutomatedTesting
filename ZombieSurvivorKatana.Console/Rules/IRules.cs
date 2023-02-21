@@ -9,6 +9,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.Rules
 {
     public interface IRules
     {
+        int Priority { get; }
         public bool IsRuleApplicable(InHandEvent inHandEvent);
 
         public void ExecuteRule(InHandEvent inHandEvent);
