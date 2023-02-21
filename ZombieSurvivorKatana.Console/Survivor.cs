@@ -118,10 +118,10 @@ namespace ZombieSurvivorKatana.ConsoleApp
             Console.WriteLine($"{equipmentToDrop.Name} dropped");
         }
 
-        public Equipment GetEquipmentToDrop()
-        {
+        //public Equipment GetEquipmentToDrop()
+        //{
 
-        }
+        //}
 
         public List<Equipment> GetEqupment()
         {
