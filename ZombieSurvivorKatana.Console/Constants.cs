@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace ZombieSurvivorKatana.ConsoleApp
 {
-    public class Constants
+    public static class Constants
     {
-        public string MaxEquipmentMessage { get; }
-        public string MaxInHandEquipmentMessage { get; }
-        public Constants()
-        {
-            MaxEquipmentMessage = SetMaxEquipmentMessage();
-            MaxInHandEquipmentMessage= SetMaxInHandEquipmentMessage();
-        }
 
-        private string SetMaxEquipmentMessage()
+        public static string GetMaxEquipmentMessage()
         {
             var sb = new StringBuilder();
             sb.Append("You are at the maximum amount of equipment you can currently hold.");
@@ -24,7 +17,7 @@ namespace ZombieSurvivorKatana.ConsoleApp
             return sb.ToString();
         }
 
-        private string SetMaxInHandEquipmentMessage()
+        public static string GetMaxInHandEquipmentMessage()
         {
             var sb = new StringBuilder();
             sb.Append("You already have the maximum amount of InHand Equipment.");

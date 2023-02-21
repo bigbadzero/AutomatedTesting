@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using ZombieSurvivorKatana.ConsoleApp.Rules;
+using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
 namespace ZombieSurvivorKatana.ConsoleApp
 {
@@ -14,11 +17,10 @@ namespace ZombieSurvivorKatana.ConsoleApp
         public int Wounds { get; internal set; }
         public int ActionsPerTurn { get; internal set; }
         public bool Active { get; internal set; }
-        private List<Equipment> Equipment { get; set; }
+        public List<Equipment> Equipment { get; set; }
         public int MaxEquipment { get; internal set; }
         public IUserInput _userInput;
-        private Constants Constants {get; }
-
+        private List<IRules> InHandRules { get; set; }
 
         public Survivor(string name, IUserInput userInput)
         {
@@ -29,7 +31,11 @@ namespace ZombieSurvivorKatana.ConsoleApp
             Equipment = new List<Equipment>();
             MaxEquipment = 5;
             _userInput = userInput;
-            Constants = new Constants();
+            InHandRules = new List<IRules>()
+            {
+                new MaxInHandEquipmentNotReachedRule(),
+                new MaxInHandEquipmentReachedRule()
+            };
         }
 
         private void RecieveWound()
@@ -41,11 +47,10 @@ namespace ZombieSurvivorKatana.ConsoleApp
             if(Equipment.Count > MaxEquipment)
             {
                 Console.WriteLine("Because of your wounds you can no longer carry this much equipment");
-                DropEquipment();
+                var equipmentToDrop = GetEquipmentToDrop();
+                DropEquipment(equipmentToDrop);
             }
         }
-        
-        
 
         private void Die()
         {
@@ -54,36 +59,28 @@ namespace ZombieSurvivorKatana.ConsoleApp
 
         public void SetEquipmentToInHand(int indexOfEquipmentToBeInHand)
         {
-            //check if you already have two inHand pieces of equipment
-            var inHandEquipment = Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
-            if(inHandEquipment.Count() < 2)
+            var inHandEvent = new InHandEvent(this, _userInput, indexOfEquipmentToBeInHand);
+            foreach (var rule in InHandRules)
             {
-                Equipment[indexOfEquipmentToBeInHand].EquipmentType = EquipmentTypeEnum.InHand;
-            }
-            else
-            {
-                Console.Write(Constants.MaxInHandEquipmentMessage);
-                var swapOutEquipment = _userInput.Proceed();
-                if (swapOutEquipment == true)
-                {
-                    Console.WriteLine("Which piece would you like to swap");
-                    PrintCurrentInHandEquipment();
-                    var indexOfEquipmentToBeSwapped = _userInput.GetIntFromUserWithRange(0, 1);
-                    var inHandequipmentToBeSwapped = inHandEquipment[indexOfEquipmentToBeSwapped];
-                    Equipment.Remove(inHandequipmentToBeSwapped);
-                }
+                if (rule.IsRuleApplicable(inHandEvent))
+                    rule.ExecuteRule(inHandEvent);
             }
         }
+
 
         public void AddEquipment(Equipment newEquipment)
         {
             //check count vs maxEquipment
             if (Equipment.Count == MaxEquipment)
             {
-                Console.WriteLine(Constants.MaxEquipmentMessage);
+                Console.WriteLine(Constants.GetMaxEquipmentMessage());
                 var discardEquipment = _userInput.Proceed();
                 if (discardEquipment == true)
-                    DropEquipment();
+                {
+                    var equipmentToDrop = GetEquipmentToDrop();
+                    DropEquipment(equipmentToDrop);
+                }
+                    
                 else
                 {
                     Console.WriteLine($"{newEquipment.Name} Discarded");
@@ -108,20 +105,21 @@ namespace ZombieSurvivorKatana.ConsoleApp
                 Console.WriteLine($"{i}) {inHandEquipment[i].Name}");
         }
 
-        public void DropEquipment()
+        public void DropEquipment(Equipment equipment)
+        {
+            
+            Equipment.Remove(equipment);
+            Console.WriteLine($"{equipment.Name} dropped");
+        }
+
+        private Equipment GetEquipmentToDrop()
         {
             Console.WriteLine("Which weapon would you like to drop");
             PrintCurrentEquipment();
             var equipmentToDropIndex = _userInput.GetIntFromUserWithRange(0, Equipment.Count - 1);
             var equipmentToDrop = Equipment[equipmentToDropIndex];
-            Equipment.Remove(equipmentToDrop);
-            Console.WriteLine($"{equipmentToDrop.Name} dropped");
+            return equipmentToDrop;
         }
-
-        //public Equipment GetEquipmentToDrop()
-        //{
-
-        //}
 
         public List<Equipment> GetEqupment()
         {
