@@ -24,19 +24,20 @@ namespace ZombieZurvivorKatana.Tests
             var survivor = new Survivor(name, _userInput);
             var equipment = new Equipment("Gun");
 
-            survivor.Equipment.Add(equipment);
 
-            survivor.Equipment.ShouldContain(equipment);
+            survivor.AddEquipment(equipment);
+            var survivorsEquipment = survivor.GetEqupment();
+            survivorsEquipment.ShouldContain(equipment);
         }
 
         public void SurvivorEquipment_CanBeRemoved()
         {
             var name = "Nick";
             var survivor = new Survivor(name, _userInput);
-            var equipment = new Equipment("Gun");
+            var gun = new Equipment("Gun");
 
-            survivor.Equipment.Add(equipment);
-            survivor.e
+            survivor.AddEquipment(gun);
+            survivor.DropEquipment();
         }
     }
 }
