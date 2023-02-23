@@ -1,14 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Moq;
+using Shouldly;
+using ZombieSurvivorKatana.ConsoleApp;
+using ZombieZurvivorKatana.Tests.Mocks;
 
-namespace ZombieZurvivorKatana.Tests
+namespace ZombieZurvivorKatana.Tests;
+
+public class GameTests
 {
-    public class GameTests
+    public readonly Mock<IUserInput> _userInputMock;
+    public GameTests()
     {
-        [Fact]
-        public void GameStart
+        _userInputMock = IUserInputMock.GetBaseMockUserInput();
+    }
+
+
+    [Fact]
+    public void Game_CreateSurvivor()
+    {
+        var game = new Game(_userInputMock.Object);
+        string jack = "Jack";
+        game.CreateSurvivor(jack);
+        
+        game.Survivors.ShouldContain(x => x.Name == jack);
     }
 }

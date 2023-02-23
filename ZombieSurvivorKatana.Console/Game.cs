@@ -8,6 +8,7 @@ public class Game
     {
         Survivors = new List<Survivor>();
         _userInput = userInput;
+        StartGame();
     }
 
     public void CreateSurvivor(string name)
@@ -26,12 +27,13 @@ public class Game
                 var Survivor = new Survivor(name, _userInput);
                 Survivors.Add(Survivor);
                 Console.WriteLine($"Survivor {Survivor.Name} created");
+                characterCreated= true;
             }
         }
 
     }
 
-    public void StartGame()
+    private void StartGame()
     {
         Console.WriteLine("Welcome to Zombie Survivor Game");
         Console.WriteLine("How many surviviors will be in this game to begin with?");
