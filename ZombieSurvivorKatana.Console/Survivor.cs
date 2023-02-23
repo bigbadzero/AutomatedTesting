@@ -9,7 +9,7 @@ public class Survivor
     public int Wounds { get; internal set; }
     public int ActionsPerTurn { get; internal set; }
     public bool Active { get; internal set; }
-    public List<Equipment> Equipment { get; set; }
+    internal List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
     public IUserInput _userInput;
     private List<IInHandRules> InHandRules { get; set; }
@@ -79,7 +79,7 @@ public class Survivor
 
     public Equipment GetEquipmentToDrop()
     {
-        Console.WriteLine("Which weapon would you like to drop");
+        Console.WriteLine("Which piece of equipment would you like to drop");
         PrintCurrentEquipment();
         var equipmentToDropIndex = _userInput.GetIntFromUserWithRange(0, Equipment.Count - 1);
         var equipmentToDrop = Equipment[equipmentToDropIndex];
@@ -100,6 +100,7 @@ public class Survivor
         if (Equipment.Count > MaxEquipment)
         {
             Console.WriteLine("Because of your wounds you can no longer carry this much equipment");
+            PrintCurrentEquipment();
             var equipmentToDrop = GetEquipmentToDrop();
             DropEquipment(equipmentToDrop);
         }

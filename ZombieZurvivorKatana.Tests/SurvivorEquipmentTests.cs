@@ -14,7 +14,7 @@ namespace ZombieZurvivorKatana.Tests
         public readonly IUserInput _userInput;
         public SurvivorEquipmentTests()
         {
-            _userInput = IUserInputMock.GetMockUserInput().Object;
+            _userInput = IUserInputMock.GetBaseMockUserInput().Object;
         }
 
         [Fact]
@@ -78,6 +78,7 @@ namespace ZombieZurvivorKatana.Tests
             survivor.SetEquipmentToInHand(0);
             survivor.SetEquipmentToInHand(1);
             survivor.SetEquipmentToInHand(2);
+
 
             var currentEquipment = survivor.GetEqupment();
             currentEquipment[0].EquipmentType.ShouldBe(EquipmentTypeEnum.InHand);

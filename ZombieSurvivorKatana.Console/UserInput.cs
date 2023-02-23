@@ -44,6 +44,25 @@ public class UserInput : IUserInput
         return result;
     }
 
+    public string GetNameFromUser()
+    {
+        bool isValid = false;
+        string result = "";
+        while(!isValid)
+        {
+            string response = Console.ReadLine();
+            if(string.IsNullOrEmpty(response))
+            {
+                Console.WriteLine("Name Cannot be empty. Please try again");
+            }
+            else
+            {
+                result = response; 
+            }
+        }
+        return result;
+    }
+
     public bool Proceed()
     {
         bool isValid = false;

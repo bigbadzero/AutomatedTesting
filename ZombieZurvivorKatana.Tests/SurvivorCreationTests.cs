@@ -14,7 +14,7 @@ namespace ZombieZurvivorKatana.Tests
         public readonly IUserInput _userInput;
         public SurvivorCreationTests()
         {
-            _userInput = IUserInputMock.GetMockUserInput().Object;
+            _userInput = IUserInputMock.GetBaseMockUserInput().Object;
         }
 
         [Fact]
