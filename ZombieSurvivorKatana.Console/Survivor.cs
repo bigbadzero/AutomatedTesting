@@ -11,11 +11,11 @@ public class Survivor
     public bool Active { get; internal set; }
     internal List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
-    public IUserInput _userInput;
     private List<IInHandRules> InHandRules { get; set; }
     private List<IAddEquipmentRules> AddEquipmentRules { get; set; }
+    public readonly Game _game;
 
-    public Survivor(string name, IUserInput userInput)
+    public Survivor(string name, Game game)
     {
         Name = name;
         Wounds = 0;
@@ -23,7 +23,6 @@ public class Survivor
         Active = true;
         Equipment = new List<Equipment>();
         MaxEquipment = 5;
-        _userInput = userInput;
         InHandRules = new List<IInHandRules>()
         {
             new MaxInHandEquipmentNotReachedRule(),
@@ -34,11 +33,12 @@ public class Survivor
             new AddEquipmentMaxEquipmentNotReachedRule(),
             new AddEquipmentMaxEquipmentReachedRule()
         };
+        _game= game;
     }
 
     public void SetEquipmentToInHand(int indexOfEquipmentToBeInHand)
     {
-        var inHandEvent = new InHandEvent(this, _userInput, indexOfEquipmentToBeInHand);
+        var inHandEvent = new InHandEvent(this, _game._userInput, indexOfEquipmentToBeInHand);
         foreach (var rule in InHandRules.OrderBy(x => x.Priority))
         {
             if (rule.IsRuleApplicable(inHandEvent))
@@ -81,7 +81,7 @@ public class Survivor
     {
         Console.WriteLine("Which piece of equipment would you like to drop");
         PrintCurrentEquipment();
-        var equipmentToDropIndex = _userInput.GetIntFromUserWithRange(0, Equipment.Count - 1);
+        var equipmentToDropIndex = _game._userInput.GetIntFromUserWithRange(0, Equipment.Count - 1);
         var equipmentToDrop = Equipment[equipmentToDropIndex];
         return equipmentToDrop;
     }
@@ -109,5 +109,7 @@ public class Survivor
     private void Die()
     {
         Active = false;
+        _game.CheckGameStatus();
     }
+
 }

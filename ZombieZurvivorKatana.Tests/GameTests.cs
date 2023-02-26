@@ -23,4 +23,5 @@ public class GameTests
         
         game.Survivors.ShouldContain(x => x.Name == jack);
     }
+
 }

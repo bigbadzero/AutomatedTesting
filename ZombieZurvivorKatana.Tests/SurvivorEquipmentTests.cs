@@ -20,8 +20,9 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurvivorEquipment_CanBeAdded()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
             var equipment = new Equipment("Gun");
 
             survivor.AddEquipment(equipment);
@@ -33,8 +34,9 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurvivorEquipment_CanBeRemoved()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
             var gun = new Equipment("Gun");
 
             survivor.AddEquipment(gun);
@@ -47,8 +49,9 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurviviorEquipment_MaxInHandEquipmentNotReachedRule_AddsEquipment()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
             var gun = new Equipment("Gun");
 
             survivor.AddEquipment(gun);
@@ -62,8 +65,9 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurviviorEquipment_MaxInHandEquipmentReachedRule_AllowsUserToSwapInHandAndReserveEquipment()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
             var gun = new Equipment("Gun");
             var sword = new Equipment("Sword");
             var shield = new Equipment("Shield");

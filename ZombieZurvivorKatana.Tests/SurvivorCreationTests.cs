@@ -20,9 +20,10 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurvivorCreated_WithName()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
 
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
 
             survivor.Name.ShouldNotBeNullOrEmpty();
             survivor.Name.ShouldBe(name);
@@ -31,9 +32,10 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurvivorCreated_With0Wounds()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
 
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
 
             survivor.Wounds.ShouldBe(0);
         }
@@ -41,9 +43,10 @@ namespace ZombieZurvivorKatana.Tests
         [Fact]
         public void SurvivorCreated_WithAbilityToPerform_3ActionsPerTurn()
         {
+            var game = new Game(_userInput);
             var name = "Nick";
 
-            var survivor = new Survivor(name, _userInput);
+            var survivor = new Survivor(name, game);
 
             survivor.ActionsPerTurn.ShouldBe(3);
         }

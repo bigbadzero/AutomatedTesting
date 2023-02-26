@@ -3,7 +3,7 @@
 public class Game
 {
     public List<Survivor> Survivors { get; set; }
-    private readonly IUserInput _userInput;
+    public readonly IUserInput _userInput;
     public Game(IUserInput userInput)
     {
         Survivors = new List<Survivor>();
@@ -24,13 +24,20 @@ public class Game
             }
             else
             {
-                var Survivor = new Survivor(name, _userInput);
+                var Survivor = new Survivor(name, this);
                 Survivors.Add(Survivor);
                 Console.WriteLine($"Survivor {Survivor.Name} created");
                 characterCreated= true;
             }
         }
 
+    }
+
+    public void CheckGameStatus()
+    {
+        if (Survivors.All(x => x.Active == false))
+            Console.WriteLine("Game Over");
+        
     }
 
     private void StartGame()
@@ -44,6 +51,18 @@ public class Game
             Console.WriteLine($"Enter the name for Survivior #{i}");
             var name = _userInput.GetNameFromUser();
             CreateSurvivor(name);
+        }
+    }
+
+    private void PlayGame()
+    {
+        foreach (var survivor in Survivors)
+        {
+            if (survivor.Active)
+            {
+                Console.WriteLine($"{survivor.Name} has {survivor.ActionsPerTurn} actions left");
+            }
+           
         }
     }
 }
