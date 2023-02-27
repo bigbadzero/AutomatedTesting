@@ -1,4 +1,6 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp;
+﻿using ZombieSurvivorKatana.ConsoleApp.Actions;
+
+namespace ZombieSurvivorKatana.ConsoleApp;
 
 public class Game
 {
@@ -11,6 +13,7 @@ public class Game
         _userInput = userInput;
         GameOver = false;
         StartGame();
+        PlayGame();
     }
 
     public void CreateSurvivor(string name)
@@ -48,19 +51,20 @@ public class Game
         Console.WriteLine("How many surviviors will be in this game to begin with?");
         var numOfSurvivors = _userInput.GetIntFromUser();
 
-        for (int i = 1; i < numOfSurvivors; i++)
+        for (int i = 0; i < numOfSurvivors; i++)
         {
-            Console.WriteLine($"Enter the name for Survivior #{i}");
+            Console.WriteLine($"Enter the name for Survivior #{i +1}");
             var name = _userInput.GetNameFromUser();
             CreateSurvivor(name);
         }
+
     }
 
     private void PlayGame()
     {
-        StartGame();
         while(!GameOver)
         {
+            ResetActionsPerTurn();
             foreach (var survivor in Survivors)
             {
                 //while survivor has turns get an action
@@ -69,13 +73,28 @@ public class Game
                 {
                     //get an action
                     //perform action
-                    Console.WriteLine("What Action Would You Like To Perform");
+                    Console.WriteLine($"What Action Would {survivor.Name} Like To Perform?");
+                    var gameActions = Enum.GetNames(typeof(GameActions));
+                    var test = gameActions.Length;
+                    for (int i = 0; i < gameActions.Length; i++)
+                    {
+                        Console.WriteLine($"{i} {gameActions[i]}");
+                    }
+                    var gameActionChoosen = _userInput.GetIntFromUserWithRange(0, gameActions.Length -1);
                     //equipment actions
                     //add equipment
                     //drop equipment
                     //make equipment inhand
                 }
             }
+        }
+    }
+
+    private void ResetActionsPerTurn()
+    {
+        foreach (var survivor in Survivors)
+        {
+            survivor.ActionsPerTurn = 3;
         }
     }
 

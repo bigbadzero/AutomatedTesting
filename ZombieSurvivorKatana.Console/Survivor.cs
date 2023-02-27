@@ -7,7 +7,7 @@ public class Survivor
 {
     public string Name { get; set; }
     public int Wounds { get; internal set; }
-    public int ActionsPerTurn { get; internal set; }
+    public int ActionsPerTurn { get; set; }
     public bool Active { get; internal set; }
     internal List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }

@@ -57,6 +57,7 @@ public class UserInput : IUserInput
             }
             else
             {
+                isValid= true;
                 result = response; 
             }
         }

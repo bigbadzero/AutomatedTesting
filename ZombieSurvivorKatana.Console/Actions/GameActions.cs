@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZombieSurvivorKatana.ConsoleApp.GameActions
+namespace ZombieSurvivorKatana.ConsoleApp.Actions
 {
     public enum GameActions
     {
-        ModifyEquipment = 1
+        ModifyEquipment = 0
     }
 }
