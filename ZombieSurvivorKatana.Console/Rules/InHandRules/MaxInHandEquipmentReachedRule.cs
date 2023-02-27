@@ -12,7 +12,7 @@ public class MaxInHandEquipmentReachedRule : IInHandRules
         if (swapOutEquipment == true)
         {
             Console.WriteLine("Which piece would you like to swap");
-            inHandEvent.Survivor.PrintCurrentInHandEquipment();
+            inHandEvent.Survivor.PrintEquipment(inHandEquipment);
             var indexOfEquipmentToBeSwapped = inHandEvent.UserInput.GetIntFromUserWithRange(0, 1);
             var inHandequipmentToBeSwapped = inHandEquipment[indexOfEquipmentToBeSwapped];
             var currentInHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.Id == inHandequipmentToBeSwapped.Id).FirstOrDefault();

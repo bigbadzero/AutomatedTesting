@@ -36,16 +36,11 @@ public class Survivor
         _game= game;
     }
 
-    public void SetEquipmentToInHand(int indexOfEquipmentToBeInHand)
+    public void PrintEquipment(List<Equipment> equipmentList)
     {
-        var inHandEvent = new InHandEvent(this, _game._userInput, indexOfEquipmentToBeInHand);
-        foreach (var rule in InHandRules.OrderBy(x => x.Priority))
-        {
-            if (rule.IsRuleApplicable(inHandEvent))
-                rule.ExecuteRule(inHandEvent);
-        }
+        for (int i = 0; i < equipmentList.Count; i++)
+            Console.WriteLine($"{i} {equipmentList[i].Name}");
     }
-
 
     public void AddEquipment(Equipment newEquipment)
     {
@@ -57,19 +52,6 @@ public class Survivor
         }
     }
 
-    public void PrintCurrentEquipment()
-    {
-        for (int i = 0; i < Equipment.Count; i++)
-            Console.WriteLine($"{i}) {Equipment[i].Name}");
-    }
-
-    public void PrintCurrentInHandEquipment()
-    {
-        var inHandEquipment = Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
-        for (int i = 0; i < inHandEquipment.Count(); i++)
-            Console.WriteLine($"{i}) {inHandEquipment[i].Name}");
-    }
-
     public void DropEquipment(Equipment equipment)
     {
 
@@ -77,10 +59,28 @@ public class Survivor
         Console.WriteLine($"{equipment.Name} dropped");
     }
 
+    public void SetEquipmentToInHand()
+    {
+        int indexOfEquipmentToBeInHand = 0;
+        var equipmentNotInhand = Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
+        PrintEquipment(equipmentNotInhand);
+        if(Equipment.Count > 0)
+        {
+            indexOfEquipmentToBeInHand = _game._userInput.GetIntFromUserWithRange(0, equipmentNotInhand.Count - 1);
+            var inHandEvent = new InHandEvent(this, _game._userInput, indexOfEquipmentToBeInHand);
+            foreach (var rule in InHandRules.OrderBy(x => x.Priority))
+            {
+                if (rule.IsRuleApplicable(inHandEvent))
+                    rule.ExecuteRule(inHandEvent);
+            }
+        }
+    }
+
+    //this method really should be private but i needed my rules to have access to it
     public Equipment GetEquipmentToDrop()
     {
         Console.WriteLine("Which piece of equipment would you like to drop");
-        PrintCurrentEquipment();
+        PrintEquipment(Equipment);
         var equipmentToDropIndex = _game._userInput.GetIntFromUserWithRange(0, Equipment.Count - 1);
         var equipmentToDrop = Equipment[equipmentToDropIndex];
         return equipmentToDrop;
@@ -100,7 +100,7 @@ public class Survivor
         if (Equipment.Count > MaxEquipment)
         {
             Console.WriteLine("Because of your wounds you can no longer carry this much equipment");
-            PrintCurrentEquipment();
+            PrintEquipment(Equipment);
             var equipmentToDrop = GetEquipmentToDrop();
             DropEquipment(equipmentToDrop);
         }

@@ -4,10 +4,12 @@ public class Game
 {
     public List<Survivor> Survivors { get; set; }
     public readonly IUserInput _userInput;
+    private bool GameOver { get; set; }
     public Game(IUserInput userInput)
     {
         Survivors = new List<Survivor>();
         _userInput = userInput;
+        GameOver = false;
         StartGame();
     }
 
@@ -36,7 +38,7 @@ public class Game
     public void CheckGameStatus()
     {
         if (Survivors.All(x => x.Active == false))
-            Console.WriteLine("Game Over");
+            GameOver= true;
         
     }
 
@@ -56,13 +58,25 @@ public class Game
 
     private void PlayGame()
     {
-        foreach (var survivor in Survivors)
+        StartGame();
+        while(!GameOver)
         {
-            if (survivor.Active)
+            foreach (var survivor in Survivors)
             {
-                Console.WriteLine($"{survivor.Name} has {survivor.ActionsPerTurn} actions left");
+                //while survivor has turns get an action
+                //after action is performed reevaluate actions
+                while(survivor.ActionsPerTurn > 0 && survivor.Active == true)
+                {
+                    //get an action
+                    //perform action
+                    Console.WriteLine("What Action Would You Like To Perform");
+                    //equipment actions
+                    //add equipment
+                    //drop equipment
+                    //make equipment inhand
+                }
             }
-           
         }
     }
+
 }
