@@ -13,7 +13,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment
     {
         public Enum GetSubScreenAction(IUserInput userInput, Survivor survivor)
         {
-            Console.WriteLine($"What Equipment Action Would {survivor.Name} Like To Perform?");
+            Console.WriteLine($"\nWhat Equipment Action Would {survivor.Name} Like To Perform?");
             var equipmentActions = Enum.GetNames(typeof(ModifyEquipmentActions));
             for (int i = 0; i < equipmentActions.Length; i++)
             {

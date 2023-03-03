@@ -18,7 +18,6 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
                 for (int i = 0; i < survivor.Equipment.Count; i++)
                     Console.WriteLine($"{i + 1} {survivor.Equipment[i].Name}");
             }
-            survivor.ActionsPerTurn--;
             
         }
     }

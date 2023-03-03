@@ -65,21 +65,14 @@ public class Game
             var actionScreen = new GameActionScreen();
             foreach (var survivor in Survivors)
             {
-                //while survivor has turns get an action
-                //after action is performed reevaluate actions
                 while(survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
-                    Console.WriteLine($"{survivor.Name} has {survivor.ActionsPerTurn} actions left");
-                    //get a game action
+                    Console.WriteLine($"\n{survivor.Name} has {survivor.ActionsPerTurn} actions left");
                     var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
-                    //get subscreen from game action 
                     var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
-                    //get subscreen action
                     var subScreenAction = subscreen.GetSubScreenAction(_userInput, survivor);
-                    //get Iaction
-                    var iaction = subscreen.GetIAction(subScreenAction);
-                    //perform action
-                    iaction.PerformAction(survivor);
+                    var iAction = subscreen.GetIAction(subScreenAction);
+                    iAction.PerformAction(survivor);
                 }
             }
         }

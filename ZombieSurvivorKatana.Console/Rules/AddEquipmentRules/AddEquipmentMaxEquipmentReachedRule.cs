@@ -6,7 +6,7 @@ public class AddEquipmentMaxEquipmentReachedRule : IAddEquipmentRules
 
     public void ExecuteRule(AddEquipmentEvent addEquipmentEvent)
     {
-        Console.WriteLine(Constants.GetMaxEquipmentMessage());
+        Console.WriteLine(Constants.MaxEquipmentMessage());
         var discardEquipment = addEquipmentEvent.Survivor._game._userInput.Proceed();
         if (discardEquipment == true)
         {

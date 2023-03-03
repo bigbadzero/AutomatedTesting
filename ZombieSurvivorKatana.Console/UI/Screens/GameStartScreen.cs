@@ -9,7 +9,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens
 {
     public class GameStartScreen
     {
-        private string StartMessage  = "Welcome to Zombie Survivor Game \n How many surviviors will be in this game to begin with?";
+        private string StartMessage  = "Welcome to Zombie Survivor Game \nHow many surviviors will be in this game to begin with?";
 
         public void DisplayStartMessage()
         {
@@ -24,7 +24,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens
 
         public string GetValidSurvivorName(IUserInput userInput, int survivorNum)
         {
-            Console.WriteLine($"Enter the name for Survivior #{survivorNum}");
+            Console.WriteLine($"\nEnter the name for Survivior #{survivorNum}");
             var name = userInput.GetNameFromUser();
             return name;
         }

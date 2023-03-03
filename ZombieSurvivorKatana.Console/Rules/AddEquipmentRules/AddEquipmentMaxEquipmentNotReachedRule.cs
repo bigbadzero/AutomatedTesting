@@ -6,7 +6,9 @@ public class AddEquipmentMaxEquipmentNotReachedRule : IAddEquipmentRules
 
     public void ExecuteRule(AddEquipmentEvent addEquipmentEvent)
     {
-        addEquipmentEvent.Survivor.Equipment.Add(addEquipmentEvent.NewEquipment);
+        addEquipmentEvent.Survivor.AddEquipment(addEquipmentEvent.NewEquipment);
+        addEquipmentEvent.Survivor.ActionsPerTurn--;
+        Console.WriteLine($"{addEquipmentEvent.Survivor.Name} added {addEquipmentEvent.NewEquipment.Name} to equipment inventory");
     }
 
     public bool IsRuleApplicable(AddEquipmentEvent addEquipmentEvent)

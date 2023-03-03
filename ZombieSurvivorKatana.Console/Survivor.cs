@@ -28,11 +28,7 @@ public class Survivor
             new MaxInHandEquipmentNotReachedRule(),
             new MaxInHandEquipmentReachedRule()
         };
-        AddEquipmentRules = new List<IAddEquipmentRules>()
-        {
-            new AddEquipmentMaxEquipmentNotReachedRule(),
-            new AddEquipmentMaxEquipmentReachedRule()
-        };
+       
         _game= game;
     }
 
@@ -44,12 +40,7 @@ public class Survivor
 
     public void AddEquipment(Equipment newEquipment)
     {
-        var addEquipmentEvent = new AddEquipmentEvent(this, newEquipment);
-        foreach (var rule in AddEquipmentRules.OrderBy(x => x.Priority))
-        {
-            if (rule.IsRuleApplicable(addEquipmentEvent))
-                rule.ExecuteRule(addEquipmentEvent);
-        }
+        Equipment.Add(newEquipment);
     }
 
     public void DropEquipment(Equipment equipment)

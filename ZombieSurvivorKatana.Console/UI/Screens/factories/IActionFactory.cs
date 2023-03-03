@@ -22,6 +22,9 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
                 case ModifyEquipmentActions.PrintInHandEquipment:
                     iAction = new PrintInHandEquipmentAction();
                     break;
+                case ModifyEquipmentActions.AddEquipment:
+                    iAction = new AddEquipmentAction();
+                    break;
                 default:
                     break;
             }

@@ -4,7 +4,7 @@ namespace ZombieSurvivorKatana.ConsoleApp;
 
 public static class Constants
 {
-    public static string GetMaxEquipmentMessage()
+    public static string MaxEquipmentMessage()
     {
         var sb = new StringBuilder();
         sb.Append("You are at the maximum amount of equipment you can currently hold.");
@@ -12,7 +12,7 @@ public static class Constants
         return sb.ToString();
     }
 
-    public static string GetMaxInHandEquipmentMessage()
+    public static string MaxInHandEquipmentMessage()
     {
         var sb = new StringBuilder();
         sb.Append("You already have the maximum amount of InHand Equipment.");
