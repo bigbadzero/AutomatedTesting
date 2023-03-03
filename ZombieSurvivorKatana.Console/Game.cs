@@ -1,4 +1,6 @@
 ﻿using ZombieSurvivorKatana.ConsoleApp.Actions;
+using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
+using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
@@ -13,28 +15,13 @@ public class Game
         _userInput = userInput;
         GameOver = false;
         StartGame();
-        PlayGame();
     }
 
     public void CreateSurvivor(string name)
     {
-        var characterCreated = false;
-        while(!characterCreated)
-        {
-            var doesSurviviorAlreadyExist = Survivors.Any(x => x.Name == name);
-            if (doesSurviviorAlreadyExist)
-            {
-                Console.WriteLine($"Survivor with the name {name} already exists");
-                Console.WriteLine("Please try a different name");
-            }
-            else
-            {
-                var Survivor = new Survivor(name, this);
-                Survivors.Add(Survivor);
-                Console.WriteLine($"Survivor {Survivor.Name} created");
-                characterCreated= true;
-            }
-        }
+        var Survivor = new Survivor(name, this);
+        Survivors.Add(Survivor);
+        Console.WriteLine($"Survivor {Survivor.Name} created");
 
     }
 
@@ -47,17 +34,27 @@ public class Game
 
     private void StartGame()
     {
-        Console.WriteLine("Welcome to Zombie Survivor Game");
-        Console.WriteLine("How many surviviors will be in this game to begin with?");
-        var numOfSurvivors = _userInput.GetIntFromUser();
+        var startScreen = new GameStartScreen();
+        startScreen.DisplayStartMessage();
+        var numOfSurvivors = startScreen.GetNumberOfUsers(_userInput);
 
         for (int i = 0; i < numOfSurvivors; i++)
         {
-            Console.WriteLine($"Enter the name for Survivior #{i +1}");
-            var name = _userInput.GetNameFromUser();
-            CreateSurvivor(name);
+            var created = false;
+            while (!created)
+            {
+                var name = startScreen.GetValidSurvivorName(_userInput, i + 1);
+                var surviviorAlreadyExist = Survivors.Any(x => x.Name == name);
+                if (surviviorAlreadyExist)
+                    Console.WriteLine($"Survivor with the name {name} already exists");
+                else
+                {
+                    CreateSurvivor(name);
+                    created = true;
+                }
+            }
         }
-
+        PlayGame();
     }
 
     private void PlayGame()
@@ -65,26 +62,24 @@ public class Game
         while(!GameOver)
         {
             ResetActionsPerTurn();
+            var actionScreen = new GameActionScreen();
             foreach (var survivor in Survivors)
             {
                 //while survivor has turns get an action
                 //after action is performed reevaluate actions
                 while(survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
-                    //get an action
+                    Console.WriteLine($"{survivor.Name} has {survivor.ActionsPerTurn} actions left");
+                    //get a game action
+                    var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
+                    //get subscreen from game action 
+                    var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
+                    //get subscreen action
+                    var subScreenAction = subscreen.GetSubScreenAction(_userInput, survivor);
+                    //get Iaction
+                    var iaction = subscreen.GetIAction(subScreenAction);
                     //perform action
-                    Console.WriteLine($"What Action Would {survivor.Name} Like To Perform?");
-                    var gameActions = Enum.GetNames(typeof(GameActions));
-                    var test = gameActions.Length;
-                    for (int i = 0; i < gameActions.Length; i++)
-                    {
-                        Console.WriteLine($"{i} {gameActions[i]}");
-                    }
-                    var gameActionChoosen = _userInput.GetIntFromUserWithRange(0, gameActions.Length -1);
-                    //equipment actions
-                    //add equipment
-                    //drop equipment
-                    //make equipment inhand
+                    iaction.PerformAction(survivor);
                 }
             }
         }

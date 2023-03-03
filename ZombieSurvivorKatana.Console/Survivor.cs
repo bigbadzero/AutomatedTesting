@@ -9,7 +9,7 @@ public class Survivor
     public int Wounds { get; internal set; }
     public int ActionsPerTurn { get; set; }
     public bool Active { get; internal set; }
-    internal List<Equipment> Equipment { get; set; }
+    public List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
     private List<IInHandRules> InHandRules { get; set; }
     private List<IAddEquipmentRules> AddEquipmentRules { get; set; }

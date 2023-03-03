@@ -11,12 +11,12 @@ public class UserInput : IUserInput
             try
             {
                 response = Convert.ToInt32(Console.ReadLine());
+                isValid = true;
             }
             catch (Exception)
             {
                 Console.WriteLine("Invalid entry");
             }
-            isValid = true;
         }
         return response;
     }
