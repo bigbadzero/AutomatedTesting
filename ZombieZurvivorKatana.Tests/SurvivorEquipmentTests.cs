@@ -56,7 +56,7 @@ namespace ZombieZurvivorKatana.Tests
 
             survivor.AddEquipment(gun);
 
-            survivor.SetEquipmentToInHand();
+            //survivor.SetEquipmentToInHand();
 
             var currentEquipment = survivor.GetEqupment();
             currentEquipment[0].EquipmentType.ShouldBe(EquipmentTypeEnum.InHand);

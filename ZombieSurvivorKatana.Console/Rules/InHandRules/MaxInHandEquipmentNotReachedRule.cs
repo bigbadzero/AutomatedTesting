@@ -6,7 +6,7 @@ public class MaxInHandEquipmentNotReachedRule : IInHandRules
 
     public void ExecuteRule(InHandEvent inHandEvent)
     {
-        inHandEvent.Survivor.Equipment[inHandEvent.IndexOfEquipmentToBeInHand].EquipmentType = EquipmentTypeEnum.InHand;
+        inHandEvent.Survivor.SetEquipmentToInHand(inHandEvent.EquipmentToBeInHand);
     }
 
     public bool IsRuleApplicable(InHandEvent inHandEvent)

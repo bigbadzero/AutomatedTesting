@@ -6,19 +6,20 @@ public class MaxInHandEquipmentReachedRule : IInHandRules
 
     public void ExecuteRule(InHandEvent inHandEvent)
     {
-        var inHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
         Console.Write("You already have the maximum amount of InHand Equipment.");
         Console.Write("Would you like to swap out an In Hand piece of Equipment");
-        var swapOutEquipment = inHandEvent.UserInput.Proceed();
+        var swapOutEquipment = inHandEvent.Survivor._game._userInput.Proceed();
         if (swapOutEquipment == true)
         {
+            var inHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
             Console.WriteLine("Which piece would you like to swap");
-            inHandEvent.Survivor.PrintEquipment(inHandEquipment);
-            var indexOfEquipmentToBeSwapped = inHandEvent.UserInput.GetIntFromUserWithRange(0, 1);
-            var inHandequipmentToBeSwapped = inHandEquipment[indexOfEquipmentToBeSwapped];
-            var currentInHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.Id == inHandequipmentToBeSwapped.Id).FirstOrDefault();
-            currentInHandEquipment.EquipmentType = EquipmentTypeEnum.Reserve;
-            inHandEvent.Survivor.Equipment[inHandEvent.IndexOfEquipmentToBeInHand].EquipmentType = EquipmentTypeEnum.InHand;
+            for (int i = 0; i < inHandEquipment.Count; i++)
+                Console.WriteLine($"{i + 1} {inHandEquipment[i].Name}");
+            var indexOfEquipmentToBeSwapped = inHandEvent.Survivor._game._userInput.GetIntFromUserWithRange(1, inHandEquipment.Count);
+            var inHandEquipmentToBeSwapped = inHandEquipment[indexOfEquipmentToBeSwapped - 1];
+            var currentInHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.Id == inHandEquipmentToBeSwapped.Id).FirstOrDefault();
+            inHandEvent.Survivor.SetEquipmentToReserve(currentInHandEquipment);
+            inHandEvent.Survivor.SetEquipmentToInHand(inHandEvent.EquipmentToBeInHand);
             Console.WriteLine("Equipment Swapped");
         }
         else

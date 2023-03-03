@@ -11,6 +11,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.Actions.SubScreenActions
         PrintEquipment = 1,
         PrintInHandEquipment = 2,
         AddEquipment = 3,
-        DropEquipment = 4
+        DropEquipment = 4,
+        SetCurrentEquipmentToInHand = 5
     }
 }

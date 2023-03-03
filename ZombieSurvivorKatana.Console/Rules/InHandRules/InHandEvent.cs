@@ -3,13 +3,11 @@
 public class InHandEvent
 {
     public Survivor Survivor;
-    public IUserInput UserInput;
-    public readonly int IndexOfEquipmentToBeInHand;
+    public Equipment EquipmentToBeInHand;
 
-    public InHandEvent(Survivor survivor, IUserInput userInput, int indexOfEquipmentToBeInHand)
+    public InHandEvent(Survivor survivor, Equipment equipmentToBeInHand)
     {
         Survivor = survivor;
-        UserInput = userInput;
-        IndexOfEquipmentToBeInHand = indexOfEquipmentToBeInHand;
+        EquipmentToBeInHand= equipmentToBeInHand;
     }
 }
