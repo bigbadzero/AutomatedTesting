@@ -45,9 +45,7 @@ public class Survivor
 
     public void DropEquipment(Equipment equipment)
     {
-
         Equipment.Remove(equipment);
-        Console.WriteLine($"{equipment.Name} dropped");
     }
 
     public void SetEquipmentToInHand()

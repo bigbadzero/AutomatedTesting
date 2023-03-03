@@ -6,12 +6,14 @@ public class AddEquipmentMaxEquipmentReachedRule : IAddEquipmentRules
 
     public void ExecuteRule(AddEquipmentEvent addEquipmentEvent)
     {
-        Console.WriteLine(Constants.MaxEquipmentMessage());
+        Console.WriteLine("You already have the maximum amount of InHand Equipment.");
+        Console.WriteLine("Would you like to swap out an In Hand piece of Equipment");
         var discardEquipment = addEquipmentEvent.Survivor._game._userInput.Proceed();
         if (discardEquipment == true)
         {
             var equipmentToDrop = addEquipmentEvent.Survivor.GetEquipmentToDrop();
             addEquipmentEvent.Survivor.DropEquipment(equipmentToDrop);
+            Console.WriteLine($"{addEquipmentEvent.Survivor.Name} dropped {equipmentToDrop.Name}");
         }
         else
             Console.WriteLine($"{addEquipmentEvent.NewEquipment.Name} Discarded");

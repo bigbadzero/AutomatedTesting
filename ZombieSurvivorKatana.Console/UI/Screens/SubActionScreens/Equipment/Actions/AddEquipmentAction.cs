@@ -18,7 +18,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
 
         public void PerformAction(Survivor survivor)
         {
-            Console.WriteLine("Enter the name of the new piece of equipment you have found.");
+            Console.WriteLine("\nEnter the name of the new piece of equipment you have found.");
             var newEquipmentName = survivor._game._userInput.GetNameFromUser();
             var newEquipment = new ConsoleApp.Equipment(newEquipmentName);
             var addEquipmentEvent = new AddEquipmentEvent(survivor, newEquipment);

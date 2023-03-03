@@ -7,7 +7,8 @@ public class MaxInHandEquipmentReachedRule : IInHandRules
     public void ExecuteRule(InHandEvent inHandEvent)
     {
         var inHandEquipment = inHandEvent.Survivor.Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
-        Console.Write(Constants.MaxInHandEquipmentMessage());
+        Console.Write("You already have the maximum amount of InHand Equipment.");
+        Console.Write("Would you like to swap out an In Hand piece of Equipment");
         var swapOutEquipment = inHandEvent.UserInput.Proceed();
         if (swapOutEquipment == true)
         {

@@ -25,6 +25,9 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
                 case ModifyEquipmentActions.AddEquipment:
                     iAction = new AddEquipmentAction();
                     break;
+                case ModifyEquipmentActions.DropEquipment:
+                    iAction = new DropEquipmentAction();
+                    break;
                 default:
                     break;
             }
