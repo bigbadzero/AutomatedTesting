@@ -14,13 +14,13 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment
         public Enum GetSubScreenAction(IUserInput userInput, Survivor survivor)
         {
             Console.WriteLine($"\nWhat Equipment Action Would {survivor.Name} Like To Perform?");
-            var equipmentActions = Enum.GetNames(typeof(ModifyEquipmentActions));
+            var equipmentActions = Enum.GetNames(typeof(EquipmentActions));
             for (int i = 0; i < equipmentActions.Length; i++)
             {
                 Console.WriteLine($"{i + 1} {equipmentActions[i]}");
             }
             var modifyEquipmentActionIndex = userInput.GetIntFromUserWithRange(1, equipmentActions.Length);
-            var gameAction = (ModifyEquipmentActions)modifyEquipmentActionIndex;
+            var gameAction = (EquipmentActions)modifyEquipmentActionIndex;
             return gameAction;
         }
 

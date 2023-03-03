@@ -16,16 +16,16 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
             IAction iAction = null;
             switch (action)
             {
-                case ModifyEquipmentActions.PrintEquipment:
-                    iAction = new PrintEquipmentAction();
+                case EquipmentActions.PrintEquipment:
+                    iAction = new ViewEquipmentAction();
                     break;
-                case ModifyEquipmentActions.PrintInHandEquipment:
-                    iAction = new PrintInHandEquipmentAction();
+                case EquipmentActions.PrintInHandEquipment:
+                    iAction = new ViewInHandEquipmentAction();
                     break;
-                case ModifyEquipmentActions.AddEquipment:
+                case EquipmentActions.AddEquipment:
                     iAction = new AddEquipmentAction();
                     break;
-                case ModifyEquipmentActions.DropEquipment:
+                case EquipmentActions.DropEquipment:
                     iAction = new DropEquipmentAction();
                     break;
                 default:

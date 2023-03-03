@@ -13,7 +13,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
         {
             if(survivor.Equipment.Count> 0)
             {
-                var printEquipmentAction = new PrintEquipmentAction();
+                var printEquipmentAction = new ViewEquipmentAction();
                 printEquipmentAction.PerformAction(survivor);
                 var indexOfEquipmentToDrop = survivor._game._userInput.GetIntFromUserWithRange(1, survivor.Equipment.Count);
                 var equipmentToDrop = survivor.Equipment[indexOfEquipmentToDrop - 1];

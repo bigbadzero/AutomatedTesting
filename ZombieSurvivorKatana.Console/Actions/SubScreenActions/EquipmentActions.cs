@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Actions.SubScreenActions
 {
-    public enum ModifyEquipmentActions
+    public enum EquipmentActions
     {
         PrintEquipment = 1,
         PrintInHandEquipment = 2,

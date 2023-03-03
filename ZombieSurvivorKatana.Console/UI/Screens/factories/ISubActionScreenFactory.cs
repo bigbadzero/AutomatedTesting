@@ -15,7 +15,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
         public static ISubActionScreen GetSubActionScreen(GameActions action)
         {
             ISubActionScreen screen = null;
-            if (action == GameActions.ModifyEquipment)
+            if (action == GameActions.Equipment)
             {
                 screen = new EquipmentSubActionScreen();
             }

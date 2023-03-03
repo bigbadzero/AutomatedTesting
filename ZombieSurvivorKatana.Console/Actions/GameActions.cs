@@ -8,6 +8,6 @@ namespace ZombieSurvivorKatana.ConsoleApp.Actions
 {
     public enum GameActions
     {
-        ModifyEquipment = 1
+        Equipment = 1
     }
 }

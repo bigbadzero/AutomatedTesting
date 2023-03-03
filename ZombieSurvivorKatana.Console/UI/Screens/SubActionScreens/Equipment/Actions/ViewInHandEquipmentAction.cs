@@ -7,7 +7,7 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.Actions
 {
-    public class PrintInHandEquipmentAction : IAction
+    public class ViewInHandEquipmentAction : IAction
     {
         public void PerformAction(Survivor survivor)
         {
