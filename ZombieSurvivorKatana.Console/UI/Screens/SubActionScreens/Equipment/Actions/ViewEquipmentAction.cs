@@ -12,12 +12,12 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
         public void PerformAction(Survivor survivor)
         {
             Console.WriteLine();
-            if (survivor.Equipment.Count == 0)
+            if (survivor.GetEqupment().Count == 0)
                 Console.WriteLine($"{survivor.Name} doesnt have any equipment");
             else
             {
-                for (int i = 0; i < survivor.Equipment.Count; i++)
-                    Console.WriteLine($"{i + 1} {survivor.Equipment[i].Name}");
+                for (int i = 0; i < survivor.GetEqupment().Count; i++)
+                    Console.WriteLine($"{i + 1} {survivor.GetEqupment()[i].Name}");
             }
             
         }

@@ -13,7 +13,7 @@ public class AddEquipmentMaxEquipmentNotReachedRule : IAddEquipmentRules
 
     public bool IsRuleApplicable(AddEquipmentEvent addEquipmentEvent)
     {
-        if (addEquipmentEvent.Survivor.Equipment.Count < addEquipmentEvent.Survivor.MaxEquipment)
+        if (addEquipmentEvent.Survivor.GetEqupment().Count < addEquipmentEvent.Survivor.MaxEquipment)
             return true;
         return false;
     }

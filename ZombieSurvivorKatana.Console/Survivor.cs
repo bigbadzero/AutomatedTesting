@@ -9,7 +9,7 @@ public class Survivor
     public int Wounds { get; internal set; }
     public int ActionsPerTurn { get; set; }
     public bool Active { get; internal set; }
-    public List<Equipment> Equipment { get; set; }
+    private List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
     public readonly Game _game;
 
@@ -22,12 +22,6 @@ public class Survivor
         Equipment = new List<Equipment>();
         MaxEquipment = 5;
         _game= game;
-    }
-
-    public void PrintEquipment(List<Equipment> equipmentList)
-    {
-        for (int i = 0; i < equipmentList.Count; i++)
-            Console.WriteLine($"{i} {equipmentList[i].Name}");
     }
 
     public void AddEquipment(Equipment newEquipment)
@@ -65,13 +59,6 @@ public class Survivor
         if (Wounds == 2)
             Die();
         MaxEquipment = MaxEquipment - Wounds;
-        //if (Equipment.Count > MaxEquipment)
-        //{
-        //    Console.WriteLine("Because of your wounds you can no longer carry this much equipment");
-        //    PrintEquipment(Equipment);
-        //    var equipmentToDrop = GetEquipmentToDrop();
-        //    DropEquipment(equipmentToDrop);
-        //}
     }
 
     private void Die()

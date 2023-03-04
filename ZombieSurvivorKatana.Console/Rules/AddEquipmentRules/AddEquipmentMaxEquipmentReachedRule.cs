@@ -16,8 +16,8 @@ public class AddEquipmentMaxEquipmentReachedRule : IAddEquipmentRules
         {
             var printEquipmentAction = new ViewEquipmentAction();
             printEquipmentAction.PerformAction(addEquipmentEvent.Survivor);
-            var indexOfEquipmentToBeDropped = addEquipmentEvent.Survivor._game._userInput.GetIntFromUserWithRange(1, addEquipmentEvent.Survivor.Equipment.Count);
-            var inHandEquipmentToBeDropped = addEquipmentEvent.Survivor.Equipment[indexOfEquipmentToBeDropped - 1];
+            var indexOfEquipmentToBeDropped = addEquipmentEvent.Survivor._game._userInput.GetIntFromUserWithRange(1, addEquipmentEvent.Survivor.GetEqupment().Count);
+            var inHandEquipmentToBeDropped = addEquipmentEvent.Survivor.GetEqupment()[indexOfEquipmentToBeDropped - 1];
             addEquipmentEvent.Survivor.DropEquipment(inHandEquipmentToBeDropped);
             Console.WriteLine($"{addEquipmentEvent.Survivor.Name} dropped {inHandEquipmentToBeDropped.Name}");
         }
@@ -27,7 +27,7 @@ public class AddEquipmentMaxEquipmentReachedRule : IAddEquipmentRules
 
     public bool IsRuleApplicable(AddEquipmentEvent addEquipmentEvent)
     {
-        if (addEquipmentEvent.Survivor.Equipment.Count == addEquipmentEvent.Survivor.MaxEquipment)
+        if (addEquipmentEvent.Survivor.GetEqupment().Count == addEquipmentEvent.Survivor.MaxEquipment)
             return true;
         return false;
     }
