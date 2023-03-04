@@ -11,6 +11,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
     {
         public void PerformAction(Survivor survivor)
         {
+            Console.WriteLine();
             if (survivor.Equipment.Count == 0)
                 Console.WriteLine($"{survivor.Name} doesnt have any equipment");
             else
