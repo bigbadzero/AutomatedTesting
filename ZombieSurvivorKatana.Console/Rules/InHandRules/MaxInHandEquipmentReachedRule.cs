@@ -1,4 +1,6 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+
+namespace ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
 public class MaxInHandEquipmentReachedRule : IInHandRules
 {

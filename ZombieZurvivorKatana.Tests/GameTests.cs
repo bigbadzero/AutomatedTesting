@@ -1,6 +1,7 @@
 ﻿using Moq;
 using Shouldly;
 using ZombieSurvivorKatana.ConsoleApp;
+using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieZurvivorKatana.Tests.Mocks;
 
 namespace ZombieZurvivorKatana.Tests;

@@ -1,7 +1,8 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
-namespace ZombieSurvivorKatana.ConsoleApp;
+namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
 public class Survivor
 {
@@ -21,7 +22,7 @@ public class Survivor
         Active = true;
         Equipment = new List<Equipment>();
         MaxEquipment = 5;
-        _game= game;
+        _game = game;
     }
 
     public void AddEquipment(Equipment newEquipment)

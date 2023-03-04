@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class DropEquipmentAction : IAction
     {

@@ -1,4 +1,4 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp;
+﻿namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
 public enum EquipmentTypeEnum
 {

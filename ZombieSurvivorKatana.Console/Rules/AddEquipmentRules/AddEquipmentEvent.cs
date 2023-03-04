@@ -1,4 +1,6 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+
+namespace ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 
 public class AddEquipmentEvent
 {

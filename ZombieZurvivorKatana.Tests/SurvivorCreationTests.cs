@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieZurvivorKatana.Tests.Mocks;
 
 namespace ZombieZurvivorKatana.Tests

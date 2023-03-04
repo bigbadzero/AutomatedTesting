@@ -1,4 +1,4 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp;
+﻿namespace ZombieSurvivorKatana.ConsoleApp.UI;
 
 public class UserInput : IUserInput
 {
@@ -48,17 +48,17 @@ public class UserInput : IUserInput
     {
         bool isValid = false;
         string result = "";
-        while(!isValid)
+        while (!isValid)
         {
             string response = Console.ReadLine();
-            if(string.IsNullOrEmpty(response))
+            if (string.IsNullOrEmpty(response))
             {
                 Console.WriteLine("Name Cannot be empty. Please try again");
             }
             else
             {
-                isValid= true;
-                result = response; 
+                isValid = true;
+                result = response;
             }
         }
         return result;

@@ -1,4 +1,6 @@
 ﻿using ZombieSurvivorKatana.ConsoleApp.Actions;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 

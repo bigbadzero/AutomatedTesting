@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp.Actions;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
-using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
 {

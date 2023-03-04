@@ -1,4 +1,4 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp;
+﻿namespace ZombieSurvivorKatana.ConsoleApp.UI;
 
 public interface IUserInput
 {

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class AddEquipmentAction : IAction
     {
@@ -20,7 +21,8 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.
         {
             Console.WriteLine("\nEnter the name of the new piece of equipment you have found.");
             var newEquipmentName = survivor._game._userInput.GetNameFromUser();
-            var newEquipment = new ConsoleApp.Equipment(newEquipmentName);
+            var test = new Equipment("test");
+            var newEquipment = new Equipment(newEquipmentName);
             var addEquipmentEvent = new AddEquipmentEvent(survivor, newEquipment);
             foreach (var rule in AddEquipmentRules.OrderBy(x => x.Priority))
             {

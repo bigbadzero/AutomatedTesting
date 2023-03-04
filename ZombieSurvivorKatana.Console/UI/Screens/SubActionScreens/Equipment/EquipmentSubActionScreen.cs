@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp.Actions.SubScreenActions;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
 {
     public class EquipmentSubActionScreen : ISubActionScreen
     {

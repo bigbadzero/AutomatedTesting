@@ -1,5 +1,5 @@
 ﻿using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
-using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.Actions;
+using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 

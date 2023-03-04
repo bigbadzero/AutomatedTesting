@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ZombieSurvivorKatana.ConsoleApp;
+using ZombieSurvivorKatana.ConsoleApp.UI;
 
 var services = new ServiceCollection();
 services.AddScoped<IUserInput, UserInput>();

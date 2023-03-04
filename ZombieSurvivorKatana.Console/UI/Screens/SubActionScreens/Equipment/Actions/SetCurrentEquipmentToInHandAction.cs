@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.Rules.AddEquipmentRules;
 using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class SetCurrentEquipmentToInHandAction : IAction
     {
