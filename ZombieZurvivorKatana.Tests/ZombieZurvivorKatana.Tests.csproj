@@ -27,8 +27,4 @@
     <ProjectReference Include="..\ZombieSurvivorKatana.Console\ZombieSurvivorKatana.ConsoleApp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
-
 </Project>

@@ -77,7 +77,6 @@ namespace ZombieZurvivorKatana.Tests.Rules.AddEquipmentRules
             maxEquipmentNotReached.ExecuteRule(addEquipmentEvent);
             var equipmentList = survivor.GetEqupment();
             equipmentList.ShouldContain(equipment);
-
         }
     }
 }

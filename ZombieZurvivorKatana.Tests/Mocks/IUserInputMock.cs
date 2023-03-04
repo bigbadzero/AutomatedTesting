@@ -14,8 +14,8 @@ namespace ZombieZurvivorKatana.Tests.Mocks
         {
             var mockUserInput = new Mock<IUserInput>();
             mockUserInput.Setup(r => r.GetIntFromUser()).Returns(1).Verifiable();
-            mockUserInput.Setup(r => r.GetIntFromUserWithRange(0, 4)).Returns(3).Verifiable();
-            mockUserInput.Setup(r => r.GetIntFromUserWithRange(0, 1)).Returns(1).Verifiable();
+            mockUserInput.Setup(r => r.GetIntFromUserWithRange(1, 3)).Returns(3).Verifiable();
+            mockUserInput.Setup(r => r.GetIntFromUserWithRange(1, 5)).Returns(5).Verifiable();
             mockUserInput.Setup(r => r.Proceed()).Returns(true).Verifiable();    
             return mockUserInput;
         }
