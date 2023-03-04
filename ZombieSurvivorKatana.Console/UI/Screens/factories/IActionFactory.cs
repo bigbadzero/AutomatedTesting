@@ -1,4 +1,4 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.Actions.SubScreenActions;
+﻿using ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums.SubScreenActions;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions;
 

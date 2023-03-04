@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZombieSurvivorKatana.ConsoleApp.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums
 {
     public enum GameActions
     {

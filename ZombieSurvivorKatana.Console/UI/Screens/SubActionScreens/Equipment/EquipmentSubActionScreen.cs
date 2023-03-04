@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZombieSurvivorKatana.ConsoleApp.Actions.SubScreenActions;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums.SubScreenActions;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
