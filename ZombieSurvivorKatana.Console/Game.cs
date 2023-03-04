@@ -16,7 +16,6 @@ public class Game
         Survivors = new List<Survivor>();
         _userInput = userInput;
         GameOver = false;
-        StartGame();
     }
 
     public void CreateSurvivor(string name)
@@ -34,7 +33,7 @@ public class Game
         
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         var startScreen = new GameStartScreen();
         startScreen.DisplayStartMessage();
@@ -72,7 +71,7 @@ public class Game
                     Console.WriteLine($"\n{survivor.Name} has {survivor.ActionsPerTurn} actions left");
                     var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
                     var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
-                    var subScreenAction = subscreen.GetSubScreenAction(_userInput, survivor);
+                    var subScreenAction = subscreen.GetSubScreenAction(survivor);
                     var iAction = subscreen.GetIAction(subScreenAction);
                     iAction.PerformAction(survivor);
                 }

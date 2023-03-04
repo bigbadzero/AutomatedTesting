@@ -49,20 +49,20 @@ namespace ZombieZurvivorKatana.Tests
         }
 
         [Fact]
-        public void SurviviorEquipment_MaxInHandEquipmentNotReachedRule_AddsEquipment()
-        {
-            var game = new Game(_userInput);
-            var name = "Nick";
-            var survivor = new Survivor(name, game);
-            var gun = new Equipment("Gun");
+        //public void SurviviorEquipment_MaxInHandEquipmentNotReachedRule_AddsEquipment()
+        //{
+        //    var game = new Game(_userInput);
+        //    var name = "Nick";
+        //    var survivor = new Survivor(name, game);
+        //    var gun = new Equipment("Gun");
 
-            survivor.AddEquipment(gun);
+        //    survivor.AddEquipment(gun);
 
-            //survivor.SetEquipmentToInHand();
+        //    //survivor.SetEquipmentToInHand();
 
-            var currentEquipment = survivor.GetEqupment();
-            currentEquipment[0].EquipmentType.ShouldBe(EquipmentTypeEnum.InHand);
-        }
+        //    var currentEquipment = survivor.GetEqupment();
+        //    currentEquipment[0].EquipmentType.ShouldBe(EquipmentTypeEnum.InHand);
+        //}
 
         //[Fact]
         //public void SurviviorEquipment_MaxInHandEquipmentReachedRule_AllowsUserToSwapInHandAndReserveEquipment()

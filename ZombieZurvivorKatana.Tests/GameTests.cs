@@ -14,7 +14,6 @@ public class GameTests
         _userInputMock = IUserInputMock.GetBaseMockUserInput();
     }
 
-
     [Fact]
     public void Game_CreateSurvivor()
     {

@@ -9,7 +9,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts
 {
     public interface ISubActionScreen
     {
-        public Enum GetSubScreenAction(IUserInput userInput, Survivor survivor);
+        public Enum GetSubScreenAction(Survivor survivor);
         public IAction GetIAction(Enum action);
     }
 }
