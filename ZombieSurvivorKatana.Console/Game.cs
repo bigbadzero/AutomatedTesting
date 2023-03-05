@@ -6,11 +6,12 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
-public class Game
+public class Game: IObserver<Survivor>
 {
     public List<Survivor> Survivors { get; set; }
     public readonly IUserInput _userInput;
     private bool GameOver { get; set; }
+
     public Game(IUserInput userInput)
     {
         Survivors = new List<Survivor>();
@@ -23,14 +24,12 @@ public class Game
         var Survivor = new Survivor(name, this);
         Survivors.Add(Survivor);
         Console.WriteLine($"Survivor {Survivor.Name} created");
-
     }
 
     public void CheckGameStatus()
     {
         if (Survivors.All(x => x.Active == false))
             GameOver= true;
-        
     }
 
     public void StartGame()
@@ -87,4 +86,18 @@ public class Game
         }
     }
 
+    public void OnCompleted()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnError(Exception error)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnNext(Survivor value)
+    {
+        throw new NotImplementedException();
+    }
 }
