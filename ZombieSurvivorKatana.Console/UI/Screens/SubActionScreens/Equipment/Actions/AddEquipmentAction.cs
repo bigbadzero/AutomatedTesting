@@ -9,26 +9,37 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
-    public class AddEquipmentAction : IAction
+    public class AddEquipmentAction : SurvivorScreen, IScreen
     {
-        private List<IAddEquipmentRules> AddEquipmentRules = new List<IAddEquipmentRules>()
-        {
-             new AddEquipmentMaxEquipmentNotReachedRule(),
-            new AddEquipmentMaxEquipmentReachedRule()
-        };
 
-        public void PerformAction(Survivor survivor, Game game)
+        public AddEquipmentAction(Game game, Survivor survivor) : base(game, survivor)
         {
-            Console.WriteLine("\nEnter the name of the new piece of equipment you have found.");
-            var newEquipmentName =game._userInput.GetNameFromUser();
-            var test = new Equipment("test");
+        }
+
+        public void DisplayScreenMessage()
+        {
+            Console.WriteLine("Enter the name of the new piece of equipment you have found.");
+        }
+
+        public void Execute()
+        {
+            ClearScreen();
+            DisplayScreenMessage();
+            var newEquipmentName = _game._userInput.GetNameFromUser();
             var newEquipment = new Equipment(newEquipmentName);
-            var addEquipmentEvent = new AddEquipmentEvent(survivor, newEquipment, game);
-            foreach (var rule in AddEquipmentRules.OrderBy(x => x.Priority))
+            if (_survivor.GetEqupment().Count < _survivor.MaxEquipment)
             {
-                if (rule.IsRuleApplicable(addEquipmentEvent))
-                    rule.ExecuteRule(addEquipmentEvent);
+                _survivor.AddEquipment(newEquipment);
+                _survivor.ActionsPerTurn--;
+                Console.WriteLine($"{_survivor.Name} added {newEquipment.Name} to Equipment List");
             }
+            else
+                Console.WriteLine("Equipment is full");
+        }
+
+        public Enum GetAction()
+        {
+            throw new NotImplementedException();
         }
     }
 }

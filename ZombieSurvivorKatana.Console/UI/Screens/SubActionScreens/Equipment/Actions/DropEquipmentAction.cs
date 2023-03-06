@@ -31,7 +31,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
                 Console.WriteLine($"{_survivor.Name} dropped {equipmentToDrop.Name}");
             }
             else
-                Console.WriteLine($"{s  urvivor.Name} has no equipment to drop");
+                Console.WriteLine($"{_survivor.Name} has no equipment to drop");
         }
 
         public Enum GetAction()
