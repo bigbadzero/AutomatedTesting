@@ -11,19 +11,19 @@ public class IActionFactory
         IAction iAction = null;
         switch (action)
         {
-            case EquipmentScreenActions.PrintEquipment:
-                iAction = new ViewEquipmentAction();
+            case EquipmentActions.PrintEquipment:
+                iAction = new ViewEquipmentScreen();
                 break;
-            case EquipmentScreenActions.PrintInHandEquipment:
+            case EquipmentActions.PrintInHandEquipment:
                 iAction = new ViewInHandEquipmentAction();
                 break;
-            case EquipmentScreenActions.AddEquipment:
+            case EquipmentActions.AddEquipment:
                 iAction = new AddEquipmentAction();
                 break;
-            case EquipmentScreenActions.DropEquipment:
+            case EquipmentActions.DropEquipment:
                 iAction = new DropEquipmentAction();
                 break;
-            case EquipmentScreenActions.SetCurrentEquipmentToInHand:
+            case EquipmentActions.SetCurrentEquipmentToInHand:
                 iAction = new SetCurrentEquipmentToInHandAction();
                 break;
             default:

@@ -14,7 +14,7 @@ public class AddEquipmentMaxEquipmentReachedRule : IAddEquipmentRules
         var discardEquipment = addEquipmentEvent.Game._userInput.Proceed();
         if (discardEquipment == true)
         {
-            var printEquipmentAction = new ViewEquipmentAction();
+            var printEquipmentAction = new ViewEquipmentScreen();
             printEquipmentAction.PerformAction(addEquipmentEvent.Survivor, addEquipmentEvent.Game);
             var indexOfEquipmentToBeDropped = addEquipmentEvent.Game._userInput.GetIntFromUserWithRange(1, addEquipmentEvent.Survivor.GetEqupment().Count);
             var inHandEquipmentToBeDropped = addEquipmentEvent.Survivor.GetEqupment()[indexOfEquipmentToBeDropped - 1];
