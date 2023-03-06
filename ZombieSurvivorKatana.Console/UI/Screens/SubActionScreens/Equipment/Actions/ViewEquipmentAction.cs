@@ -10,7 +10,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class ViewEquipmentAction : IAction
     {
-        public void PerformAction(Survivor survivor)
+        public void PerformAction(Survivor survivor, Game game)
         {
             Console.WriteLine();
             if (survivor.GetEqupment().Count == 0)

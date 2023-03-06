@@ -17,13 +17,13 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
             new AddEquipmentMaxEquipmentReachedRule()
         };
 
-        public void PerformAction(Survivor survivor)
+        public void PerformAction(Survivor survivor, Game game)
         {
             Console.WriteLine("\nEnter the name of the new piece of equipment you have found.");
-            var newEquipmentName = survivor._game._userInput.GetNameFromUser();
+            var newEquipmentName =game._userInput.GetNameFromUser();
             var test = new Equipment("test");
             var newEquipment = new Equipment(newEquipmentName);
-            var addEquipmentEvent = new AddEquipmentEvent(survivor, newEquipment);
+            var addEquipmentEvent = new AddEquipmentEvent(survivor, newEquipment, game);
             foreach (var rule in AddEquipmentRules.OrderBy(x => x.Priority))
             {
                 if (rule.IsRuleApplicable(addEquipmentEvent))

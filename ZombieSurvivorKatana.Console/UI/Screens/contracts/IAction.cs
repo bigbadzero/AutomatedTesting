@@ -9,6 +9,6 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts
 {
     public interface IAction
     {
-        public void PerformAction(Survivor survivor);
+        public void PerformAction(Survivor survivor, Game game);
     }
 }

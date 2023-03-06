@@ -12,9 +12,8 @@ public class Survivor
     public bool Active { get; internal set; }
     private List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
-    public readonly Game _game;
 
-    public Survivor(string name, Game game)
+    public Survivor(string name)
     {
         Name = name;
         Wounds = 0;
@@ -22,7 +21,6 @@ public class Survivor
         Active = true;
         Equipment = new List<Equipment>();
         MaxEquipment = 5;
-        _game = game;
     }
 
     public void AddEquipment(Equipment newEquipment)
@@ -65,7 +63,6 @@ public class Survivor
     private void Die()
     {
         Active = false;
-        _game.CheckGameStatus();
     }
 
 }

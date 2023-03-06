@@ -10,13 +10,13 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class DropEquipmentAction : IAction
     {
-        public void PerformAction(Survivor survivor)
+        public void PerformAction(Survivor survivor, Game game)
         {
             if(survivor.GetEqupment().Count> 0)
             {
                 var printEquipmentAction = new ViewEquipmentAction();
-                printEquipmentAction.PerformAction(survivor);
-                var indexOfEquipmentToDrop = survivor._game._userInput.GetIntFromUserWithRange(1, survivor.GetEqupment().Count);
+                printEquipmentAction.PerformAction(survivor, game);
+                var indexOfEquipmentToDrop = game._userInput.GetIntFromUserWithRange(1, survivor.GetEqupment().Count);
                 var equipmentToDrop = survivor.GetEqupment()[indexOfEquipmentToDrop - 1];
                 survivor.DropEquipment(equipmentToDrop);
                 Console.WriteLine($"{survivor.Name} dropped {equipmentToDrop.Name}");

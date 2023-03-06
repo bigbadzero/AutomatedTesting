@@ -10,7 +10,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
 {
     public class ViewInHandEquipmentAction : IAction
     {
-        public void PerformAction(Survivor survivor)
+        public void PerformAction(Survivor survivor, Game game)
         {
             var inHandEquipment = survivor.GetEqupment().Where(x => x.EquipmentType == EquipmentTypeEnum.InHand);
             if(inHandEquipment.Count() == 0)
