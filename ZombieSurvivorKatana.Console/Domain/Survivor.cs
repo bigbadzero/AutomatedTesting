@@ -57,6 +57,4 @@ public class Survivor
             Active= false;
         MaxEquipment = MaxEquipment - Wounds;
     }
-
-
 }

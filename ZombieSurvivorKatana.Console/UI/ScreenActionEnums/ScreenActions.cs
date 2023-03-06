@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums
+public enum ScreenActions
 {
-    public enum ScreenActions
-    {
-        Equipment = 1
-    }
+    Equipment = 1
 }

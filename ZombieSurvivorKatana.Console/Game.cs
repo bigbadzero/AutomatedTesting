@@ -1,10 +1,6 @@
-﻿
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
-using ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums;
-using ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums.SubScreenActions;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
-using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
@@ -27,7 +23,6 @@ public class Game : IObserver<Survivor>
         survivorsHandler.CreateSurvivor(name);
     }
 
-
     public void StartGame()
     {
         var startScreen = new GameStartScreen(this);
@@ -45,13 +40,7 @@ public class Game : IObserver<Survivor>
                 {
                     var gameActionScreen = new GameActionScreen(this, survivor);
                     gameActionScreen.Execute();
-                    //Console.WriteLine($"\n{survivor.Name} has {survivor.ActionsPerTurn} actions left");
-                    //var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
-                    //var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
-                    //var subScreenAction = subscreen.GetAction(survivor, this);
-                    //var iAction = subscreen.GetIAction(subScreenAction);
-                    //iAction.PerformAction(survivor, this);
-                    //survivorsHandler.SurvivorStatus(survivor);
+                    survivorsHandler.SurvivorStatus(survivor);
                 }
             }
         }
@@ -62,7 +51,6 @@ public class Game : IObserver<Survivor>
         var exists = survivorsHandler.SurvivorAlreadyExists(name);
         return exists;
     }
-
 
     public void OnCompleted()
     {

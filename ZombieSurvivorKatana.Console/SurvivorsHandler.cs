@@ -1,5 +1,4 @@
-﻿using System;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
@@ -17,9 +16,7 @@ public class SurvivorsHandler : IObservable<Survivor>
     public IDisposable Subscribe(IObserver<Survivor> observer)
     {
         if (!_observers.Contains(observer))
-        {
             _observers.Add(observer);
-        }
         return new SurvivorHandlerUnsubscriber<Survivor>(_observers, observer);
     }
 
@@ -43,9 +40,7 @@ public class SurvivorsHandler : IObservable<Survivor>
     public void ResetActionsPerTurn()
     {
         foreach (var survivor in _survivors)
-        {
             survivor.ActionsPerTurn = 3;
-        }
     }
 
     public void SurvivorStatus(Survivor survivor)
@@ -53,9 +48,7 @@ public class SurvivorsHandler : IObservable<Survivor>
         if (!survivor.Active)
         {
             foreach (var observer in _observers)
-            {
                 observer.OnNext(survivor);
-            }
             CheckGameStatus();
         }
     }
@@ -63,10 +56,7 @@ public class SurvivorsHandler : IObservable<Survivor>
     public void CheckGameStatus()
     {
         if (_survivors.All(x => x.Active == false))
-
             foreach (var observer in _observers)
-            {
                 observer.OnCompleted();
-            }
     }
 }
