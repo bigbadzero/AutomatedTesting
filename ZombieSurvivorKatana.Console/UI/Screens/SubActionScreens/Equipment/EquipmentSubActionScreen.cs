@@ -10,27 +10,35 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
 {
-    public class EquipmentSubActionScreen : ISubActionScreen
+    public class EquipmentSubActionScreen : SurvivorScreen, IScreen
     {
-        public Enum GetSubScreenAction(Survivor survivor, Game game)
+        public EquipmentSubActionScreen(Game game, Survivor survivor) : base(game, survivor){}
+
+        public void DisplayScreenMessage()
         {
-            Console.WriteLine($"\nWhat Equipment Action Would {survivor.Name} Like To Perform?");
-            var equipmentActions = Enum.GetNames(typeof(EquipmentActions));
+            Console.WriteLine($"What Equipment Action Would {_survivor.Name} Like To Perform?");
+        }
+
+        public Enum GetAction()
+        {
+            var equipmentActions = Enum.GetNames(typeof(EquipmentScreenActions));
             for (int i = 0; i < equipmentActions.Length; i++)
             {
                 Console.WriteLine($"{i + 1} {equipmentActions[i]}");
             }
-            var modifyEquipmentActionIndex = game._userInput.GetIntFromUserWithRange(1, equipmentActions.Length);
-            var gameAction = (EquipmentActions)modifyEquipmentActionIndex;
+            var modifyEquipmentActionIndex = _game._userInput.GetIntFromUserWithRange(1, equipmentActions.Length);
+            var gameAction = (EquipmentScreenActions)modifyEquipmentActionIndex;
             return gameAction;
         }
 
-        //perform action
-        public IAction GetIAction(Enum modifyEquipmentAction)
+        public void Execute()
         {
-            // based on this screen it will use a factory to create an IAction
-            var iAction = IActionFactory.GetIAction(modifyEquipmentAction);
-            return iAction;
+            ClearScreen();
+            DisplayScreenMessage();
+            var action = GetAction();
         }
+
+
+        
     }
 }

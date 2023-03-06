@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
 {
-    public class ISubActionScreenFactory
+    public class ISurvivorScreenFactory
     {
-        public static ISubActionScreen GetSubActionScreen(GameActions action)
+        public static IScreen GetSurvivorScreen(Enum action, Game game, Survivor survivor)
         {
-            ISubActionScreen screen = null;
-            if (action == GameActions.Equipment)
+            IScreen screen = null;
+            switch (action)
             {
-                screen = new EquipmentSubActionScreen();
+                case ScreenActions.Equipment:
+                    screen = new EquipmentSubActionScreen(game, survivor);
+                    break;
+                default:
+                    break;
             }
 
             return screen;

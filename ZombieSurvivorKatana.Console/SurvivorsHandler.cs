@@ -25,14 +25,8 @@ public class SurvivorsHandler : IObservable<Survivor>
 
     public void CreateSurvivor(string name)
     {
-        if(SurvivorAlreadyExists(name))
-        {
-            var Survivor = new Survivor(name);
-            _survivors.Add(Survivor);
-            Console.WriteLine($"Survivor {Survivor.Name} created");
-        }
-        else
-            Console.WriteLine($"Survivor with the name {name} already exists");
+        var Survivor = new Survivor(name);
+        _survivors.Add(Survivor);
     }
 
     public bool SurvivorAlreadyExists(string name)

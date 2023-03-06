@@ -7,9 +7,10 @@ using ZombieSurvivorKatana.ConsoleApp.Domain;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts
 {
-    public interface ISubActionScreen
+    public interface IScreen
     {
-        public Enum GetSubScreenAction(Survivor survivor, Game game);
-        public IAction GetIAction(Enum action);
+        public void DisplayScreenMessage();
+        public Enum GetAction();
+        public void Execute();
     }
 }

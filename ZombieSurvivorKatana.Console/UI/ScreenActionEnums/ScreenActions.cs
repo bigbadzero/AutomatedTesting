@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums
 {
-    public enum GameActions
+    public enum ScreenActions
     {
         Equipment = 1
     }

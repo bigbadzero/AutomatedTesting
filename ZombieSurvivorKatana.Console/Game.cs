@@ -6,7 +6,7 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
-public class Game: IObserver<Survivor>
+public class Game : IObserver<Survivor>
 {
     public readonly IUserInput _userInput;
     private bool GameOver { get; set; }
@@ -17,7 +17,7 @@ public class Game: IObserver<Survivor>
     {
         _userInput = userInput;
         GameOver = false;
-        cancellation =  survivorsHandler.Subscribe(this);
+        cancellation = survivorsHandler.Subscribe(this);
     }
 
     public void CreateSurvivor(string name)
@@ -28,48 +28,37 @@ public class Game: IObserver<Survivor>
 
     public void StartGame()
     {
-        var startScreen = new GameStartScreen();
-        startScreen.DisplayStartMessage();
-        var numOfSurvivors = startScreen.GetNumberOfUsers(_userInput);
+        var startScreen = new GameStartScreen(this);
+        startScreen.Execute();
+    }
 
-        for (int i = 0; i < numOfSurvivors; i++)
+    public void PlayGame()
+    {
+        while (!GameOver)
         {
-            var created = false;
-            while (!created)
+            survivorsHandler.ResetActionsPerTurn();
+            foreach (var survivor in survivorsHandler.GetSurvivors())
             {
-                var name = startScreen.GetValidSurvivorName(_userInput, i + 1);
-                var surviviorAlreadyExist = survivorsHandler.SurvivorAlreadyExists(name);
-                if (surviviorAlreadyExist)
-                    Console.WriteLine($"Survivor with the name {name} already exists");
-                else
+                while (survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
-                    CreateSurvivor(name);
-                    created = true;
+                    var gameActionScreen = new GameActionScreen(this, survivor);
+                    gameActionScreen.Execute();
+                    //Console.WriteLine($"\n{survivor.Name} has {survivor.ActionsPerTurn} actions left");
+                    //var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
+                    //var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
+                    //var subScreenAction = subscreen.GetAction(survivor, this);
+                    //var iAction = subscreen.GetIAction(subScreenAction);
+                    //iAction.PerformAction(survivor, this);
+                    //survivorsHandler.SurvivorStatus(survivor);
                 }
             }
         }
     }
 
-    public void PlayGame()
+    public bool SurvivorAlreadyExists(string name)
     {
-        while(!GameOver)
-        {
-            survivorsHandler.ResetActionsPerTurn();
-            var actionScreen = new GameActionScreen();
-            foreach (var survivor in survivorsHandler.GetSurvivors())
-            {
-                while(survivor.ActionsPerTurn > 0 && survivor.Active == true)
-                {
-                    Console.WriteLine($"\n{survivor.Name} has {survivor.ActionsPerTurn} actions left");
-                    var gameActionChoosen = actionScreen.GetAction(_userInput, survivor);
-                    var subscreen = ISubActionScreenFactory.GetSubActionScreen(gameActionChoosen);
-                    var subScreenAction = subscreen.GetSubScreenAction(survivor, this);
-                    var iAction = subscreen.GetIAction(subScreenAction);
-                    iAction.PerformAction(survivor, this);
-                    survivorsHandler.SurvivorStatus(survivor);
-                }
-            }
-        }
+        var exists = survivorsHandler.SurvivorAlreadyExists(name);
+        return exists;
     }
 
 
