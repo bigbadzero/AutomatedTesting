@@ -52,17 +52,13 @@ public class Survivor
         return Equipment;
     }
 
-    private void RecieveWound()
+    internal void RecieveWound()
     {
         Wounds++;
         if (Wounds == 2)
-            Die();
+            Active= false;
         MaxEquipment = MaxEquipment - Wounds;
     }
 
-    private void Die()
-    {
-        Active = false;
-    }
 
 }

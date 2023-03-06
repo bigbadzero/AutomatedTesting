@@ -24,7 +24,7 @@ namespace ZombieZurvivorKatana.Tests
         {
             var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, game);
+            var survivor = new Survivor(name);
             var equipment = new Equipment("Gun");
 
             survivor.AddEquipment(equipment);
@@ -38,7 +38,7 @@ namespace ZombieZurvivorKatana.Tests
         {
             var game = new Game(_userInput);
             var name = "Nick";
-            var survivor = new Survivor(name, game);
+            var survivor = new Survivor(name);
             var gun = new Equipment("Gun");
 
             survivor.AddEquipment(gun);

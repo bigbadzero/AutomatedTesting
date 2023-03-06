@@ -9,6 +9,7 @@ var sp = services.BuildServiceProvider();
 
 var game = new Game(sp.GetService<IUserInput>());
 game.StartGame();
+game.PlayGame();
 
 
 

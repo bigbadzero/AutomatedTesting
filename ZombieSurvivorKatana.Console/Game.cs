@@ -48,10 +48,9 @@ public class Game: IObserver<Survivor>
                 }
             }
         }
-        PlayGame();
     }
 
-    private void PlayGame()
+    public void PlayGame()
     {
         while(!GameOver)
         {
