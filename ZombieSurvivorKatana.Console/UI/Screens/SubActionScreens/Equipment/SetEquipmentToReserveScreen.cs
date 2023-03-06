@@ -30,7 +30,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Equipment
                 inHandScreen.Execute();
                 var InHandEquipment = equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).ToList();
                 var indexOfEquipment = _game._userInput.GetIntFromUserWithRange(1, InHandEquipment.Count());
-                var equipment = InHandEquipment[indexOfEquipment];
+                var equipment = InHandEquipment[indexOfEquipment -1];
                 _survivor.SetEquipmentToInHand(equipment);
                 _survivor.ActionsPerTurn--;
                 Console.WriteLine($"{_survivor.Name} set {equipment.Name} to InHand");

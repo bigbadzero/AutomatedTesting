@@ -1,5 +1,4 @@
 ﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
-using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 

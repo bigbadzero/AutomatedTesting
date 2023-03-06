@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
-using ZombieSurvivorKatana.ConsoleApp.Rules.InHandRules;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
@@ -35,7 +34,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
                 inReserveScreen.Execute();
                 var reserveEquipment = equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
                 var indexOfEquipment = _game._userInput.GetIntFromUserWithRange(1, reserveEquipment.Count());
-                var equipment = reserveEquipment[indexOfEquipment];
+                var equipment = reserveEquipment[indexOfEquipment -1];
                 _survivor.SetEquipmentToInHand(equipment);
                 _survivor.ActionsPerTurn--;
                 Console.WriteLine($"{_survivor.Name} set {equipment.Name} to InHand");

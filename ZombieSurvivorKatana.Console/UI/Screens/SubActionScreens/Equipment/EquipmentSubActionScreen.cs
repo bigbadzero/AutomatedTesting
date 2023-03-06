@@ -36,6 +36,8 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
             ClearScreen();
             DisplayScreenMessage();
             var action = GetAction();
+            var equipmentActionScreen = IScreenFactory.GetScreen(action, _game, _survivor);
+            equipmentActionScreen.Execute();
         }
 
 
