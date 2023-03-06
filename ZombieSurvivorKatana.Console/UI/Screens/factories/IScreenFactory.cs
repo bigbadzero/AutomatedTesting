@@ -10,7 +10,7 @@ using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.factories
 {
-    public class ISurvivorScreenFactory
+    public class IScreenFactory
     {
         public static IScreen GetSurvivorScreen(Enum action, Game game, Survivor survivor)
         {

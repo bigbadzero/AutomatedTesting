@@ -8,10 +8,12 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.GameActionEnums.SubScreenActions
 {
     public enum EquipmentScreenActions
     {
-        PrintEquipment = 1,
-        PrintInHandEquipment = 2,
-        AddEquipment = 3,
-        DropEquipment = 4,
-        SetCurrentEquipmentToInHand = 5
+        ViewEquipment = 1,
+        ViewInHandEquipment = 2,
+        ViewReserveEquipment = 3,
+        AddEquipment = 4,
+        DropEquipment = 5,
+        SetEquipmentToInHand = 6,
+        SetEquipmentToReserve = 7,
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
 {
-    public class AddEquipmentAction : SurvivorScreen, IScreen
+    public class AddEquipmentScreen : SurvivorScreen, IScreen
     {
 
-        public AddEquipmentAction(Game game, Survivor survivor) : base(game, survivor)
+        public AddEquipmentScreen(Game game, Survivor survivor) : base(game, survivor)
         {
         }
 
@@ -25,7 +25,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
             ClearScreen();
             DisplayScreenMessage();
             var newEquipmentName = _game._userInput.GetNameFromUser();
-            var newEquipment = new Equipment(newEquipmentName);
+            var newEquipment = new Domain.Equipment(newEquipmentName);
             if (_survivor.GetEqupment().Count < _survivor.MaxEquipment)
             {
                 _survivor.AddEquipment(newEquipment);

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
 {
-    public class DropEquipmentAction : SurvivorScreen, IScreen
+    public class DropEquipmentScreen : SurvivorScreen, IScreen
     {
-        public DropEquipmentAction(Game game, Survivor survivor) : base(game, survivor) { }
+        public DropEquipmentScreen(Game game, Survivor survivor) : base(game, survivor) { }
 
         public void DisplayScreenMessage()
         {
@@ -28,6 +28,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
                 var indexOfEquipmentToDrop = _game._userInput.GetIntFromUserWithRange(1, _survivor.GetEqupment().Count);
                 var equipmentToDrop = _survivor.GetEqupment()[indexOfEquipmentToDrop - 1];
                 _survivor.DropEquipment(equipmentToDrop);
+                _survivor.ActionsPerTurn--;
                 Console.WriteLine($"{_survivor.Name} dropped {equipmentToDrop.Name}");
             }
             else

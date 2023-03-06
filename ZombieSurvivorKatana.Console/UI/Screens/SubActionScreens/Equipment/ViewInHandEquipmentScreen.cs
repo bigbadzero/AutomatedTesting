@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
-namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.Actions
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
 {
     public class ViewInHandEquipmentScreen : SurvivorScreen, IScreen
     {
