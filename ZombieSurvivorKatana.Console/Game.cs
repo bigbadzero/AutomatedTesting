@@ -54,6 +54,7 @@ public class Game : IObserver<Survivor>
 
     public void OnCompleted()
     {
+        cancellation.Dispose();
         GameOver = true;
     }
 

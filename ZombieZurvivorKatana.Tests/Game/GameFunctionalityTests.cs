@@ -19,9 +19,11 @@ public class GameTests
     {
         var game = new Game(_userInputMock.Object);
         string jack = "Jack";
+
         game.CreateSurvivor(jack);
 
-        //game.Survivors.ShouldContain(x => x.Name == jack);
+        game.SurvivorAlreadyExists(jack).ShouldBeTrue();
+            
     }
 
 }
