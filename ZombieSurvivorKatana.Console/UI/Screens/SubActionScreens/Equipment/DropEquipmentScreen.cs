@@ -5,7 +5,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class DropEquipmentScreen : SurvivorScreen, IScreen
 {
-    public DropEquipmentScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
+    public DropEquipmentScreen(Game game, Survivor survivor) : base(game, survivor) { }
 
     public void DisplayScreenMessage()
     {
@@ -18,9 +18,9 @@ public class DropEquipmentScreen : SurvivorScreen, IScreen
         DisplayScreenMessage();
         if (_survivor.GetEqupment().Count > 0)
         {
-            var viewEquipmentScreen = new ViewEquipmentScreen(_userInput, _survivor);
+            var viewEquipmentScreen = new ViewEquipmentScreen(_game, _survivor);
             viewEquipmentScreen.Execute();
-            var indexOfEquipmentToDrop = _userInput.GetIntFromUserWithRange(1, _survivor.GetEqupment().Count);
+            var indexOfEquipmentToDrop = _game._userInput.GetIntFromUserWithRange(1, _survivor.GetEqupment().Count);
             var equipmentToDrop = _survivor.GetEqupment()[indexOfEquipmentToDrop - 1];
             _survivor.DropEquipment(equipmentToDrop);
             _survivor.ActionsPerTurn--;

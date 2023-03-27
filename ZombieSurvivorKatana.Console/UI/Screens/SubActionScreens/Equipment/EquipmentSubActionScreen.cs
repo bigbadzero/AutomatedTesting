@@ -7,7 +7,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class EquipmentSubActionScreen : SurvivorScreen, IScreen
 {
-    public EquipmentSubActionScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
+    public EquipmentSubActionScreen(Game game, Survivor survivor) : base(game, survivor) { }
     private EquipmentScreenActions action { get; set; }
 
     public void DisplayScreenMessage()
@@ -18,7 +18,7 @@ public class EquipmentSubActionScreen : SurvivorScreen, IScreen
         {
             Console.WriteLine($"{i + 1} {equipmentActions[i]}");
         }
-        var modifyEquipmentActionIndex = _userInput.GetIntFromUserWithRange(1, equipmentActions.Length);
+        var modifyEquipmentActionIndex = _game._userInput.GetIntFromUserWithRange(1, equipmentActions.Length);
         action = (EquipmentScreenActions)modifyEquipmentActionIndex;
     }
 
@@ -26,7 +26,7 @@ public class EquipmentSubActionScreen : SurvivorScreen, IScreen
     {
         ClearScreen();
         DisplayScreenMessage();
-        var equipmentActionScreen = IScreenFactory.GetScreen(action, _userInput, _survivor);
+        var equipmentActionScreen = IScreenFactory.GetScreen(action, _game, _survivor);
         equipmentActionScreen.Execute();
     }
 }

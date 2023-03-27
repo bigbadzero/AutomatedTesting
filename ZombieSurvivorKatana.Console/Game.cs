@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 
@@ -25,9 +24,8 @@ public class Game
 
     public void PlayGame()
     {
-        Console.WriteLine("Welcome to Zombie Survivor Game \nHow many surviviors will be in this game to begin with?");
-        var numOfUsers = _userInput.GetIntFromUser();
-        CreateSurvivors(numOfUsers);
+        var gameStartScreen = new GameStartScreen(this);
+        gameStartScreen.Execute();
         while (!GameOver)
         {
             ResetActionsPerTurn();
@@ -35,7 +33,7 @@ public class Game
             {
                 while (survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
-                    var gameActionScreen = new GameActionScreen(_userInput, survivor);
+                    var gameActionScreen = new GameActionScreen(this, survivor);
                     gameActionScreen.Execute();
                 }
             }
@@ -44,7 +42,7 @@ public class Game
 
     public void HandleSurvivorEvent(Event @event)
     {
-        if(@event is SurvivorDeathEvent)
+        if (@event is SurvivorDeathEvent)
         {
             if (Survivors.All(x => x.Active == false))
             {
@@ -60,37 +58,9 @@ public class Game
         return exists;
     }
 
-
     private void ResetActionsPerTurn()
     {
         foreach (var survivor in Survivors)
             survivor.ActionsPerTurn = 3;
-    }
-
-    private string GetValidSurvivorName(int survivorNum)
-    {
-        Console.WriteLine($"\nEnter the name for Survivior #{survivorNum}");
-        var name = _userInput.GetNameFromUser();
-        return name;
-    }
-
-    private void CreateSurvivors(int numOfSurvivors)
-    {
-        for (int i = 0; i < numOfSurvivors; i++)
-        {
-            var created = false;
-            while (!created)
-            {
-                var name = GetValidSurvivorName(i + 1);
-                var surviviorAlreadyExist = SurvivorAlreadyExists(name);
-                if (surviviorAlreadyExist)
-                    Console.WriteLine($"Survivor with the name {name} already exists");
-                else
-                {
-                    CreateSurvivor(name);
-                    created = true;
-                }
-            }
-        }
     }
 }

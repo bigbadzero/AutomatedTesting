@@ -5,7 +5,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class ViewInHandEquipmentScreen : SurvivorScreen, IScreen
 {
-    public ViewInHandEquipmentScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
+    public ViewInHandEquipmentScreen(Game game, Survivor survivor) : base(game, survivor) { }
 
     public void DisplayScreenMessage()
     {

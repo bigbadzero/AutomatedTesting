@@ -2,5 +2,6 @@
 
 public enum ScreenActions
 {
-    Equipment = 1
+    CreateCharacter = 1,
+    Equipment = 2
 }

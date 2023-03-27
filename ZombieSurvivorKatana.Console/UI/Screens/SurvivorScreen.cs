@@ -6,7 +6,7 @@ public abstract class SurvivorScreen : Screen
 {
     protected Survivor _survivor;
 
-    protected SurvivorScreen(IUserInput userInput, Survivor survivor) : base(userInput)
+    protected SurvivorScreen(Game game, Survivor survivor) : base(game)
     {
         _survivor = survivor;
     }

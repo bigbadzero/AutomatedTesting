@@ -6,7 +6,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
 {
-    public SetEquipmentToInHandScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
+    public SetEquipmentToInHandScreen(Game game, Survivor survivor) : base(game, survivor) { }
 
     public void DisplayScreenMessage()
     {
@@ -22,10 +22,10 @@ public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
             && equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2))
         {
             DisplayScreenMessage();
-            var inReserveScreen = new ViewInReserveEquipmentScreen(_userInput, _survivor);
+            var inReserveScreen = new ViewInReserveEquipmentScreen(_game, _survivor);
             inReserveScreen.Execute();
             var reserveEquipment = equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
-            var indexOfEquipment = _userInput.GetIntFromUserWithRange(1, reserveEquipment.Count());
+            var indexOfEquipment = _game._userInput.GetIntFromUserWithRange(1, reserveEquipment.Count());
             var equipment = reserveEquipment[indexOfEquipment - 1];
             _survivor.SetEquipmentToInHand(equipment);
             _survivor.ActionsPerTurn--;
