@@ -46,7 +46,7 @@ public class Game
         {
             if (Survivors.All(x => x.Active == false))
             {
-
+                GameOver= true;
             }
         }
         Console.WriteLine(@event.EventDiscription);

@@ -16,8 +16,6 @@ public class CreateSurvivorScreen : Screen, IScreen
         _survivor.ActionsPerTurn--;
     }
 
-
-
     public void DisplayScreenMessage()
     {
         Console.WriteLine("Enter the name of the new survivor.");
