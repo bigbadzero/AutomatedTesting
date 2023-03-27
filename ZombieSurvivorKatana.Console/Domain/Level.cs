@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Domain
 {
-    internal class Level
+    public enum Level
     {
+        Blue = 1,
+        Yellow = 2,
+        Orange = 3,
+        Red = 4
     }
 }

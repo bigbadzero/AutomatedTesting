@@ -12,6 +12,7 @@ public class Survivor
     private List<Equipment> Equipment { get; set; }
     public int MaxEquipment { get; internal set; }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
+    private int Experience { get; set; } 
 
     public Survivor(string name)
     {
@@ -21,6 +22,7 @@ public class Survivor
         Active = true;
         Equipment = new List<Equipment>();
         MaxEquipment = 5;
+        Experience = 0;
     }
 
     public void AddEquipment(Equipment newEquipment)
@@ -88,5 +90,9 @@ public class Survivor
         Subscibers.Add(action);
     }
 
-   
+    private void GainExperience()
+    {
+        Experience++;
+        if
+    }
 }
