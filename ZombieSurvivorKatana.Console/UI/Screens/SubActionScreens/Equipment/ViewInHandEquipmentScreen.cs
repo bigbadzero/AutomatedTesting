@@ -5,7 +5,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class ViewInHandEquipmentScreen : SurvivorScreen, IScreen
 {
-    public ViewInHandEquipmentScreen(Game game, Survivor survivor) : base(game, survivor) { }
+    public ViewInHandEquipmentScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
 
     public void DisplayScreenMessage()
     {
@@ -21,22 +21,5 @@ public class ViewInHandEquipmentScreen : SurvivorScreen, IScreen
     {
         ClearScreen();
         DisplayScreenMessage();
-    }
-
-    public Enum GetAction()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void PerformAction(Survivor survivor, Game game)
-    {
-        var inHandEquipment = survivor.GetEqupment().Where(x => x.EquipmentType == EquipmentTypeEnum.InHand);
-        if (inHandEquipment.Count() == 0)
-            Console.WriteLine($"{survivor.Name} doesnt have any equipment in hand");
-        else
-        {
-            for (int i = 0; i < inHandEquipment.Count(); i++)
-                Console.WriteLine($"{i + 1} {survivor.GetEqupment()[i].Name}");
-        }
     }
 }

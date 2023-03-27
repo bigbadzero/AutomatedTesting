@@ -1,70 +1,96 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using System.Xml.Linq;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
-public class Game : IObserver<Survivor>
+public class Game
 {
     public readonly IUserInput _userInput;
     private bool GameOver { get; set; }
-    private IDisposable cancellation;
-    private SurvivorsHandler survivorsHandler = new SurvivorsHandler();
+    private List<Survivor> Survivors = new List<Survivor>();
 
     public Game(IUserInput userInput)
     {
         _userInput = userInput;
         GameOver = false;
-        cancellation = survivorsHandler.Subscribe(this);
     }
 
     public void CreateSurvivor(string name)
     {
-        survivorsHandler.CreateSurvivor(name);
-    }
-
-    public void StartGame()
-    {
-        var startScreen = new GameStartScreen(this);
-        startScreen.Execute();
+        var Survivor = new Survivor(name);
+        Survivors.Add(Survivor);
     }
 
     public void PlayGame()
     {
+        Console.WriteLine("Welcome to Zombie Survivor Game \nHow many surviviors will be in this game to begin with?");
+        var numOfUsers = _userInput.GetIntFromUser();
+        CreateSurvivors(numOfUsers);
         while (!GameOver)
         {
-            survivorsHandler.ResetActionsPerTurn();
-            foreach (var survivor in survivorsHandler.GetSurvivors())
+            ResetActionsPerTurn();
+            foreach (var survivor in Survivors)
             {
                 while (survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
-                    var gameActionScreen = new GameActionScreen(this, survivor);
+                    var gameActionScreen = new GameActionScreen(_userInput, survivor);
                     gameActionScreen.Execute();
-                    survivorsHandler.SurvivorStatus(survivor);
                 }
             }
         }
     }
 
+    public void HandleSurvivorEvent(Event @event)
+    {
+        if(@event is SurvivorDeathEvent)
+        {
+            if (Survivors.All(x => x.Active == false))
+            {
+
+            }
+        }
+        Console.WriteLine(@event.EventDiscription);
+    }
+
     public bool SurvivorAlreadyExists(string name)
     {
-        var exists = survivorsHandler.SurvivorAlreadyExists(name);
+        var exists = Survivors.Any(x => x.Name == name);
         return exists;
     }
 
-    public void OnCompleted()
+
+    private void ResetActionsPerTurn()
     {
-        cancellation.Dispose();
-        GameOver = true;
+        foreach (var survivor in Survivors)
+            survivor.ActionsPerTurn = 3;
     }
 
-    public void OnError(Exception error)
+    private string GetValidSurvivorName(int survivorNum)
     {
-        throw new NotImplementedException();
+        Console.WriteLine($"\nEnter the name for Survivior #{survivorNum}");
+        var name = _userInput.GetNameFromUser();
+        return name;
     }
 
-    public void OnNext(Survivor survivor)
+    private void CreateSurvivors(int numOfSurvivors)
     {
-
+        for (int i = 0; i < numOfSurvivors; i++)
+        {
+            var created = false;
+            while (!created)
+            {
+                var name = GetValidSurvivorName(i + 1);
+                var surviviorAlreadyExist = SurvivorAlreadyExists(name);
+                if (surviviorAlreadyExist)
+                    Console.WriteLine($"Survivor with the name {name} already exists");
+                else
+                {
+                    CreateSurvivor(name);
+                    created = true;
+                }
+            }
+        }
     }
 }

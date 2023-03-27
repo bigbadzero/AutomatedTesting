@@ -2,10 +2,11 @@
 
 public abstract class Screen
 {
-    protected Game _game;
-    public Screen(Game game)
+    protected IUserInput _userInput;
+
+    public Screen( IUserInput userInput)
     {
-        _game = game;
+        _userInput = userInput;
     }
 
     protected void ClearScreen()

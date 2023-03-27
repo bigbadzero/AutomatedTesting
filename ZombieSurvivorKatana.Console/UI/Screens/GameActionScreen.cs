@@ -7,31 +7,24 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 
 public class GameActionScreen : SurvivorScreen, IScreen
 {
-    public GameActionScreen(Game game, Survivor survivor) : base(game, survivor) { }
+    public GameActionScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
+    private ScreenActions action { get; set; }
 
     public void DisplayScreenMessage()
     {
         Console.WriteLine($"{_survivor.Name} has {_survivor.ActionsPerTurn} actions left\n");
         Console.WriteLine($"What Action Would {_survivor.Name} Like To Perform?");
-    }
-
-    public Enum GetAction()
-    {
         var gameActions = Enum.GetNames(typeof(ScreenActions));
         for (int i = 0; i < gameActions.Length; i++)
-        {
             Console.WriteLine($"{i + 1} {gameActions[i]}");
-        }
-        var gameActionIndex = _game._userInput.GetIntFromUserWithRange(1, gameActions.Length);
-        var gameAction = (ScreenActions)gameActionIndex;
-        return gameAction;
+        var gameActionIndex = _userInput.GetIntFromUserWithRange(1, gameActions.Length);
+        action = (ScreenActions)gameActionIndex;
     }
 
     public void Execute()
     {
         DisplayScreenMessage();
-        var gameAction = GetAction();
-        var survivorScreen = IScreenFactory.GetScreen(gameAction, _game, _survivor);
+        var survivorScreen = IScreenFactory.GetScreen(action, _userInput, _survivor);
         survivorScreen.Execute();
     }
 }

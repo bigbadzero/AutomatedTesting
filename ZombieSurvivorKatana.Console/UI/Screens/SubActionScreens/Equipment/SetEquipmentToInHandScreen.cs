@@ -1,11 +1,12 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using System.Runtime.CompilerServices;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
 {
-    public SetEquipmentToInHandScreen(Game game, Survivor survivor) : base(game, survivor) { }
+    public SetEquipmentToInHandScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
 
     public void DisplayScreenMessage()
     {
@@ -21,10 +22,10 @@ public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
             && equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2))
         {
             DisplayScreenMessage();
-            var inReserveScreen = new ViewInReserveEquipmentScreen(_game, _survivor);
+            var inReserveScreen = new ViewInReserveEquipmentScreen(_userInput, _survivor);
             inReserveScreen.Execute();
             var reserveEquipment = equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
-            var indexOfEquipment = _game._userInput.GetIntFromUserWithRange(1, reserveEquipment.Count());
+            var indexOfEquipment = _userInput.GetIntFromUserWithRange(1, reserveEquipment.Count());
             var equipment = reserveEquipment[indexOfEquipment - 1];
             _survivor.SetEquipmentToInHand(equipment);
             _survivor.ActionsPerTurn--;
@@ -32,10 +33,5 @@ public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
         }
         else
             Console.WriteLine("Do Not Meet Criteria to set equipment to INHand");
-    }
-
-    public Enum GetAction()
-    {
-        throw new NotImplementedException();
     }
 }

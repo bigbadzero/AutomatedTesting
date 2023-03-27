@@ -6,7 +6,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 public class AddEquipmentScreen : SurvivorScreen, IScreen
 {
 
-    public AddEquipmentScreen(Game game, Survivor survivor) : base(game, survivor) { }
+    public AddEquipmentScreen(IUserInput userInput, Survivor survivor) : base(userInput, survivor) { }
 
     public void DisplayScreenMessage()
     {
@@ -17,8 +17,8 @@ public class AddEquipmentScreen : SurvivorScreen, IScreen
     {
         ClearScreen();
         DisplayScreenMessage();
-        var newEquipmentName = _game._userInput.GetNameFromUser();
-        var newEquipment = new Domain.Equipment(newEquipmentName);
+        var newEquipmentName = _userInput.GetNameFromUser();
+        var newEquipment = new Equipment(newEquipmentName);
         if (_survivor.GetEqupment().Count < _survivor.MaxEquipment)
         {
             _survivor.AddEquipment(newEquipment);
@@ -27,10 +27,5 @@ public class AddEquipmentScreen : SurvivorScreen, IScreen
         }
         else
             Console.WriteLine("Equipment is full");
-    }
-
-    public Enum GetAction()
-    {
-        throw new NotImplementedException();
     }
 }
