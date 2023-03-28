@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
@@ -9,10 +10,13 @@ public class Survivor
     public int Wounds { get; internal set; }
     public int ActionsPerTurn { get; set; }
     public bool Active { get; internal set; }
-    private List<Equipment> Equipment { get; set; }
+    private List<Equipment> _equipment { get; set; }
+    public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
     public int MaxEquipment { get; internal set; }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
     private int Experience { get; set; } 
+    private Level _level { get; set; }
+    public Level Level { get { return _level; } }
 
     public Survivor(string name)
     {
@@ -20,26 +24,27 @@ public class Survivor
         Wounds = 0;
         ActionsPerTurn = 3;
         Active = true;
-        Equipment = new List<Equipment>();
+        _equipment = new List<Equipment>();
         MaxEquipment = 5;
         Experience = 0;
+        _level = Level.Blue;
     }
 
     public void AddEquipment(Equipment newEquipment)
     {
-        Equipment.Add(newEquipment);
+        _equipment.Add(newEquipment);
     }
 
     public void DropEquipment(Equipment equipment)
     {
-        Equipment.Remove(equipment);
+        _equipment.Remove(equipment);
     }
 
     public bool SetEquipmentToInHand(Equipment equipmentToBeInHand)
     {
         if (CanSetEquipmentToInHand())
         {
-            var equipment = Equipment.Where(x => x.Id == equipmentToBeInHand.Id).FirstOrDefault();
+            var equipment = _equipment.Where(x => x.Id == equipmentToBeInHand.Id).FirstOrDefault();
             if (equipment != null)
                 equipment.EquipmentType = EquipmentTypeEnum.InHand;
             return true;
@@ -49,15 +54,11 @@ public class Survivor
 
     public void SetEquipmentToReserve(Equipment equipmentToBeReserve)
     {
-        var equipment = Equipment.Where(x => x.Id == equipmentToBeReserve.Id).FirstOrDefault();
+        var equipment = _equipment.Where(x => x.Id == equipmentToBeReserve.Id).FirstOrDefault();
         if (equipment != null)
             equipment.EquipmentType = EquipmentTypeEnum.InHand;
     }
 
-    public List<Equipment> GetEqupment()
-    {
-        return Equipment;
-    }
 
     internal void RecieveWound()
     {
@@ -72,9 +73,9 @@ public class Survivor
 
     private bool CanSetEquipmentToInHand()
     {
-        return Equipment.Count > 0
-            && Equipment.Any(x => x.EquipmentType == EquipmentTypeEnum.Reserve
-            && Equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2);
+        return _equipment.Count > 0
+            && _equipment.Any(x => x.EquipmentType == EquipmentTypeEnum.Reserve
+            && _equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2);
     }
 
     private void PushEvent(Event @event)
@@ -90,9 +91,37 @@ public class Survivor
         Subscibers.Add(action);
     }
 
+    public void Kill()
+    {
+        GainExperience();
+        if (LevelUpCriteriaMet())
+        {
+            LevelUp();
+        }
+    }
+
     private void GainExperience()
     {
         Experience++;
-        if
+    }
+
+    private bool LevelUpCriteriaMet()
+    {
+        if (Experience == 6 || Experience == 18 || Experience == 42)
+            return true;
+        else
+            return false;
+    }
+
+    private void LevelUp()
+    {
+        if (_level == Level.Blue)
+            _level = Level.Yellow;
+        else if (_level == Level.Yellow)
+            _level = Level.Orange;
+        else if (_level == Level.Orange)
+            _level = Level.Red;
+
+        PushEvent(new SurvivorLevelUpEvent(this));
     }
 }

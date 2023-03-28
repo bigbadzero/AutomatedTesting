@@ -28,7 +28,7 @@ namespace ZombieZurvivorKatana.Tests
             var equipment = new Equipment("Gun");
 
             survivor.AddEquipment(equipment);
-            var survivorsEquipment = survivor.GetEqupment();
+            var survivorsEquipment = survivor.Equipment;
 
             survivorsEquipment.ShouldContain(equipment);
         }
@@ -44,7 +44,7 @@ namespace ZombieZurvivorKatana.Tests
             survivor.AddEquipment(gun);
             survivor.DropEquipment(gun);
 
-            var equipment = survivor.GetEqupment();
+            var equipment = survivor.Equipment;
             equipment.ShouldNotContain(gun);
         }
     }

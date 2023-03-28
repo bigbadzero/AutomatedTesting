@@ -16,7 +16,7 @@ public class SetEquipmentToInHandScreen : SurvivorScreen, IScreen
     public void Execute()
     {
         ClearScreen();
-        var equipmentList = _survivor.GetEqupment();
+        var equipmentList = _survivor.Equipment;
         if (equipmentList.Count > 0
             && equipmentList.Any(x => x.EquipmentType == EquipmentTypeEnum.Reserve
             && equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2))

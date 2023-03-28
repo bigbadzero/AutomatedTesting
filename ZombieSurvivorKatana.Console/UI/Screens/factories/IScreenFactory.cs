@@ -18,6 +18,8 @@ public class IScreenFactory
                 return new CreateSurvivorScreen(game, survivor);
             case ScreenActions.Equipment:
                 return new EquipmentSubActionScreen(game, survivor);
+            case ScreenActions.AttackZombie:
+                return new AttackZombieScreen(game, survivor);
             case EquipmentScreenActions.ViewEquipment:
                 screen = new ViewEquipmentScreen(game, survivor);
                 break;

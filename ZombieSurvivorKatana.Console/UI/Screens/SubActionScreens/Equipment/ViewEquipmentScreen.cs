@@ -9,12 +9,12 @@ public class ViewEquipmentScreen : SurvivorScreen, IScreen
 
     public void DisplayScreenMessage()
     {
-        if (_survivor.GetEqupment().Count == 0)
+        if (_survivor.Equipment.Count == 0)
             Console.WriteLine($"{_survivor.Name} doesnt have any equipment");
         else
         {
-            for (int i = 0; i < _survivor.GetEqupment().Count; i++)
-                Console.WriteLine($"{i + 1} {_survivor.GetEqupment()[i].Name}");
+            for (int i = 0; i < _survivor.Equipment.Count; i++)
+                Console.WriteLine($"{i + 1} {_survivor.Equipment[i].Name}");
         }
     }
 

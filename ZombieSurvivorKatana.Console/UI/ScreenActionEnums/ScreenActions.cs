@@ -3,5 +3,6 @@
 public enum ScreenActions
 {
     CreateCharacter = 1,
-    Equipment = 2
+    Equipment = 2,
+    AttackZombie = 3
 }

@@ -15,7 +15,7 @@ public class SetEquipmentToReserveScreen : SurvivorScreen, IScreen
     public void Execute()
     {
         ClearScreen();
-        var equipmentList = _survivor.GetEqupment();
+        var equipmentList = _survivor.Equipment;
         if (equipmentList.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() > 0)
         {
             DisplayScreenMessage();
