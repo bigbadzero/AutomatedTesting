@@ -25,7 +25,6 @@ public class SetEquipmentToReserveScreen : SurvivorScreen, IScreen
             var indexOfEquipment = _game._userInput.GetIntFromUserWithRange(1, InHandEquipment.Count());
             var equipment = InHandEquipment[indexOfEquipment - 1];
             _survivor.SetEquipmentToInHand(equipment);
-            _survivor.ActionsPerTurn--;
             Console.WriteLine($"{_survivor.Name} set {equipment.Name} to InHand");
         }
     }

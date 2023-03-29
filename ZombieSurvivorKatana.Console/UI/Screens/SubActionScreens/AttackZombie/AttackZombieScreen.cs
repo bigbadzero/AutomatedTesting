@@ -23,8 +23,7 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
         public void Execute()
         {
             DisplayScreenMessage();
-            _survivor.ActionsPerTurn--;
-            _survivor.Kill();
+            _survivor.Attack();
         }
     }
 }

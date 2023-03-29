@@ -8,7 +8,8 @@ public class Survivor
 {
     public string Name { get; set; }
     public int Wounds { get; internal set; }
-    public int ActionsPerTurn { get; set; }
+    private int _actionsPerTurn { get; set; }
+    public int ActionsPerTurn { get => _actionsPerTurn; }
     public bool Active { get; internal set; }
     private List<Equipment> _equipment { get; set; }
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
@@ -22,7 +23,7 @@ public class Survivor
     {
         Name = name;
         Wounds = 0;
-        ActionsPerTurn = 3;
+        _actionsPerTurn = 3;
         Active = true;
         _equipment = new List<Equipment>();
         MaxEquipment = 5;
@@ -33,23 +34,24 @@ public class Survivor
     public void AddEquipment(Equipment newEquipment)
     {
         _equipment.Add(newEquipment);
+        SpendAction();
     }
 
     public void DropEquipment(Equipment equipment)
     {
         _equipment.Remove(equipment);
+        SpendAction();
     }
 
-    public bool SetEquipmentToInHand(Equipment equipmentToBeInHand)
+    public void SetEquipmentToInHand(Equipment equipmentToBeInHand)
     {
         if (CanSetEquipmentToInHand())
         {
             var equipment = _equipment.Where(x => x.Id == equipmentToBeInHand.Id).FirstOrDefault();
             if (equipment != null)
                 equipment.EquipmentType = EquipmentTypeEnum.InHand;
-            return true;
+            SpendAction();
         }
-        return false;
     }
 
     public void SetEquipmentToReserve(Equipment equipmentToBeReserve)
@@ -57,17 +59,43 @@ public class Survivor
         var equipment = _equipment.Where(x => x.Id == equipmentToBeReserve.Id).FirstOrDefault();
         if (equipment != null)
             equipment.EquipmentType = EquipmentTypeEnum.InHand;
+        SpendAction();
     }
 
+    public void Subscribe(Action<Event> action)
+    {
+        Subscibers.Add(action);
+    }
+
+    public void Attack()
+    {
+        GainExperience();
+        var random = new Random();
+        var roll = random.Next(1, 10);
+        if(roll > 3) //30% chance to take damage
+            RecieveWound();
+        if (LevelUpCriteriaMet())
+        {
+            LevelUp();
+        }
+        SpendAction();
+    }
+
+    public void ResetActionsPerTurn()
+    {
+        _actionsPerTurn = 3;
+    }
 
     internal void RecieveWound()
     {
+        PushEvent(new SurvivorWoundedEvent(this));
         Wounds++;
         if (Wounds == 2)
         {
             Active = false;
             PushEvent(new SurvivorDeathEvent(this)); 
         }
+
         MaxEquipment = MaxEquipment - Wounds;
     }
 
@@ -83,20 +111,6 @@ public class Survivor
         foreach (var subscriber in Subscibers)
         {
             subscriber(@event);
-        }
-    }
-
-    public void Subscribe(Action<Event> action)
-    {
-        Subscibers.Add(action);
-    }
-
-    public void Kill()
-    {
-        GainExperience();
-        if (LevelUpCriteriaMet())
-        {
-            LevelUp();
         }
     }
 
@@ -123,5 +137,13 @@ public class Survivor
             _level = Level.Red;
 
         PushEvent(new SurvivorLevelUpEvent(this));
+    }
+
+    private void SpendAction()
+    {
+        if (_actionsPerTurn > 0)
+            _actionsPerTurn--;
+        else
+            throw new InvalidOperationException("Actions Per Turn Already 0");
     }
 }

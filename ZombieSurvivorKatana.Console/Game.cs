@@ -8,7 +8,8 @@ public class Game
 {
     public readonly IUserInput _userInput;
     private bool GameOver { get; set; }
-    private List<Survivor> Survivors = new List<Survivor>();
+    private List<Survivor> _survivors = new List<Survivor>();
+    public IReadOnlyList<Survivor> Survivors => _survivors.AsReadOnly();
     private Level Level { get; set; }
 
     public Game(IUserInput userInput)
@@ -22,7 +23,7 @@ public class Game
     {
         var survivor = new Survivor(name);
         survivor.Subscribe(HandleSurvivorEvent);
-        Survivors.Add(survivor);
+        _survivors.Add(survivor);
     }
 
     public void PlayGame()
@@ -32,7 +33,7 @@ public class Game
         while (!GameOver)
         {
             ResetActionsPerTurn();
-            foreach (var survivor in Survivors)
+            foreach (var survivor in _survivors)
             {
                 while (survivor.ActionsPerTurn > 0 && survivor.Active == true)
                 {
@@ -48,22 +49,22 @@ public class Game
         Console.WriteLine(@event.EventDiscription);
         if (@event is SurvivorDeathEvent)
         {
-            if (Survivors.All(x => x.Active == false))
+            if (_survivors.All(x => x.Active == false))
             {
                 GameOver= true;
             }
         }
         if(@event is SurvivorLevelUpEvent)
         {
-            var currentLevelIntValue = (int)Level;
+            var currentLevel = (int)Level;
             var highestLevel = 0;
-            foreach (var survivor in Survivors)
+            foreach (var survivor in _survivors)
             {
                 var level = (int)survivor.Level;
                 if(level > highestLevel)
                     highestLevel = level;
             }
-            if(highestLevel > currentLevelIntValue)
+            if(highestLevel > currentLevel)
             {
                 Level = (Level)Enum.ToObject(typeof(Level), highestLevel);
                 Console.WriteLine($"The Game has leveled up to {Level}!!");
@@ -74,13 +75,13 @@ public class Game
 
     public bool SurvivorAlreadyExists(string name)
     {
-        var exists = Survivors.Any(x => x.Name == name);
+        var exists = _survivors.Any(x => x.Name == name);
         return exists;
     }
 
     private void ResetActionsPerTurn()
     {
-        foreach (var survivor in Survivors)
-            survivor.ActionsPerTurn = 3;
+        foreach (var survivor in _survivors)
+            survivor.ResetActionsPerTurn();
     }
 }

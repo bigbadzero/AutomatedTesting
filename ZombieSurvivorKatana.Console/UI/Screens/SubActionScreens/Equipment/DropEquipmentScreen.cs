@@ -23,7 +23,6 @@ public class DropEquipmentScreen : SurvivorScreen, IScreen
             var indexOfEquipmentToDrop = _game._userInput.GetIntFromUserWithRange(1, _survivor.Equipment.Count);
             var equipmentToDrop = _survivor.Equipment[indexOfEquipmentToDrop - 1];
             _survivor.DropEquipment(equipmentToDrop);
-            _survivor.ActionsPerTurn--;
             Console.WriteLine($"{_survivor.Name} dropped {equipmentToDrop.Name}");
         }
         else

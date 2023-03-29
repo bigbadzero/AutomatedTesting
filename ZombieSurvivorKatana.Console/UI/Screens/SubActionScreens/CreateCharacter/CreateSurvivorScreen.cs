@@ -13,7 +13,6 @@ public class CreateSurvivorScreen : Screen, IScreen
     public CreateSurvivorScreen(Game game, Survivor survivor) : base(game)
     {
         _survivor = survivor;
-        _survivor.ActionsPerTurn--;
     }
 
     public void DisplayScreenMessage()

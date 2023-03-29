@@ -7,11 +7,11 @@ using ZombieSurvivorKatana.ConsoleApp.Domain;
 
 namespace ZombieSurvivorKatana.ConsoleApp
 {
-    public class SurvivorDeathEvent: Event
+    public class SurvivorWoundedEvent: Event
     {
-        public SurvivorDeathEvent(Survivor survivor)
+        public SurvivorWoundedEvent(Survivor survivor)
         {
-            EventDiscription = $"{survivor.Name} has died tragically due to their wounds.";
+            EventDiscription = $"{survivor.Name} is wounded";
         }
     }
 }

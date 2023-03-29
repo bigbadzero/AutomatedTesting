@@ -22,7 +22,6 @@ public class AddEquipmentScreen : SurvivorScreen, IScreen
         if (_survivor.Equipment.Count < _survivor.MaxEquipment)
         {
             _survivor.AddEquipment(newEquipment);
-            _survivor.ActionsPerTurn--;
             Console.WriteLine($"{_survivor.Name} added {newEquipment.Name} to Equipment List");
         }
         else
