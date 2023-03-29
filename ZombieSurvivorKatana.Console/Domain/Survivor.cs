@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 
+[assembly: InternalsVisibleToAttribute("ZombieZurvivorKatana.Tests")]
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
 public class Survivor
