@@ -34,14 +34,31 @@ public class Survivor
 
     public void AddEquipment(Equipment newEquipment)
     {
-        _equipment.Add(newEquipment);
-        SpendAction();
+        if(Equipment.Count == MaxEquipment)
+        {
+            PushEvent(new InvalidOperationEvent("Equipment is full"));
+        }
+        else
+        {
+            _equipment.Add(newEquipment);
+            SpendAction();
+            PushEvent(new SuccessfulOperationEvent($"{newEquipment.Name} added to {Name}'s inventory"));
+        }
     }
 
     public void DropEquipment(Equipment equipment)
     {
-        _equipment.Remove(equipment);
-        SpendAction();
+        if(Equipment.Count > 0)
+        {
+            _equipment.Remove(equipment);
+            SpendAction();
+            PushEvent(new SuccessfulOperationEvent($"{Name} dropped {equipment.Name}"));
+        }
+        else
+        {
+            PushEvent(new InvalidOperationEvent($"{Name} does not have any equipment currently"));
+        }
+        
     }
 
     public void SetEquipmentToInHand(Equipment equipmentToBeInHand)
@@ -70,16 +87,22 @@ public class Survivor
 
     public void Attack()
     {
-        GainExperience();
-        var random = new Random();
-        var roll = random.Next(1, 10);
-        if(roll > 3) //30% chance to take damage
-            RecieveWound();
-        if (LevelUpCriteriaMet())
+        if (Active)
         {
-            LevelUp();
+            GainExperience();
+            var random = new Random();
+            var roll = random.Next(1, 10);
+            if (roll > 7) //30% chance to take damage
+                RecieveWound();
+            if (LevelUpCriteriaMet())
+            {
+                LevelUp();
+            }
+            SpendAction();
         }
-        SpendAction();
+        else
+            PushEvent(new InvalidOperationEvent("Survivor is not active"));
+        
     }
 
     public void ResetActionsPerTurn()
@@ -89,15 +112,23 @@ public class Survivor
 
     internal void RecieveWound()
     {
-        PushEvent(new SurvivorWoundedEvent(this));
-        Wounds++;
-        if (Wounds == 2)
+        if(Active)
         {
-            Active = false;
-            PushEvent(new SurvivorDeathEvent(this)); 
-        }
+            PushEvent(new SurvivorWoundedEvent(this));
+            Wounds++;
+            if (Wounds == 2)
+            {
+                Active = false;
+                PushEvent(new SurvivorDeathEvent(this));
+            }
 
-        MaxEquipment = MaxEquipment - Wounds;
+            MaxEquipment = MaxEquipment - Wounds;
+        }
+        else
+        {
+            PushEvent(new InvalidOperationEvent("Survivor is not active."));
+        }
+        
     }
 
     private bool CanSetEquipmentToInHand()

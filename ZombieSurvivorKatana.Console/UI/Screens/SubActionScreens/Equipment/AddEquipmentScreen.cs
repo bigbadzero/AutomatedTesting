@@ -19,12 +19,6 @@ public class AddEquipmentScreen : SurvivorScreen, IScreen
         DisplayScreenMessage();
         var newEquipmentName = _game._userInput.GetNameFromUser();
         var newEquipment = new Equipment(newEquipmentName);
-        if (_survivor.Equipment.Count < _survivor.MaxEquipment)
-        {
-            _survivor.AddEquipment(newEquipment);
-            Console.WriteLine($"{_survivor.Name} added {newEquipment.Name} to Equipment List");
-        }
-        else
-            Console.WriteLine("Equipment is full");
+        _survivor.AddEquipment(newEquipment);
     }
 }

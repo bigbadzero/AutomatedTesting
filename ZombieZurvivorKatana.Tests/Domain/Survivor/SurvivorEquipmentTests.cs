@@ -47,5 +47,11 @@ namespace ZombieZurvivorKatana.Tests
             var equipment = survivor.Equipment;
             equipment.ShouldNotContain(gun);
         }
+
+        [Fact]
+        public void SurvivorEquipment_CannotExceedMaximumEquipment()
+        {
+
+        }
     }
 }
