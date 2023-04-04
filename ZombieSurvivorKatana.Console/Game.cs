@@ -1,13 +1,16 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using System.Xml.Linq;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
+using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 namespace ZombieSurvivorKatana.ConsoleApp;
 
 public class Game
 {
     public readonly IUserInput _userInput;
-    private bool GameOver { get; set; }
+    private bool _gameOver { get; set; }
+    public bool GameOver => _gameOver;
     private List<Survivor> _survivors = new List<Survivor>();
     public IReadOnlyList<Survivor> Survivors => _survivors.AsReadOnly();
     private Level Level { get; set; }
@@ -15,22 +18,30 @@ public class Game
     public Game(IUserInput userInput)
     {
         _userInput = userInput;
-        GameOver = false;
+        _gameOver = false;
         Level = Level.Blue;
     }
 
     public void CreateSurvivor(string name)
     {
-        var survivor = new Survivor(name);
-        survivor.Subscribe(HandleSurvivorEvent);
-        _survivors.Add(survivor);
+        var surviviorAlreadyExist = SurvivorAlreadyExists(name);
+        if(surviviorAlreadyExist)
+        {
+            Console.WriteLine($"Survivor with the name {name} already exists");
+        }
+        else
+        {
+            var survivor = new Survivor(name);
+            survivor.Subscribe(HandleSurvivorEvent);
+            _survivors.Add(survivor);
+        }
     }
 
     public void PlayGame()
     {
         var gameStartScreen = new GameStartScreen(this);
         gameStartScreen.Execute();
-        while (!GameOver)
+        while (!_gameOver)
         {
             ResetActionsPerTurn();
             foreach (var survivor in _survivors)
@@ -42,16 +53,18 @@ public class Game
                 }
             }
         }
+        
     }
 
     public void HandleSurvivorEvent(Event @event)
     {
         Console.WriteLine(@event.EventDiscription);
         if (@event is SurvivorDeathEvent)
-        {
+         {
             if (_survivors.All(x => x.Active == false))
             {
-                GameOver= true;
+                _gameOver = true;
+                Console.WriteLine("All survivors are dead. Thanks for playing");
             }
         }
         if(@event is SurvivorLevelUpEvent)

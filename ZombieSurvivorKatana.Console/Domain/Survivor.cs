@@ -58,7 +58,6 @@ public class Survivor
         {
             PushEvent(new InvalidOperationEvent($"{Name} does not have any equipment currently"));
         }
-        
     }
 
     public void SetEquipmentToInHand(Equipment equipmentToBeInHand)
@@ -89,17 +88,20 @@ public class Survivor
     {
         if (Active)
         {
-            GainExperience();
             var random = new Random();
-            var roll = random.Next(1, 10);
-            if (roll > 7) //30% chance to take damage
+            var roll = random.Next(1, 11);
+            if (roll > 7) //30% chance to recieve wound
                 RecieveWound();
-            if (LevelUpCriteriaMet())
+            if(Active)//checks to see if active is still true;
             {
-                LevelUp();
+                GainExperience();
+                if (LevelUpCriteriaMet())
+                    LevelUp();
+                SpendAction();
             }
-            SpendAction();
+            
         }
+            
         else
             PushEvent(new InvalidOperationEvent("Survivor is not active"));
         
@@ -114,15 +116,19 @@ public class Survivor
     {
         if(Active)
         {
-            PushEvent(new SurvivorWoundedEvent(this));
             Wounds++;
             if (Wounds == 2)
             {
                 Active = false;
                 PushEvent(new SurvivorDeathEvent(this));
             }
-
-            MaxEquipment = MaxEquipment - Wounds;
+            else
+            {
+                MaxEquipment = MaxEquipment - Wounds;
+                PushEvent(new SurvivorWoundedEvent(this));
+                if (MaxEquipment < _equipment.Count)
+                    MaxEquipmentExceeded();
+            }
         }
         else
         {
@@ -177,5 +183,16 @@ public class Survivor
             _actionsPerTurn--;
         else
             throw new InvalidOperationException("Actions Per Turn Already 0");
+    }
+
+    private void MaxEquipmentExceeded()
+    {
+        var reserveEquipment = _equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
+        var count = reserveEquipment.Count();
+        var random = new Random();  
+        var index = random.Next(reserveEquipment.Count());
+        var equipment = reserveEquipment[index];
+        _equipment.Remove(equipment);
+        PushEvent(new SurvivorMaxEquipmentExceededEvent(this, equipment));
     }
 }

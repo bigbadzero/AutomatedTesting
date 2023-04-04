@@ -32,5 +32,38 @@ namespace ZombieZurvivorKatana.Tests
 
             survivor.Wounds.ShouldBe(2);
         }
+
+        [Fact]
+        public void Survivior_MaximumEquipmentReduced_AfterRecievingWound()
+        {
+            var survivor = new Survivor("fred");
+
+            survivor.RecieveWound();
+
+            survivor.MaxEquipment.ShouldBe(4);
+        }
+
+        [Fact]
+        public void Survivior_EquipmentGreaterThanCapacity_CausesGearToBeDiscarded()
+        {
+            var survivor = new Survivor("fred");
+            var axe = new Equipment("axe");
+            var sword = new Equipment("sword");
+            var shield = new Equipment("shield");
+            var gun = new Equipment("gun");
+            var spear = new Equipment("spear");
+            survivor.AddEquipment(axe);
+            survivor.AddEquipment(sword);
+            survivor.AddEquipment(shield);
+            survivor.ResetActionsPerTurn();
+            survivor.AddEquipment(gun);
+            survivor.AddEquipment(spear);
+            survivor.ResetActionsPerTurn();
+
+            survivor.RecieveWound();
+
+            survivor.Equipment.Count.ShouldBe(4);
+
+        }
     }
 }

@@ -18,7 +18,7 @@ public class CreateSurvivorScreen : Screen, IScreen
     public void DisplayScreenMessage()
     {
         Console.WriteLine("Enter the name of the new survivor.");
-        Name = _game._userInput.GetNameFromUser();
+        
     }
 
     public void Execute()
@@ -27,6 +27,7 @@ public class CreateSurvivorScreen : Screen, IScreen
         while (!Created)
         {
             DisplayScreenMessage();
+            Name = _game._userInput.GetNameFromUser();
             var surviviorAlreadyExist = _game.SurvivorAlreadyExists(Name);
             if (surviviorAlreadyExist)
                 Console.WriteLine($"Survivor with the name {Name} already exists");

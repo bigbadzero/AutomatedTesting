@@ -26,4 +26,52 @@ public class GameTests
             
     }
 
+    [Fact]
+    public void GameStarts_With0Survivors()
+    {
+        var game = new Game(_userInputMock.Object);
+
+        game.Survivors.Count.ShouldBe(0);
+    }
+
+    [Fact]
+    public void SurvivorNamesWithinGame_MustBeUnique()
+    {
+        var game = new Game(_userInputMock.Object);
+        game.CreateSurvivor("fred");
+        game.CreateSurvivor("fred");
+
+        game.Survivors.Count.ShouldBe(1);
+    }
+
+    [Fact]
+    public void GameEndsWhen_AllSurvivorsHaveDied()
+    {
+        var game = new Game(_userInputMock.Object);
+
+        game.CreateSurvivor("fred");
+        game.CreateSurvivor("bob");
+
+        game.Survivors[0].RecieveWound();
+        game.Survivors[0].RecieveWound();
+        game.Survivors[1].RecieveWound();
+        game.Survivors[1].RecieveWound();
+
+        game.GameOver.ShouldBeTrue();
+    }
+
+    [Fact]
+    public void GameDoesNotEndWhen_ASurvivorsIsStillAlive()
+    {
+        var game = new Game(_userInputMock.Object);
+
+        game.CreateSurvivor("fred");
+        game.CreateSurvivor("bob");
+
+        game.Survivors[0].RecieveWound();
+        game.Survivors[0].RecieveWound();
+
+        game.GameOver.ShouldBeFalse();
+    }
+
 }
