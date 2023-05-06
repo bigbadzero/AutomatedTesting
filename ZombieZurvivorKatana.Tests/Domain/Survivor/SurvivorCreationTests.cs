@@ -52,5 +52,15 @@ namespace ZombieZurvivorKatana.Tests
 
             survivor.ActionsPerTurn.ShouldBe(3);
         }
+
+        [Fact]
+        public void SurvivorCreated_WithLevel_SetToBlue()
+        {
+            var name = "Nick";
+
+            var survivor = new Survivor(name);
+
+            survivor.Level.ShouldBe(Level.Blue);
+        }
     }
 }

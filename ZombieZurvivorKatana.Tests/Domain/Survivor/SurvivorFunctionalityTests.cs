@@ -65,5 +65,100 @@ namespace ZombieZurvivorKatana.Tests
             survivor.Equipment.Count.ShouldBe(4);
 
         }
+
+        [Fact]
+        public void Survivor_LevelsUpToYellow_AfterMeetingLevelUpCriteria()
+        {
+            var survivor = new Survivor("fred");
+
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+
+            survivor.Level.ShouldBe(Level.Yellow);
+        }
+
+        [Fact]
+        public void Survivor_LevelsUpToOrange_AfterMeetingLevelUpCriteria()
+        {
+            var survivor = new Survivor("fred");
+
+            //18 times
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+
+            survivor.Level.ShouldBe(Level.Orange);
+        }
+
+        [Fact]
+        public void Survivor_LevelsUpToRed_AfterMeetingLevelUpCriteria()
+        {
+            var survivor = new Survivor("fred");
+
+            //42 times
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+            survivor.GainExperience();
+
+            survivor.Level.ShouldBe(Level.Red);
+        }
     }
 }

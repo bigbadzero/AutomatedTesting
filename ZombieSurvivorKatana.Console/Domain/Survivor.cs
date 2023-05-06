@@ -95,16 +95,11 @@ public class Survivor
             if(Active)//checks to see if active is still true;
             {
                 GainExperience();
-                if (LevelUpCriteriaMet())
-                    LevelUp();
                 SpendAction();
             }
-            
         }
-            
         else
             PushEvent(new InvalidOperationEvent("Survivor is not active"));
-        
     }
 
     public void ResetActionsPerTurn()
@@ -152,9 +147,11 @@ public class Survivor
         }
     }
 
-    private void GainExperience()
+    internal void GainExperience()
     {
         Experience++;
+        if (LevelUpCriteriaMet())
+            LevelUp();
     }
 
     private bool LevelUpCriteriaMet()

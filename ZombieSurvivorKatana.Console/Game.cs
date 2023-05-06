@@ -13,13 +13,14 @@ public class Game
     public bool GameOver => _gameOver;
     private List<Survivor> _survivors = new List<Survivor>();
     public IReadOnlyList<Survivor> Survivors => _survivors.AsReadOnly();
-    private Level Level { get; set; }
+    private Level _level { get; set; }
+    public Level Level { get { return _level; } }
 
     public Game(IUserInput userInput)
     {
         _userInput = userInput;
         _gameOver = false;
-        Level = Level.Blue;
+        _level = Level.Blue;
     }
 
     public void CreateSurvivor(string name)
@@ -79,7 +80,7 @@ public class Game
             }
             if(highestLevel > currentLevel)
             {
-                Level = (Level)Enum.ToObject(typeof(Level), highestLevel);
+                _level = (Level)Enum.ToObject(typeof(Level), highestLevel);
                 Console.WriteLine($"The Game has leveled up to {Level}!!");
             }
         }
