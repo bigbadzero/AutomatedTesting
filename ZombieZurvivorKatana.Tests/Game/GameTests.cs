@@ -75,6 +75,14 @@ public class GameTests
     }
 
     [Fact]
+    public void Game_StartsAt_BlueLevel()
+    {
+
+        var game = new Game(_baseUserInputMock.Object);
+        game.Level.ShouldBe(Level.Blue);
+    }
+
+    [Fact]
     public void Game_LevelsUp_WhenSurvivorLevelsUp()
     {
         var game = new Game(_baseUserInputMock.Object);

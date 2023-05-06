@@ -16,7 +16,8 @@ public class Survivor
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
     public int MaxEquipment { get; internal set; }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
-    private int Experience { get; set; } 
+    private int _experience { get; set; }
+    public int Experience { get { return _experience;  } }
     private Level _level { get; set; }
     public Level Level { get { return _level; } }
 
@@ -28,7 +29,7 @@ public class Survivor
         Active = true;
         _equipment = new List<Equipment>();
         MaxEquipment = 5;
-        Experience = 0;
+        _experience = 0;
         _level = Level.Blue;
     }
 
@@ -149,14 +150,14 @@ public class Survivor
 
     internal void GainExperience()
     {
-        Experience++;
+        _experience++;
         if (LevelUpCriteriaMet())
             LevelUp();
     }
 
     private bool LevelUpCriteriaMet()
     {
-        if (Experience == 6 || Experience == 18 || Experience == 42)
+        if (_experience == 6 || _experience == 18 || _experience == 42)
             return true;
         else
             return false;
