@@ -1,0 +1,17 @@
+2023-05-06 16:04:12.420 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:04:12 PM
+2023-05-06 16:04:15.636 -05:00 [INF] adam was created!
+2023-05-06 16:05:20.729 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:05:20 PM
+2023-05-06 16:05:24.098 -05:00 [INF] adam was added to the game!
+2023-05-06 16:05:25.413 -05:00 [INF] zack was added to the game!
+2023-05-06 16:07:22.534 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:07:22 PM
+2023-05-06 16:07:32.939 -05:00 [INF] adam was added to the game!
+2023-05-06 16:07:47.080 -05:00 [INF] zack was added to the game!
+2023-05-06 16:07:56.392 -05:00 [INF] axe added to adam's inventory
+2023-05-06 16:09:15.602 -05:00 [INF] adam is wounded
+2023-05-07 10:02:08.746 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:02:08 AM
+2023-05-07 10:02:30.906 -05:00 [INF] adam was added to the game!
+2023-05-07 10:04:57.828 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:04:57 AM
+2023-05-07 10:05:04.457 -05:00 [INF] adam was added to the game!
+2023-05-07 10:09:44.376 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:09:44 AM
+2023-05-07 10:09:55.288 -05:00 [INF] adam was added to the game!
+2023-05-07 10:10:08.196 -05:00 [INF] adam killed the zombie

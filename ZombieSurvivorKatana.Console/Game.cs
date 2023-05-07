@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using Serilog;
+using System.Xml.Linq;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
@@ -15,18 +16,24 @@ public class Game
     public IReadOnlyList<Survivor> Survivors => _survivors.AsReadOnly();
     private Level _level { get; set; }
     public Level Level { get { return _level; } }
+    private Serilog.Core.Logger Logger { get; set; }
 
     public Game(IUserInput userInput)
     {
         _userInput = userInput;
         _gameOver = false;
         _level = Level.Blue;
+        Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File("G:\\projects\\AutomatedTesting\\ZombieSurvivorKatana.Console\\logs.txt")
+            .CreateLogger();
+        Logger.Information($"Zombie Survivor Game Started {DateTime.Now}");
     }
 
     public void CreateSurvivor(string name)
     {
         var surviviorAlreadyExist = SurvivorAlreadyExists(name);
-        if(surviviorAlreadyExist)
+        if (surviviorAlreadyExist)
         {
             Console.WriteLine($"Survivor with the name {name} already exists");
         }
@@ -35,6 +42,7 @@ public class Game
             var survivor = new Survivor(name);
             survivor.Subscribe(HandleSurvivorEvent);
             _survivors.Add(survivor);
+            HandleSurvivorEvent(new SurvivorCreatedEvent(survivor));
         }
     }
 
@@ -54,37 +62,37 @@ public class Game
                 }
             }
         }
-        
+
     }
 
     public void HandleSurvivorEvent(Event @event)
     {
-        Console.WriteLine(@event.EventDiscription);
+        Logger.Information(@event.EventDiscription);
         if (@event is SurvivorDeathEvent)
-         {
+        {
             if (_survivors.All(x => x.Active == false))
             {
                 _gameOver = true;
                 Console.WriteLine("All survivors are dead. Thanks for playing");
             }
         }
-        if(@event is SurvivorLevelUpEvent)
+        if (@event is SurvivorLevelUpEvent)
         {
             var currentLevel = (int)Level;
             var highestLevel = 0;
             foreach (var survivor in _survivors)
             {
                 var level = (int)survivor.Level;
-                if(level > highestLevel)
+                if (level > highestLevel)
                     highestLevel = level;
             }
-            if(highestLevel > currentLevel)
+            if (highestLevel > currentLevel)
             {
                 _level = (Level)Enum.ToObject(typeof(Level), highestLevel);
-                Console.WriteLine($"The Game has leveled up to {Level}!!");
+                Logger.Information($"The Game has leveled up to {Level}!!");
             }
         }
-        
+
     }
 
     public bool SurvivorAlreadyExists(string name)

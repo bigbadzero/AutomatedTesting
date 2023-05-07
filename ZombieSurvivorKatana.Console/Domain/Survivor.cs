@@ -95,6 +95,7 @@ public class Survivor
                 RecieveWound();
             if(Active)//checks to see if active is still true;
             {
+                PushEvent(new SurvivorKilledZombieEvent(this));
                 GainExperience();
                 SpendAction();
             }

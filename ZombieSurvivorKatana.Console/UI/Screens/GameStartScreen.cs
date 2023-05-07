@@ -16,7 +16,6 @@ public class GameStartScreen : Screen, IScreen
 
     public void Execute()
     {
-        ClearScreen();
         DisplayScreenMessage();
         var numOfUsers = _game._userInput.GetIntFromUser();
         CreateInitialSurvivors(numOfUsers);

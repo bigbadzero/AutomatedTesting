@@ -17,7 +17,6 @@ namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens
         public void DisplayScreenMessage()
         {
             ClearScreen();
-            Console.WriteLine($"{_survivor.Name} kills a zombie!!");
         }
 
         public void Execute()
