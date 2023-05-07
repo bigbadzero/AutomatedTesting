@@ -1,4 +1,6 @@
-﻿namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+
+namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 
 public abstract class Screen
 {

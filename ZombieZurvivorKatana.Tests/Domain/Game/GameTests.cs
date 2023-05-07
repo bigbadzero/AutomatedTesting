@@ -4,7 +4,8 @@ using ZombieSurvivorKatana.ConsoleApp;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieZurvivorKatana.Tests.Mocks;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
-namespace ZombieZurvivorKatana.Tests;
+
+namespace ZombieZurvivorKatana.Tests.Domain;
 
 public class GameTests
 {
@@ -23,7 +24,7 @@ public class GameTests
         game.CreateSurvivor(jack);
 
         game.SurvivorAlreadyExists(jack).ShouldBeTrue();
-            
+
     }
 
     [Fact]
@@ -100,7 +101,7 @@ public class GameTests
         game.Level.ShouldBe(Level.Yellow);
     }
 
-    [Fact] 
+    [Fact]
     public void GamesLevel_EqualsLevel_OfHighestLevelSurvivor()
     {
         var game = new Game(_baseUserInputMock.Object);

@@ -1,11 +1,10 @@
 ﻿using Serilog;
 using System.Xml.Linq;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
-namespace ZombieSurvivorKatana.ConsoleApp;
+namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
 public class Game
 {

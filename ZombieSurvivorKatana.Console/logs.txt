@@ -553,3 +553,10 @@
 2023-05-07 17:53:06.642 -05:00 [INF] fred was added to the game!
 2023-05-07 18:01:39.448 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 6:01:39 PM
 2023-05-07 18:01:39.454 -05:00 [INF] fred was added to the game!
+2023-05-07 18:03:56.303 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 6:03:56 PM
+2023-05-07 18:03:56.310 -05:00 [INF] fred was added to the game!
+2023-05-07 18:05:09.796 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 6:05:09 PM
+2023-05-07 18:05:09.803 -05:00 [INF] fred was added to the game!
+2023-05-07 18:05:09.803 -05:00 [INF] bob was added to the game!
+2023-05-07 18:05:09.803 -05:00 [INF] fred is wounded
+2023-05-07 18:05:09.803 -05:00 [INF] fred has died tragically due to their wounds.

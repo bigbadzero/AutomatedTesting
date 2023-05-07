@@ -1,4 +1,5 @@
-﻿using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.UI.Screens.contracts;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens.CreateCharacter;
 
 namespace ZombieSurvivorKatana.ConsoleApp.UI.Screens;

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp;
+using ZombieSurvivorKatana.ConsoleApp.Domain;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 
 var services = new ServiceCollection();
