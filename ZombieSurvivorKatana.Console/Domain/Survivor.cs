@@ -19,13 +19,15 @@ public class Survivor
     private List<Equipment> _equipment { get; set; }
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
     internal int MaxEquipment { get; set; }
-    private int CurrentMaxEquipment { get; set; }
+    private int _currentMaxEquipment { get; set; }
+    public int CurrentMaxEquipment { get { return _currentMaxEquipment; } }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
     private int _experience { get; set; }
     public int Experience { get { return _experience; } }
     private Level _level { get; set; }
     public Level Level { get { return _level; } }
-    private SkillTree SkillTree { get; set; } = new SkillTree();
+    private SkillTree _skillTree { get; set; } = new SkillTree();
+    public SkillTree SkillTree { get { return _skillTree; } }
     internal bool CheatDeath { get; set; }
     internal bool DoubleExp { get; set; }
     internal bool Tough { get; set; }
@@ -40,10 +42,10 @@ public class Survivor
         Active = true;
         _equipment = new List<Equipment>();
         MaxEquipment = 5;
-        CurrentMaxEquipment = MaxEquipment;
+        _currentMaxEquipment = MaxEquipment;
         _experience = 0;
         _level = Level.Blue;
-        MaxWounds = 3;
+        MaxWounds = 2;
         CheatDeath = false;
         DoubleExp = false;
         Tough = false;
@@ -52,7 +54,7 @@ public class Survivor
 
     public void AddEquipment(Equipment newEquipment)
     {
-        if(Equipment.Count == CurrentMaxEquipment)
+        if(Equipment.Count == _currentMaxEquipment)
         {
             PushEvent(new InvalidOperationEvent("Equipment is full"));
         }
@@ -143,7 +145,7 @@ public class Survivor
                 Active = false;
                 PushEvent(new SurvivorDeathEvent(this));
             }
-            else if(Wounds == MaxWounds && !CheatDeath)
+            else if(Wounds == MaxWounds && CheatDeath)
             {
                 Wounds--;
                 CheatDeath = false;
@@ -151,9 +153,9 @@ public class Survivor
             }
             else
             {
-                CurrentMaxEquipment = MaxEquipment - Wounds;
+                _currentMaxEquipment = MaxEquipment - Wounds;
                 PushEvent(new SurvivorWoundedEvent(this));
-                if (CurrentMaxEquipment < _equipment.Count)
+                if (_currentMaxEquipment < _equipment.Count)
                     MaxEquipmentExceeded();
             }
         }
@@ -186,8 +188,8 @@ public class Survivor
             LevelUp();
         if (SkillUpCriteriaMet())
         {
-            SkillTree.SkillUp(_experience);
-            foreach(var skill in SkillTree.UnlockedSkills)
+            _skillTree.SkillUp(_experience);
+            foreach(var skill in _skillTree.UnlockedSkills)
             {
                 if (!skill.Applied)
                     skill.ApplySkill(this);

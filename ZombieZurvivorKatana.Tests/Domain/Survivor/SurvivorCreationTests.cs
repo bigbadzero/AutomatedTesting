@@ -60,13 +60,23 @@ namespace ZombieZurvivorKatana.Tests
         }
 
         [Fact]
-        public void SurvivorCreated_WithLevel_SetToBlue()
+        public void SurvivorCreatedWithLevel_SetToBlue()
         {
             var name = "Nick";
 
             var survivor = new Survivor(name);
 
             survivor.Level.ShouldBe(Level.Blue);
+        }
+
+        [Fact]
+        public void SurvivorCreatedWith_SkillTree()
+        {
+            var name = "Nick";
+
+            var survivor = new Survivor(name);
+
+            survivor.SkillTree.UnlockedSkills.ShouldBeEmpty();
         }
     }
 }

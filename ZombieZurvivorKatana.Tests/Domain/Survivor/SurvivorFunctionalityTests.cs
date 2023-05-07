@@ -35,13 +35,13 @@ namespace ZombieZurvivorKatana.Tests
         }
 
         [Fact]
-        public void Survivior_MaximumEquipmentReduced_AfterRecievingWound()
+        public void Survivior_CurrentMaximumEquipmentReduced_AfterRecievingWound()
         {
             var survivor = new Survivor("fred");
 
             survivor.RecieveWound();
 
-            survivor.MaxEquipment.ShouldBe(4);
+            survivor.CurrentMaxEquipment.ShouldBe(4);
         }
 
         [Fact]

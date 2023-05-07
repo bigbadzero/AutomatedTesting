@@ -549,3 +549,7 @@
 2023-05-07 14:06:26.042 -05:00 [INF] zack killed the zombie
 2023-05-07 14:06:26.480 -05:00 [INF] zack killed the zombie
 2023-05-07 14:06:43.115 -05:00 [INF] zack killed the zombie
+2023-05-07 17:53:06.635 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 5:53:06 PM
+2023-05-07 17:53:06.642 -05:00 [INF] fred was added to the game!
+2023-05-07 18:01:39.448 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 6:01:39 PM
+2023-05-07 18:01:39.454 -05:00 [INF] fred was added to the game!
