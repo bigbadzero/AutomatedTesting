@@ -1,321 +1,551 @@
-2023-05-06 16:04:12.420 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:04:12 PM
-2023-05-06 16:04:15.636 -05:00 [INF] adam was created!
-2023-05-06 16:05:20.729 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:05:20 PM
-2023-05-06 16:05:24.098 -05:00 [INF] adam was added to the game!
-2023-05-06 16:05:25.413 -05:00 [INF] zack was added to the game!
-2023-05-06 16:07:22.534 -05:00 [INF] Zombie Survivor Game Started 5/6/2023 4:07:22 PM
-2023-05-06 16:07:32.939 -05:00 [INF] adam was added to the game!
-2023-05-06 16:07:47.080 -05:00 [INF] zack was added to the game!
-2023-05-06 16:07:56.392 -05:00 [INF] axe added to adam's inventory
-2023-05-06 16:09:15.602 -05:00 [INF] adam is wounded
-2023-05-07 10:02:08.746 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:02:08 AM
-2023-05-07 10:02:30.906 -05:00 [INF] adam was added to the game!
-2023-05-07 10:04:57.828 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:04:57 AM
-2023-05-07 10:05:04.457 -05:00 [INF] adam was added to the game!
-2023-05-07 10:09:44.376 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 10:09:44 AM
-2023-05-07 10:09:55.288 -05:00 [INF] adam was added to the game!
-2023-05-07 10:10:08.196 -05:00 [INF] adam killed the zombie
-2023-05-07 11:52:01.833 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:52:01 AM
-2023-05-07 11:52:01.840 -05:00 [INF] fred was added to the game!
-2023-05-07 11:55:59.006 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:55:59 AM
-2023-05-07 11:55:59.012 -05:00 [INF] fred was added to the game!
-2023-05-07 11:56:45.548 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:56:45 AM
-2023-05-07 11:56:45.555 -05:00 [INF] fred was added to the game!
-2023-05-07 11:57:40.535 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:57:40 AM
-2023-05-07 11:57:40.543 -05:00 [INF] fred was added to the game!
-2023-05-07 11:58:29.319 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:58:29 AM
-2023-05-07 11:58:29.325 -05:00 [INF] fred was added to the game!
-2023-05-07 11:59:04.440 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 11:59:04 AM
-2023-05-07 11:59:04.447 -05:00 [INF] fred was added to the game!
-2023-05-07 13:25:26.404 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:25:26 PM
-2023-05-07 13:25:29.775 -05:00 [INF] adam was added to the game!
-2023-05-07 13:25:30.649 -05:00 [INF] zack was added to the game!
-2023-05-07 13:25:31.612 -05:00 [INF] gunner was added to the game!
-2023-05-07 13:25:39.524 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:25:44.211 -05:00 [INF] adam killed the zombie
-2023-05-07 13:25:51.121 -05:00 [INF] adam is wounded
-2023-05-07 13:25:51.122 -05:00 [INF] adam killed the zombie
-2023-05-07 13:26:51.148 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:26:52.263 -05:00 [INF] zack is wounded
-2023-05-07 13:26:52.264 -05:00 [INF] zack killed the zombie
-2023-05-07 13:26:53.520 -05:00 [INF] zack has died tragically due to their wounds.
-2023-05-07 13:27:03.090 -05:00 [INF] gun added to gunner's inventory
-2023-05-07 13:27:04.177 -05:00 [INF] gunner is wounded
-2023-05-07 13:27:04.177 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:27:05.000 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:27:06.035 -05:00 [INF] adam has died tragically due to their wounds.
-2023-05-07 13:27:06.716 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:27:07.494 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:27:08.162 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:27:09.375 -05:00 [INF] gunner has died tragically due to their wounds.
-2023-05-07 13:27:44.159 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:27:44 PM
-2023-05-07 13:27:48.938 -05:00 [INF] adam was added to the game!
-2023-05-07 13:27:50.225 -05:00 [INF] zack was added to the game!
-2023-05-07 13:27:51.327 -05:00 [INF] gunner was added to the game!
-2023-05-07 13:27:55.390 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:27:58.072 -05:00 [INF] adam killed the zombie
-2023-05-07 13:27:59.428 -05:00 [INF] adam is wounded
-2023-05-07 13:27:59.430 -05:00 [INF] adam killed the zombie
-2023-05-07 13:28:28.398 -05:00 [INF] axe added to zack's inventory
-2023-05-07 13:28:29.667 -05:00 [INF] zack killed the zombie
-2023-05-07 13:28:31.472 -05:00 [INF] zack is wounded
-2023-05-07 13:28:31.473 -05:00 [INF] zack killed the zombie
-2023-05-07 13:29:11.560 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:29:11 PM
-2023-05-07 13:29:16.542 -05:00 [INF] adam was added to the game!
-2023-05-07 13:29:18.064 -05:00 [INF] zack was added to the game!
-2023-05-07 13:29:24.786 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:29:40.173 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:29:40 PM
-2023-05-07 13:29:44.193 -05:00 [INF] adam was added to the game!
-2023-05-07 13:29:45.208 -05:00 [INF] zack was added to the game!
-2023-05-07 13:29:52.316 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:30:17.449 -05:00 [INF] adam is wounded
-2023-05-07 13:30:17.450 -05:00 [INF] adam killed the zombie
-2023-05-07 13:30:43.034 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:31:02.404 -05:00 [INF] zack killed the zombie
-2023-05-07 13:31:09.370 -05:00 [INF] adam killed the zombie
-2023-05-07 13:31:10.480 -05:00 [INF] adam has died tragically due to their wounds.
-2023-05-07 13:31:11.769 -05:00 [INF] zack is wounded
-2023-05-07 13:31:11.769 -05:00 [INF] zack killed the zombie
-2023-05-07 13:31:13.354 -05:00 [INF] zack killed the zombie
-2023-05-07 13:31:15.180 -05:00 [INF] zack has died tragically due to their wounds.
-2023-05-07 13:31:45.067 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:31:45 PM
-2023-05-07 13:31:54.154 -05:00 [INF] adam was added to the game!
-2023-05-07 13:31:55.167 -05:00 [INF] zack was added to the game!
-2023-05-07 13:31:59.171 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:32:09.465 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:15.675 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:32:22.814 -05:00 [INF] zack killed the zombie
-2023-05-07 13:32:25.867 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:26.503 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:27.029 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:27.870 -05:00 [INF] zack is wounded
-2023-05-07 13:32:27.870 -05:00 [INF] zack killed the zombie
-2023-05-07 13:32:29.270 -05:00 [INF] zack killed the zombie
-2023-05-07 13:32:30.699 -05:00 [INF] zack killed the zombie
-2023-05-07 13:32:31.764 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:32.734 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:33.273 -05:00 [INF] adam killed the zombie
-2023-05-07 13:32:33.276 -05:00 [INF] adam has leveled up to Yellow
-2023-05-07 13:32:33.276 -05:00 [INF] The Game has leveled up to Yellow!!
-2023-05-07 13:37:12.470 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:37:12 PM
-2023-05-07 13:37:15.399 -05:00 [INF] adam was added to the game!
-2023-05-07 13:37:16.282 -05:00 [INF] zack was added to the game!
-2023-05-07 13:37:23.774 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:37:33.531 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:38.036 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:37:44.828 -05:00 [INF] zack killed the zombie
-2023-05-07 13:37:46.727 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:47.319 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:47.868 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:48.438 -05:00 [INF] zack killed the zombie
-2023-05-07 13:37:49.086 -05:00 [INF] zack killed the zombie
-2023-05-07 13:37:49.651 -05:00 [INF] zack is wounded
-2023-05-07 13:37:49.651 -05:00 [INF] zack killed the zombie
-2023-05-07 13:37:51.030 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:52.699 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:53.587 -05:00 [INF] adam killed the zombie
-2023-05-07 13:37:53.589 -05:00 [INF] adam has leveled up to Yellow
-2023-05-07 13:37:53.590 -05:00 [INF] The Game has leveled up to Yellow!!
-2023-05-07 13:38:02.536 -05:00 [INF] adam gained Plus 1 Action Skill
-2023-05-07 13:38:07.182 -05:00 [INF] adam is wounded
-2023-05-07 13:38:07.182 -05:00 [INF] adam killed the zombie
-2023-05-07 13:38:10.839 -05:00 [INF] zack killed the zombie
-2023-05-07 13:38:12.406 -05:00 [INF] zack has died tragically due to their wounds.
-2023-05-07 13:40:08.314 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:40:08 PM
-2023-05-07 13:40:13.328 -05:00 [INF] adam was added to the game!
-2023-05-07 13:40:14.242 -05:00 [INF] zack was added to the game!
-2023-05-07 13:40:15.213 -05:00 [INF] gunner was added to the game!
-2023-05-07 13:40:20.253 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:40:25.005 -05:00 [INF] adam is wounded
-2023-05-07 13:40:25.006 -05:00 [INF] adam killed the zombie
-2023-05-07 13:40:33.704 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:40:37.793 -05:00 [INF] zack killed the zombie
-2023-05-07 13:40:44.467 -05:00 [INF] gun added to gunner's inventory
-2023-05-07 13:40:49.435 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:40:52.074 -05:00 [INF] adam killed the zombie
-2023-05-07 13:40:53.057 -05:00 [INF] adam has died tragically due to their wounds.
-2023-05-07 13:40:55.082 -05:00 [INF] zack killed the zombie
-2023-05-07 13:40:55.955 -05:00 [INF] zack killed the zombie
-2023-05-07 13:40:56.638 -05:00 [INF] zack killed the zombie
-2023-05-07 13:40:57.788 -05:00 [INF] gunner is wounded
-2023-05-07 13:40:57.789 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:40:59.359 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:41:00.734 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:41:02.450 -05:00 [INF] zack killed the zombie
-2023-05-07 13:41:03.055 -05:00 [INF] zack is wounded
-2023-05-07 13:41:03.056 -05:00 [INF] zack killed the zombie
-2023-05-07 13:41:04.032 -05:00 [INF] zack killed the zombie
-2023-05-07 13:41:04.034 -05:00 [INF] zack has leveled up to Yellow
-2023-05-07 13:41:04.035 -05:00 [INF] The Game has leveled up to Yellow!!
-2023-05-07 13:41:08.337 -05:00 [INF] zack gained Plus 1 Action Skill
-2023-05-07 13:41:22.070 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:41:23.757 -05:00 [INF] gunner has died tragically due to their wounds.
-2023-05-07 13:42:29.959 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:42:29 PM
-2023-05-07 13:42:33.903 -05:00 [INF] adam was added to the game!
-2023-05-07 13:42:34.791 -05:00 [INF] zack was added to the game!
-2023-05-07 13:42:35.812 -05:00 [INF] gunner was added to the game!
-2023-05-07 13:42:39.918 -05:00 [INF] axe added to adam's inventory
-2023-05-07 13:42:46.516 -05:00 [INF] adam killed the zombie
-2023-05-07 13:42:52.332 -05:00 [INF] sword added to zack's inventory
-2023-05-07 13:42:56.903 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:06.649 -05:00 [INF] gun added to gunner's inventory
-2023-05-07 13:43:11.051 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:12.779 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:13.835 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:14.644 -05:00 [INF] adam is wounded
-2023-05-07 13:43:14.645 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:15.858 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:16.538 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:17.155 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:17.769 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:18.373 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:18.905 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:19.440 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:20.040 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:20.560 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:20.563 -05:00 [INF] adam has leveled up to Yellow
-2023-05-07 13:43:20.564 -05:00 [INF] The Game has leveled up to Yellow!!
-2023-05-07 13:43:20.565 -05:00 [INF] adam gained Plus 1 Action Skill
-2023-05-07 13:43:24.177 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:25.636 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:26.354 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:26.354 -05:00 [INF] zack has leveled up to Yellow
-2023-05-07 13:43:26.355 -05:00 [INF] zack gained Plus 1 Action Skill
-2023-05-07 13:43:30.421 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:31.717 -05:00 [INF] gunner is wounded
-2023-05-07 13:43:31.718 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:32.622 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:32.623 -05:00 [INF] gunner has leveled up to Yellow
-2023-05-07 13:43:32.623 -05:00 [INF] gunner gained Plus 1 Action Skill
-2023-05-07 13:43:33.991 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:35.199 -05:00 [INF] adam is wounded
-2023-05-07 13:43:35.200 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:36.711 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:37.711 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:38.485 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:39.379 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:40.083 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:40.853 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:41.555 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:42.609 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:43.269 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:44.118 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:46.069 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:46.772 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:47.413 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:48.000 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:48.726 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:49.491 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:50.156 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:50.757 -05:00 [INF] zack is wounded
-2023-05-07 13:43:50.758 -05:00 [INF] zack killed the zombie
-2023-05-07 13:43:51.950 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:52.955 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:53.500 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:54.042 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:43:55.859 -05:00 [INF] adam killed the zombie
-2023-05-07 13:43:58.304 -05:00 [INF] adam killed the zombie
-2023-05-07 13:44:00.020 -05:00 [INF] adam has died tragically due to their wounds.
-2023-05-07 13:44:02.806 -05:00 [INF] zack killed the zombie
-2023-05-07 13:44:03.388 -05:00 [INF] zack killed the zombie
-2023-05-07 13:44:04.128 -05:00 [INF] zack killed the zombie
-2023-05-07 13:44:04.815 -05:00 [INF] zack killed the zombie
-2023-05-07 13:44:04.815 -05:00 [INF] zack has leveled up to Orange
-2023-05-07 13:44:04.816 -05:00 [INF] The Game has leveled up to Orange!!
-2023-05-07 13:44:12.025 -05:00 [INF] zack gained Plus 1 Dodge skill
-2023-05-07 13:44:19.979 -05:00 [INF] gunner is wounded
-2023-05-07 13:44:19.979 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:44:20.826 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:44:21.532 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:44:22.346 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:44:22.346 -05:00 [INF] gunner has leveled up to Orange
-2023-05-07 13:45:05.753 -05:00 [INF] gunner gained Plus 1 Dodge skill
-2023-05-07 13:45:09.697 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:10.935 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:11.689 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:12.312 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:13.060 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:14.034 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:14.698 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:15.227 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:15.935 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:16.554 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:17.157 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:18.344 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:19.371 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:19.952 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:20.519 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:21.029 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:21.580 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:22.312 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:22.816 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:23.291 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:23.809 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:24.302 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:24.976 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:25.461 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:25.947 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:26.390 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:26.842 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:27.248 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:27.703 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:28.244 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:28.743 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:29.265 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:29.799 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:30.323 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:30.882 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:31.460 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:32.027 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:32.657 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:33.249 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:33.744 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:45:34.262 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:34.852 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:35.439 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:35.967 -05:00 [INF] zack killed the zombie
-2023-05-07 13:45:35.968 -05:00 [INF] zack has leveled up to Red
-2023-05-07 13:45:35.968 -05:00 [INF] The Game has leveled up to Red!!
-2023-05-07 13:45:47.742 -05:00 [INF] zack gained Plus 1 Max Wounds Skill
-2023-05-07 13:46:00.063 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:01.287 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:01.993 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:02.704 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:02.705 -05:00 [INF] gunner has leveled up to Red
-2023-05-07 13:46:07.020 -05:00 [INF] gunner has gained Double Exp Skill
-2023-05-07 13:46:11.181 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:12.044 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:12.591 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:13.129 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:13.670 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:14.426 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:14.950 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:15.465 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:15.987 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:16.524 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:17.000 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:17.468 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:17.940 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:18.409 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:19.003 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:19.488 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:19.986 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:20.490 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:20.980 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:21.474 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:22.023 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:25.784 -05:00 [INF] gunner has gained the Tough Skill
-2023-05-07 13:46:34.058 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:34.811 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:35.489 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:36.424 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:37.070 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:37.711 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:38.244 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:38.858 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:39.670 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:40.222 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:40.771 -05:00 [INF] gunner killed the zombie
-2023-05-07 13:46:41.739 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:42.338 -05:00 [INF] zack killed the zombie
-2023-05-07 13:46:47.462 -05:00 [INF] zack has gained the Tough Skill
+2023-05-07 13:48:46.391 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:48:46 PM
+2023-05-07 13:48:50.298 -05:00 [INF] adam was added to the game!
+2023-05-07 13:48:52.380 -05:00 [INF] zack was added to the game!
+2023-05-07 13:48:54.381 -05:00 [INF] kaleb was added to the game!
+2023-05-07 13:49:03.151 -05:00 [INF] sword of gondor added to adam's inventory
+2023-05-07 13:49:21.561 -05:00 [INF] shield added to adam's inventory
+2023-05-07 13:49:38.185 -05:00 [INF] staff of gayness added to zack's inventory
+2023-05-07 13:49:46.578 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:08.160 -05:00 [INF] Gun added to kaleb's inventory
+2023-05-07 13:50:12.765 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:14.832 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:15.489 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:16.088 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:16.668 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:17.220 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:17.811 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:18.361 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:19.072 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:19.664 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:20.222 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:20.819 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:21.346 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:21.869 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:22.373 -05:00 [INF] zack is wounded
+2023-05-07 13:50:22.374 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:23.292 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:23.295 -05:00 [INF] zack has leveled up to Yellow
+2023-05-07 13:50:23.295 -05:00 [INF] The Game has leveled up to Yellow!!
+2023-05-07 13:50:23.296 -05:00 [INF] zack gained Plus 1 Action Skill
+2023-05-07 13:50:28.664 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:30.094 -05:00 [INF] kaleb is wounded
+2023-05-07 13:50:30.094 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:33.699 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:33.699 -05:00 [INF] kaleb has leveled up to Yellow
+2023-05-07 13:50:33.700 -05:00 [INF] kaleb gained Plus 1 Action Skill
+2023-05-07 13:50:37.260 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:37.260 -05:00 [INF] adam has leveled up to Yellow
+2023-05-07 13:50:37.260 -05:00 [INF] adam gained Plus 1 Action Skill
+2023-05-07 13:50:40.098 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:41.277 -05:00 [INF] adam is wounded
+2023-05-07 13:50:41.278 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:42.703 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:43.414 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:43.936 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:44.450 -05:00 [INF] zack is wounded
+2023-05-07 13:50:44.451 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:47.146 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:47.897 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:48.388 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:48.823 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:50.239 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:50.903 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:51.469 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:52.082 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:53.559 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:54.034 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:54.488 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:54.911 -05:00 [INF] zack killed the zombie
+2023-05-07 13:50:55.899 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:56.339 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:56.823 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:57.307 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:50:58.372 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:58.867 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:59.440 -05:00 [INF] adam killed the zombie
+2023-05-07 13:50:59.961 -05:00 [INF] adam killed the zombie
+2023-05-07 13:51:00.811 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:01.288 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:01.743 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:02.183 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:02.183 -05:00 [INF] zack has leveled up to Orange
+2023-05-07 13:51:02.183 -05:00 [INF] The Game has leveled up to Orange!!
+2023-05-07 13:51:07.299 -05:00 [INF] zack has gained the Tough Skill
+2023-05-07 13:51:16.337 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:17.449 -05:00 [INF] kaleb is wounded
+2023-05-07 13:51:17.450 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:18.162 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:18.837 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:18.837 -05:00 [INF] kaleb has leveled up to Orange
+2023-05-07 13:51:25.493 -05:00 [INF] kaleb gained Plus 1 Dodge skill
+2023-05-07 13:51:32.934 -05:00 [INF] adam is wounded
+2023-05-07 13:51:32.935 -05:00 [INF] adam killed the zombie
+2023-05-07 13:51:34.148 -05:00 [INF] adam has died tragically due to their wounds.
+2023-05-07 13:51:37.189 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:37.815 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:38.315 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:38.777 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:39.468 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:39.981 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:40.475 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:40.991 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:41.638 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:42.177 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:42.657 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:43.139 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:43.716 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:44.192 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:44.689 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:45.167 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:45.665 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:46.122 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:46.603 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:47.053 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:47.493 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:47.946 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:48.446 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:48.900 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:49.342 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:49.798 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:50.260 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:50.669 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:51.147 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:51.624 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:52.039 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:52.458 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:52.907 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:53.325 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:53.756 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:54.178 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:54.615 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:55.100 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:55.571 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:56.001 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:51:56.457 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:56.933 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:57.359 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:57.802 -05:00 [INF] zack killed the zombie
+2023-05-07 13:51:57.803 -05:00 [INF] zack has leveled up to Red
+2023-05-07 13:51:57.804 -05:00 [INF] The Game has leveled up to Red!!
+2023-05-07 13:52:01.833 -05:00 [INF] zack gained Cheat Death Skill
+2023-05-07 13:52:13.934 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:52:16.142 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:52:16.694 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:52:17.217 -05:00 [INF] kaleb killed the zombie
+2023-05-07 13:52:17.218 -05:00 [INF] kaleb has leveled up to Red
+2023-05-07 13:52:20.564 -05:00 [INF] kaleb has gained Double Exp Skill
+2023-05-07 13:52:22.832 -05:00 [INF] zack is wounded
+2023-05-07 13:56:04.828 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 1:56:04 PM
+2023-05-07 13:56:08.891 -05:00 [INF] adam was added to the game!
+2023-05-07 13:56:09.752 -05:00 [INF] zack was added to the game!
+2023-05-07 13:56:10.749 -05:00 [INF] kaleb was added to the game!
+2023-05-07 13:56:18.714 -05:00 [INF] axe added to adam's inventory
+2023-05-07 13:56:25.121 -05:00 [INF] adam killed the zombie
+2023-05-07 13:56:32.341 -05:00 [INF] sword added to zack's inventory
+2023-05-07 13:56:39.734 -05:00 [INF] zack killed the zombie
+2023-05-07 13:57:00.699 -05:00 [INF] gun added to kaleb's inventory
+2023-05-07 14:01:37.978 -05:00 [INF] Zombie Survivor Game Started 5/7/2023 2:01:37 PM
+2023-05-07 14:01:42.434 -05:00 [INF] adam was added to the game!
+2023-05-07 14:01:43.737 -05:00 [INF] zack was added to the game!
+2023-05-07 14:01:45.168 -05:00 [INF] kaleb was added to the game!
+2023-05-07 14:01:54.667 -05:00 [INF] axe added to adam's inventory
+2023-05-07 14:02:00.447 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:07.969 -05:00 [INF] sword added to zack's inventory
+2023-05-07 14:02:15.908 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:20.089 -05:00 [INF] gun added to kaleb's inventory
+2023-05-07 14:02:35.162 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:37.531 -05:00 [INF] adam is wounded
+2023-05-07 14:02:37.531 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:40.343 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:41.750 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:42.625 -05:00 [INF] zack is wounded
+2023-05-07 14:02:42.626 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:43.740 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:44.493 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:47.003 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:47.727 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:48.313 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:48.860 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:49.465 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:50.020 -05:00 [INF] adam killed the zombie
+2023-05-07 14:02:50.023 -05:00 [INF] adam has leveled up to Yellow
+2023-05-07 14:02:50.023 -05:00 [INF] The Game has leveled up to Yellow!!
+2023-05-07 14:02:50.024 -05:00 [INF] adam gained Plus 1 Action Skill
+2023-05-07 14:02:54.013 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:55.062 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:55.525 -05:00 [INF] zack killed the zombie
+2023-05-07 14:02:55.526 -05:00 [INF] zack has leveled up to Yellow
+2023-05-07 14:02:55.526 -05:00 [INF] zack gained Plus 1 Action Skill
+2023-05-07 14:02:58.265 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:58.920 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:59.385 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:02:59.385 -05:00 [INF] kaleb has leveled up to Yellow
+2023-05-07 14:02:59.386 -05:00 [INF] kaleb gained Plus 1 Action Skill
+2023-05-07 14:03:01.288 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:02.920 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:03.512 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:04.062 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:05.169 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:05.682 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:06.088 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:06.499 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:07.171 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:07.587 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:07.929 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:08.319 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:09.675 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:10.090 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:10.576 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:10.966 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:11.911 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:12.298 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:12.655 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:13.045 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:13.847 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:14.251 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:14.701 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:15.064 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:16.137 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:16.525 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:16.959 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:17.345 -05:00 [INF] adam is wounded
+2023-05-07 14:03:17.345 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:17.345 -05:00 [INF] adam has leveled up to Orange
+2023-05-07 14:03:17.346 -05:00 [INF] The Game has leveled up to Orange!!
+2023-05-07 14:03:22.809 -05:00 [INF] adam gained Hoard Skill
+2023-05-07 14:03:30.736 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:31.598 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:32.224 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:33.154 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:33.155 -05:00 [INF] zack has leveled up to Orange
+2023-05-07 14:03:33.155 -05:00 [INF] zack gained Plus 1 Dodge skill
+2023-05-07 14:03:35.465 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:36.096 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:36.595 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:37.009 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:37.010 -05:00 [INF] kaleb has leveled up to Orange
+2023-05-07 14:03:37.010 -05:00 [INF] kaleb has gained the Tough Skill
+2023-05-07 14:03:38.113 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:38.874 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:39.270 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:39.656 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:40.286 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:40.680 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:41.064 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:41.417 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:42.014 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:42.407 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:42.776 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:43.154 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:43.733 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:44.110 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:44.475 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:44.853 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:45.363 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:45.720 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:46.104 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:46.458 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:47.111 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:47.465 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:47.840 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:48.173 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:48.789 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:49.136 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:49.471 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:49.768 -05:00 [INF] adam killed the zombie
+2023-05-07 14:03:50.405 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:50.713 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:51.008 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:51.290 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:51.982 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:52.268 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:52.552 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:52.860 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:53.444 -05:00 [INF] adam has died tragically due to their wounds.
+2023-05-07 14:03:53.720 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:53.997 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:54.293 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:55.015 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:55.932 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:56.307 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:56.676 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:57.083 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:57.691 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:58.051 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:58.423 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:58.796 -05:00 [INF] zack killed the zombie
+2023-05-07 14:03:59.460 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:03:59.885 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:00.301 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:00.683 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:01.269 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:01.690 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:02.262 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:02.651 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:02.652 -05:00 [INF] zack has leveled up to Red
+2023-05-07 14:04:02.652 -05:00 [INF] The Game has leveled up to Red!!
+2023-05-07 14:04:02.653 -05:00 [INF] zack gained Cheat Death Skill
+2023-05-07 14:04:13.730 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:15.310 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:15.817 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:16.301 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:16.301 -05:00 [INF] kaleb has leveled up to Red
+2023-05-07 14:04:25.012 -05:00 [INF] kaleb gained Plus 1 Max Wounds Skill
+2023-05-07 14:04:28.795 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:29.417 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:29.848 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:30.203 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:30.665 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:31.043 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:31.473 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:31.863 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:32.307 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:32.693 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:33.068 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:33.441 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:33.826 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:34.232 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:34.598 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:34.960 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:35.335 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:35.718 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:36.124 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:36.446 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:36.871 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:37.227 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:37.587 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:37.932 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:38.282 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:38.633 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:38.996 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:39.326 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:39.666 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:39.999 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:40.321 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:40.646 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:41.021 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:41.386 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:41.387 -05:00 [INF] zack gained Hoard Skill
+2023-05-07 14:04:41.712 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:42.071 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:42.944 -05:00 [INF] kaleb is wounded
+2023-05-07 14:04:42.945 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:43.323 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:43.323 -05:00 [INF] kaleb gained Hoard Skill
+2023-05-07 14:04:44.010 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:44.503 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:45.188 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:45.642 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:46.037 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:46.417 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:46.897 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:47.241 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:47.640 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:48.012 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:48.407 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:48.819 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:49.223 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:49.597 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:50.031 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:50.437 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:50.875 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:51.276 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:51.729 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:52.144 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:52.567 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:52.936 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:53.581 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:54.186 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:54.596 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:54.982 -05:00 [INF] kaleb is wounded
+2023-05-07 14:04:54.983 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:04:57.108 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:58.093 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:58.598 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:58.992 -05:00 [INF] zack killed the zombie
+2023-05-07 14:04:59.462 -05:00 [INF] kaleb is wounded
+2023-05-07 14:04:59.462 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:01.170 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:02.610 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:03.074 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:03.893 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:04.352 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:04.817 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:05.225 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:05.764 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:06.216 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:06.649 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:07.072 -05:00 [INF] kaleb killed the zombie
+2023-05-07 14:05:07.545 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:07.968 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:08.453 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:08.454 -05:00 [INF] zack has gained Double Exp Skill
+2023-05-07 14:05:11.239 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:12.083 -05:00 [INF] kaleb has died tragically due to their wounds.
+2023-05-07 14:05:15.714 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:16.922 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:17.378 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:17.820 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:18.312 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:18.833 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:19.238 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:19.766 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:19.767 -05:00 [INF] zack has gained the Tough Skill
+2023-05-07 14:05:20.296 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:20.992 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:21.453 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:21.857 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:22.349 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:22.791 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:23.235 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:23.666 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:24.117 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:24.558 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:24.981 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:25.459 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:25.459 -05:00 [INF] zack gained Plus 1 Max Wounds Skill
+2023-05-07 14:05:27.322 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:28.154 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:28.644 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:29.069 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:29.532 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:30.015 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:30.459 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:30.927 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:31.389 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:31.845 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:32.275 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:32.693 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:33.149 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:33.591 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:34.013 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:34.432 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:34.890 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:35.378 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:36.018 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:36.602 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:37.130 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:37.610 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:38.049 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:38.489 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:39.166 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:39.612 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:40.053 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:40.455 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:41.121 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:41.531 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:41.986 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:42.395 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:42.909 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:43.369 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:43.765 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:44.159 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:44.599 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:45.056 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:45.448 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:45.851 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:46.293 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:46.739 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:47.159 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:47.551 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:47.986 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:48.392 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:48.830 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:49.201 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:49.621 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:50.067 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:50.482 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:50.866 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:51.338 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:51.747 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:52.119 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:52.496 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:52.957 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:53.380 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:53.814 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:54.194 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:54.613 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:55.002 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:55.402 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:55.804 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:56.226 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:56.620 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:57.030 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:57.407 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:57.796 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:58.180 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:58.576 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:58.946 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:59.300 -05:00 [INF] zack killed the zombie
+2023-05-07 14:05:59.647 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:00.024 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:00.390 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:00.808 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:01.189 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:01.562 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:01.955 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:02.340 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:02.700 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:03.112 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:03.487 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:03.896 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:04.261 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:04.663 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:05.038 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:05.399 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:05.787 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:06.161 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:06.520 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:06.891 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:07.276 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:07.629 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:07.993 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:08.403 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:08.778 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:09.144 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:09.477 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:09.831 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:10.233 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:10.634 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:11.092 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:11.499 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:11.881 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:12.268 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:12.625 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:12.997 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:13.353 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:13.722 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:14.084 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:14.525 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:14.917 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:15.284 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:15.667 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:16.029 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:16.433 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:16.812 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:17.198 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:17.560 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:17.933 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:18.261 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:18.664 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:19.033 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:19.429 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:19.800 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:20.191 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:20.565 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:20.930 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:21.297 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:21.676 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:22.034 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:22.449 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:22.803 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:23.234 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:23.649 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:24.070 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:24.479 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:24.894 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:25.328 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:25.677 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:26.042 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:26.480 -05:00 [INF] zack killed the zombie
+2023-05-07 14:06:43.115 -05:00 [INF] zack killed the zombie

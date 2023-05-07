@@ -19,6 +19,7 @@ public class Survivor
     private List<Equipment> _equipment { get; set; }
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
     internal int MaxEquipment { get; set; }
+    private int CurrentMaxEquipment { get; set; }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
     private int _experience { get; set; }
     public int Experience { get { return _experience; } }
@@ -39,18 +40,19 @@ public class Survivor
         Active = true;
         _equipment = new List<Equipment>();
         MaxEquipment = 5;
+        CurrentMaxEquipment = MaxEquipment;
         _experience = 0;
         _level = Level.Blue;
         MaxWounds = 3;
         CheatDeath = false;
         DoubleExp = false;
         Tough = false;
-        Dodge = 7;
+        Dodge = 5;
     }
 
     public void AddEquipment(Equipment newEquipment)
     {
-        if(Equipment.Count == MaxEquipment)
+        if(Equipment.Count == CurrentMaxEquipment)
         {
             PushEvent(new InvalidOperationEvent("Equipment is full"));
         }
@@ -149,9 +151,9 @@ public class Survivor
             }
             else
             {
-                MaxEquipment = MaxEquipment - Wounds;
+                CurrentMaxEquipment = MaxEquipment - Wounds;
                 PushEvent(new SurvivorWoundedEvent(this));
-                if (MaxEquipment < _equipment.Count)
+                if (CurrentMaxEquipment < _equipment.Count)
                     MaxEquipmentExceeded();
             }
         }
