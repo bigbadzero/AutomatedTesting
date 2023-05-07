@@ -1,6 +1,8 @@
 ﻿using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills.RedSkills;
 
 [assembly: InternalsVisibleToAttribute("ZombieZurvivorKatana.Tests")]
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
@@ -9,28 +11,41 @@ public class Survivor
 {
     public string Name { get; set; }
     public int Wounds { get; internal set; }
-    private int _actionsPerTurn { get; set; }
+    internal int MaxWounds { get; set; }
+    internal int _actionsPerTurn { get; set; }
+    internal int MaxActionsPerTurn { get; set; }
     public int ActionsPerTurn { get => _actionsPerTurn; }
     public bool Active { get; internal set; }
     private List<Equipment> _equipment { get; set; }
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
-    public int MaxEquipment { get; internal set; }
+    internal int MaxEquipment { get; set; }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
     private int _experience { get; set; }
-    public int Experience { get { return _experience;  } }
+    public int Experience { get { return _experience; } }
     private Level _level { get; set; }
     public Level Level { get { return _level; } }
+    private SkillTree SkillTree { get; set; } = new SkillTree();
+    internal bool CheatDeath { get; set; }
+    internal bool DoubleExp { get; set; }
+    internal bool Tough { get; set; }
+    internal int Dodge { get; set; }
 
     public Survivor(string name)
     {
         Name = name;
         Wounds = 0;
+        MaxActionsPerTurn = 3;
         _actionsPerTurn = 3;
         Active = true;
         _equipment = new List<Equipment>();
         MaxEquipment = 5;
         _experience = 0;
         _level = Level.Blue;
+        MaxWounds = 3;
+        CheatDeath = false;
+        DoubleExp = false;
+        Tough = false;
+        Dodge = 7;
     }
 
     public void AddEquipment(Equipment newEquipment)
@@ -89,14 +104,21 @@ public class Survivor
     {
         if (Active)
         {
+            var dodgeModifier = 0;
+            if (IsEquipmentInHand())
+                dodgeModifier = 2;
             var random = new Random();
             var roll = random.Next(1, 11);
-            if (roll > 7) //30% chance to recieve wound
+            if (roll > Dodge + dodgeModifier & !Tough)
                 RecieveWound();
-            if(Active)//checks to see if active is still true;
+            if (roll > Dodge + dodgeModifier & Tough)
+                Tough = false;
+            if (Active)//checks to see if active is still true;
             {
                 PushEvent(new SurvivorKilledZombieEvent(this));
                 GainExperience();
+                if (DoubleExp)
+                    GainExperience();
                 SpendAction();
             }
         }
@@ -106,7 +128,7 @@ public class Survivor
 
     public void ResetActionsPerTurn()
     {
-        _actionsPerTurn = 3;
+        _actionsPerTurn = MaxActionsPerTurn;
     }
 
     internal void RecieveWound()
@@ -114,10 +136,16 @@ public class Survivor
         if(Active)
         {
             Wounds++;
-            if (Wounds == 2)
+            if (Wounds == MaxWounds && !CheatDeath)
             {
                 Active = false;
                 PushEvent(new SurvivorDeathEvent(this));
+            }
+            else if(Wounds == MaxWounds && !CheatDeath)
+            {
+                Wounds--;
+                CheatDeath = false;
+                PushEvent(new SuccessfulOperationEvent($"{this.Name} used Cheat Death Skill to avoid death"));
             }
             else
             {
@@ -141,7 +169,7 @@ public class Survivor
             && _equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.InHand).Count() < 2);
     }
 
-    private void PushEvent(Event @event)
+    internal void PushEvent(Event @event)
     {
         foreach (var subscriber in Subscibers)
         {
@@ -154,11 +182,30 @@ public class Survivor
         _experience++;
         if (LevelUpCriteriaMet())
             LevelUp();
+        if (SkillUpCriteriaMet())
+        {
+            SkillTree.SkillUp(_experience);
+            foreach(var skill in SkillTree.UnlockedSkills)
+            {
+                if (!skill.Applied)
+                    skill.ApplySkill(this);
+            }
+        }
+            
     }
 
     private bool LevelUpCriteriaMet()
     {
-        if (_experience == 6 || _experience == 18 || _experience == 42)
+        if (_experience == 7 || _experience == 19 || _experience == 43)
+            return true;
+        else
+            return false;
+    }
+
+    private bool SkillUpCriteriaMet()
+    {
+        if (_experience == 7 || _experience == 19 || _experience == 43 || 
+            _experience == 61 || _experience == 86 || _experience == 104 || _experience == 129) 
             return true;
         else
             return false;
@@ -193,5 +240,11 @@ public class Survivor
         var equipment = reserveEquipment[index];
         _equipment.Remove(equipment);
         PushEvent(new SurvivorMaxEquipmentExceededEvent(this, equipment));
+    }
+
+    private bool IsEquipmentInHand()
+    {
+        var isInHand = Equipment.Any(x => x.EquipmentType == EquipmentTypeEnum.InHand);
+        return isInHand;
     }
 }

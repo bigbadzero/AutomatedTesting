@@ -95,6 +95,7 @@ public class GameTests
         game.Survivors[0].GainExperience();
         game.Survivors[0].GainExperience();
         game.Survivors[0].GainExperience();
+        game.Survivors[0].GainExperience();
 
         game.Level.ShouldBe(Level.Yellow);
     }
@@ -114,7 +115,8 @@ public class GameTests
         game.Survivors[0].GainExperience();
         game.Survivors[0].GainExperience();
         game.Survivors[0].GainExperience();
-        //bud gains 18 exp and should be orange
+        //bud gains 19 exp and should be orange
+        game.Survivors[1].GainExperience();
         game.Survivors[1].GainExperience();
         game.Survivors[1].GainExperience();
         game.Survivors[1].GainExperience();

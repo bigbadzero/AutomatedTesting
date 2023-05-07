@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZombieSurvivorKatana.ConsoleApp;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
 
 namespace ZombieZurvivorKatana.Tests
@@ -77,6 +78,7 @@ namespace ZombieZurvivorKatana.Tests
             survivor.GainExperience();
             survivor.GainExperience();
             survivor.GainExperience();
+            survivor.GainExperience();
 
             survivor.Level.ShouldBe(Level.Yellow);
         }
@@ -86,7 +88,8 @@ namespace ZombieZurvivorKatana.Tests
         {
             var survivor = new Survivor("fred");
 
-            //18 times
+            //19 times
+            survivor.GainExperience();
             survivor.GainExperience();
             survivor.GainExperience();
             survivor.GainExperience();
@@ -114,7 +117,8 @@ namespace ZombieZurvivorKatana.Tests
         {
             var survivor = new Survivor("fred");
 
-            //42 times
+            //43 times
+            survivor.GainExperience();
             survivor.GainExperience();
             survivor.GainExperience();
             survivor.GainExperience();
