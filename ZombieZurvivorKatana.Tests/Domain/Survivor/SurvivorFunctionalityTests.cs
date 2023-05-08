@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZombieSurvivorKatana.ConsoleApp;
 using ZombieSurvivorKatana.ConsoleApp.Domain;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills;
 
 namespace ZombieZurvivorKatana.Tests
 {
@@ -71,14 +72,8 @@ namespace ZombieZurvivorKatana.Tests
         public void Survivor_LevelsUpToYellow_AfterMeetingLevelUpCriteria()
         {
             var survivor = new Survivor("fred");
-
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
+            for (int i = 0; i < 7; i++)
+                survivor.GainExperience();
 
             survivor.Level.ShouldBe(Level.Yellow);
         }
@@ -89,25 +84,8 @@ namespace ZombieZurvivorKatana.Tests
             var survivor = new Survivor("fred");
 
             //19 times
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
+            for (int i = 0; i < 19; i++)
+                survivor.GainExperience();
 
             survivor.Level.ShouldBe(Level.Orange);
         }
@@ -118,51 +96,116 @@ namespace ZombieZurvivorKatana.Tests
             var survivor = new Survivor("fred");
 
             //43 times
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
-            survivor.GainExperience();
+            for (int i = 0; i < 43; i++)
+                survivor.GainExperience();
 
             survivor.Level.ShouldBe(Level.Red);
+        }
+
+        [Fact]
+        public void Survivor_GainsYellowSkill_AfterGaining7Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 7; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Yellow).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Yellow);
+            list.Count.ShouldBe(1);
+        }
+        [Fact]
+        public void Survivor_GainsOrangeSkill_AfterGaining19Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 19; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Orange).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Orange);
+            list.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void Survivor_GainsOrangeSkill_AfterGaining61Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 61; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Orange).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Orange);
+            list.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public void Survivor_GainsOrangeSkill_AfterGaining104Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 104; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Orange).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Orange);
+            list.Count.ShouldBe(3);
+        }
+
+        [Fact]
+        public void Survivor_GainsRedSkill_AfterGaining43Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 43; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Red).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Red);
+            list.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void Survivor_GainsRedSkill_AfterGaining86Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 86; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Red).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Red);
+            list.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public void Survivor_GainsRedSkill_AfterGaining129Exp()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 129; i++)
+                survivor.GainExperience();
+            var list = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Red).ToList();
+
+            list.ShouldNotBeEmpty();
+            list.ShouldAllBe(x => x.Level == Level.Red);
+            list.Count.ShouldBe(3);
+        }
+
+        [Fact]
+        public void Survivor_HasCorrectSkills_AfterMaxPointsAcquired()
+        {
+            var survivor = new Survivor("fred");
+            for (int i = 0; i < 129; i++)
+                survivor.GainExperience();
+            var yellowSkills = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Yellow).ToList();
+            var orangeSkills = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Orange).ToList();
+            var redSkills = survivor.SkillTree.UnlockedSkills.Where(x => x.Level == Level.Red).ToList();
+
+            yellowSkills.Count.ShouldBe(1);
+            orangeSkills.Count.ShouldBe(3);
+            redSkills.Count.ShouldBe(3);
+            survivor.SkillTree.UnlockedSkills.Count().ShouldBe(7);
         }
     }
 }
