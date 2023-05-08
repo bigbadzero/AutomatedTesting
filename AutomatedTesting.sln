@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZombieZurvivorKatana.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorKata.Console", "StringCalculatorKata.Console\StringCalculatorKata.Console.csproj", "{A23906F4-A895-4A33-8FC6-C65AC350B10E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorKata.Tests", "StringCalculatorKata.Tests\StringCalculatorKata.Tests.csproj", "{3D59C309-BB84-41C5-838E-8380403FBEA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{A23906F4-A895-4A33-8FC6-C65AC350B10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23906F4-A895-4A33-8FC6-C65AC350B10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23906F4-A895-4A33-8FC6-C65AC350B10E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D59C309-BB84-41C5-838E-8380403FBEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D59C309-BB84-41C5-838E-8380403FBEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D59C309-BB84-41C5-838E-8380403FBEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D59C309-BB84-41C5-838E-8380403FBEA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{BBB2E633-9729-4BE7-9B68-5A988B5E77A3} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
 		{E0C1C062-4FAF-4EAC-BEC8-08BF02660A8C} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 		{A23906F4-A895-4A33-8FC6-C65AC350B10E} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
+		{3D59C309-BB84-41C5-838E-8380403FBEA3} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04D2F3F9-74CC-4850-A15F-7E28E3781D94}
