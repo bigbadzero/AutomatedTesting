@@ -28,11 +28,8 @@ public class StringCalculator
         return intList.Sum();
     }
 
-    private static string[] GetDelimiters(string input)
+    private string[] GetDelimiters(string input)
     {
-        if (string.IsNullOrEmpty(input))
-            return new string[] { ",", "\n" };
-
         string[] delimiters = { ",", "\n" };
 
         if (input.StartsWith("//"))
@@ -47,19 +44,8 @@ public class StringCalculator
                     .Split(new string[] { "][" }, StringSplitOptions.RemoveEmptyEntries);
             }
             else
-            {
                 delimiters = new string[] { delimiterLine.Substring(2) };
-            }
-
-            // Replace any escaped characters in delimiters
-            for (int i = 0; i < delimiters.Length; i++)
-            {
-                delimiters[i] = Regex.Unescape(delimiters[i]);
-            }
-
-            input = input.Substring(delimiterEndIndex + 1);
         }
-
         return delimiters.Union(new string[] { "\n" }).ToArray();
     }
 
@@ -74,7 +60,6 @@ public class StringCalculator
             if (delimiterLineEndIndex >= 0)
                 return input.Substring(delimiterLineEndIndex + 1);
         }
-
         return input;
     }
 }
