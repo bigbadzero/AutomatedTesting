@@ -1,40 +1,34 @@
 ﻿using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Soduku.Tests
+namespace Soduku.Tests;
+
+public class SodukuValidatorTests
 {
-    public class SodukuValidatorTests
+    [Fact]
+    public void Should_ReturnTrue_When_ValidSodoku()
     {
-        [Fact]
-        public void Should_ReturnTrue_When_ValidSodoku()
-        {
-            // Arrange
-            var sudokuValidator = new SudokuValidator();
-            var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\ValidSudoku.txt";
-            
-            //Act
-            var result = sudokuValidator.Validate(file);
+        // Arrange
+        var sudokuValidator = new SudokuValidator();
+        var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\ValidSudoku.txt";
 
-            // Assert
-            result.ShouldBeTrue();
-        }
+        //Act
+        var result = sudokuValidator.Validate(file);
 
-        [Fact]
-        public void Should_ReturnFalse_When_NotValidSodoku()
-        {
-            // Arrange
-            var sudokuValidator = new SudokuValidator();
-            var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\notValidSudoku.txt";
+        // Assert
+        result.ShouldBeTrue();
+    }
 
-            //Act
-            var result = sudokuValidator.Validate(file);
+    [Fact]
+    public void Should_ReturnFalse_When_NotValidSodoku()
+    {
+        // Arrange
+        var sudokuValidator = new SudokuValidator();
+        var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\notValidSudoku.txt";
 
-            // Assert
-            result.ShouldBeFalse();
-        }
+        //Act
+        var result = sudokuValidator.Validate(file);
+
+        // Assert
+        result.ShouldBeFalse();
     }
 }
