@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soduku.Console", "Soduku.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soduku.Tests", "Soduku.Tests\Soduku.Tests.csproj", "{54430E3C-AC4D-4A5A-906B-5663FFAC588B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLoggerKata.Console", "FileLoggerKata.Console\FileLoggerKata.Console.csproj", "{E861546E-3556-4935-81A4-AA4390E96663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLoggerKata.Tests", "FileLoggerKata.Tests\FileLoggerKata.Tests.csproj", "{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +70,14 @@ Global
 		{54430E3C-AC4D-4A5A-906B-5663FFAC588B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54430E3C-AC4D-4A5A-906B-5663FFAC588B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54430E3C-AC4D-4A5A-906B-5663FFAC588B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E861546E-3556-4935-81A4-AA4390E96663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E861546E-3556-4935-81A4-AA4390E96663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E861546E-3556-4935-81A4-AA4390E96663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E861546E-3556-4935-81A4-AA4390E96663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +91,8 @@ Global
 		{3D59C309-BB84-41C5-838E-8380403FBEA3} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 		{13F4FD3C-A3DD-4196-843B-5687AF747A35} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
 		{54430E3C-AC4D-4A5A-906B-5663FFAC588B} = {5149049A-C303-4F99-A7A5-249E7D31173B}
+		{E861546E-3556-4935-81A4-AA4390E96663} = {01999E3D-1DCF-42F4-8B74-BC0308AE0411}
+		{B7D7220B-5142-4D0E-9F17-0B369BB6F63F} = {5149049A-C303-4F99-A7A5-249E7D31173B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04D2F3F9-74CC-4850-A15F-7E28E3781D94}
