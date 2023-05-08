@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
 
-namespace ZombieSurvivorKatana.ConsoleApp
+namespace ZombieSurvivorKatana.ConsoleApp;
+
+public class SurvivorDeathEvent : Event
 {
-    public class SurvivorDeathEvent: Event
+    public SurvivorDeathEvent(Survivor survivor)
     {
-        public SurvivorDeathEvent(Survivor survivor)
-        {
-            EventDiscription = $"{survivor.Name} has died tragically due to their wounds.";
-        }
+        EventDiscription = $"{survivor.Name} has died tragically due to their wounds.";
     }
 }

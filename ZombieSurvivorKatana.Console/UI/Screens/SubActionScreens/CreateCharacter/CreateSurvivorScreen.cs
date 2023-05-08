@@ -18,7 +18,7 @@ public class CreateSurvivorScreen : Screen, IScreen
     public void DisplayScreenMessage()
     {
         Console.WriteLine("Enter the name of the new survivor.");
-        
+
     }
 
     public void Execute()

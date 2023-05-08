@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using ZombieSurvivorKatana.ConsoleApp.Domain;
 
-namespace ZombieSurvivorKatana.ConsoleApp
+namespace ZombieSurvivorKatana.ConsoleApp;
+
+public class SurvivorLevelUpEvent : Event
 {
-    public class SurvivorLevelUpEvent: Event
+    public SurvivorLevelUpEvent(Survivor survivor)
     {
-        public SurvivorLevelUpEvent(Survivor survivor)
-        {
-            EventDiscription = $"{survivor.Name} has leveled up to {survivor.Level}";
-        }
+        EventDiscription = $"{survivor.Name} has leveled up to {survivor.Level}";
     }
 }

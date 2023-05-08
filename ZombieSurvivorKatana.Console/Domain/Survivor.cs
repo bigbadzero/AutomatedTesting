@@ -1,8 +1,5 @@
-﻿using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using ZombieSurvivorKatana.ConsoleApp.Domain;
+﻿using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp.Domain.Skills;
-using ZombieSurvivorKatana.ConsoleApp.Domain.Skills.RedSkills;
 
 [assembly: InternalsVisibleToAttribute("ZombieZurvivorKatana.Tests")]
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
@@ -54,7 +51,7 @@ public class Survivor
 
     public void AddEquipment(Equipment newEquipment)
     {
-        if(Equipment.Count == _currentMaxEquipment)
+        if (Equipment.Count == _currentMaxEquipment)
         {
             PushEvent(new InvalidOperationEvent("Equipment is full"));
         }
@@ -68,7 +65,7 @@ public class Survivor
 
     public void DropEquipment(Equipment equipment)
     {
-        if(Equipment.Count > 0)
+        if (Equipment.Count > 0)
         {
             _equipment.Remove(equipment);
             SpendAction();
@@ -137,7 +134,7 @@ public class Survivor
 
     internal void RecieveWound()
     {
-        if(Active)
+        if (Active)
         {
             Wounds++;
             if (Wounds == MaxWounds && !CheatDeath)
@@ -145,7 +142,7 @@ public class Survivor
                 Active = false;
                 PushEvent(new SurvivorDeathEvent(this));
             }
-            else if(Wounds == MaxWounds && CheatDeath)
+            else if (Wounds == MaxWounds && CheatDeath)
             {
                 Wounds--;
                 CheatDeath = false;
@@ -163,7 +160,7 @@ public class Survivor
         {
             PushEvent(new InvalidOperationEvent("Survivor is not active."));
         }
-        
+
     }
 
     private bool CanSetEquipmentToInHand()
@@ -189,13 +186,13 @@ public class Survivor
         if (SkillUpCriteriaMet())
         {
             _skillTree.SkillUp(_experience);
-            foreach(var skill in _skillTree.UnlockedSkills)
+            foreach (var skill in _skillTree.UnlockedSkills)
             {
                 if (!skill.Applied)
                     skill.ApplySkill(this);
             }
         }
-            
+
     }
 
     private bool LevelUpCriteriaMet()
@@ -208,8 +205,8 @@ public class Survivor
 
     private bool SkillUpCriteriaMet()
     {
-        if (_experience == 7 || _experience == 19 || _experience == 43 || 
-            _experience == 61 || _experience == 86 || _experience == 104 || _experience == 129) 
+        if (_experience == 7 || _experience == 19 || _experience == 43 ||
+            _experience == 61 || _experience == 86 || _experience == 104 || _experience == 129)
             return true;
         else
             return false;
@@ -239,7 +236,7 @@ public class Survivor
     {
         var reserveEquipment = _equipment.Where(x => x.EquipmentType == EquipmentTypeEnum.Reserve).ToList();
         var count = reserveEquipment.Count();
-        var random = new Random();  
+        var random = new Random();
         var index = random.Next(reserveEquipment.Count());
         var equipment = reserveEquipment[index];
         _equipment.Remove(equipment);

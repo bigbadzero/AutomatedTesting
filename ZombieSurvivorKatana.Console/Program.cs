@@ -11,14 +11,6 @@ using ZombieSurvivorKatana.ConsoleApp.UI;
 var services = new ServiceCollection();
 services.AddScoped<IUserInput, UserInput>();
 
-
-
-//services.AddLogging(builder =>
-//{
-//    builder.SetMinimumLevel(LogLevel.Debug);
-//    builder.AddSerilog(logger: serilogLogger, dispose: true);
-//});
-
 var sp = services.BuildServiceProvider();
 
 var game = new Game(sp.GetService<IUserInput>());

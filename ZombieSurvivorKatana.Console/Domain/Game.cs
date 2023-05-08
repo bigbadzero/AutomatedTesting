@@ -1,8 +1,6 @@
 ﻿using Serilog;
-using System.Xml.Linq;
 using ZombieSurvivorKatana.ConsoleApp.UI;
 using ZombieSurvivorKatana.ConsoleApp.UI.Screens;
-using ZombieSurvivorKatana.ConsoleApp.UI.Screens.SubActionScreens;
 
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
