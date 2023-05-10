@@ -1,0 +1,9 @@
+combat round extracted out of attack method
+similar to rules in rpg combat
+default survivor
+
+sudoku 
+validate grid is 9x9
+make sure that we check that each input is 1-9
+seperate tests into more test cases
+change all valid test on each validator to use theorys

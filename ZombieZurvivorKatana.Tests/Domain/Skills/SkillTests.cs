@@ -19,17 +19,11 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
             var tree = new SkillTree();
 
             foreach (var skill in tree.PotentialRedSkills)
-            {
                 skill.Level.ShouldBe(Level.Red);
-            }
             foreach (var skill in tree.PotentialOrangeSkills)
-            {
                 skill.Level.ShouldBe(Level.Orange);
-            }
             foreach (var skill in tree.PotentialYellowSkills)
-            {
                 skill.Level.ShouldBe(Level.Yellow);
-            }
         }
 
         //yellowSkillTests
@@ -62,8 +56,8 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
         public void PlusOneDodge_IncreasesSurvivorDodgeLevelBy1()
         {
             var survivor = new Survivor("nick");
-
             survivor.SkillTree.UnlockedSkills.Add(new PlusOneDodge());
+
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
             survivor.Dodge.ShouldBe(6);
@@ -74,8 +68,8 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
         public void ToughSkill_SwapsSurvivorsToughFlag_ToTrue()
         {
             var survivor = new Survivor("nick");
-
             survivor.SkillTree.UnlockedSkills.Add(new Tough());
+
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
             survivor.Tough.ShouldBeTrue();
@@ -88,8 +82,8 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
         public void CheatDeathSkill_SwapsSurvivorsCheatDeathFlag_ToTrue()
         {
             var survivor = new Survivor("nick");
-
             survivor.SkillTree.UnlockedSkills.Add(new CheatDeath());
+
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
             survivor.CheatDeath.ShouldBeTrue();
@@ -100,8 +94,8 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
         public void DoubleExpSkill_SwapsSurvivorsDoubleExpFlag_ToTrue()
         {
             var survivor = new Survivor("nick");
-
             survivor.SkillTree.UnlockedSkills.Add(new DoubleExp());
+
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
             survivor.DoubleExp.ShouldBeTrue();
@@ -112,8 +106,8 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
         public void PlusOneMaxWoundsSkill_IncreasesMaxWoundsBy1()
         {
             var survivor = new Survivor("nick");
-
             survivor.SkillTree.UnlockedSkills.Add(new PlusOneMaxWounds());
+
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
             survivor.MaxWounds.ShouldBe(3);

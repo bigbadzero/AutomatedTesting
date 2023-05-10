@@ -4,33 +4,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileLoggerKata.Console
+namespace FileLoggerKata.Console;
+
+public class FileLogger
 {
-    public class FileLogger
+    private readonly string _logFolder;
+
+    private IWriter _writer;
+
+    public FileLogger(IWriter writer)
     {
-        public void Log(string message)
+        _logFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        _writer = writer;
+    }
+
+    public void Log(string message)
+    {
+        var date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        var log = $"{date} {message}";
+
+        _writer.Write(log);
+    }
+
+    public void CheckAndCreateWeekendLog()
+    {
+        string fileName = "weekend.txt";
+        var weekendLogPath = Path.Combine(_logFolder, fileName);
+
+        if (File.Exists(weekendLogPath))
         {
-            var logDate = DateTime.Now.ToString("yyyyMMdd");
-            string filePath = $"G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log{logDate}.txt";
-            var date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            bool fileExists = File.Exists(message);
-            var log = $"{date} {message}";
-            if (fileExists)
-                File.AppendAllText(filePath, log);
-            
-            else
+            var creationTime = File.GetCreationTime(weekendLogPath);
+            var saturday = GetLastSaturday(creationTime);
+            if (DateTime.Now.Date > saturday.AddDays(7))
             {
-                using (FileStream fs = File.Create(filePath))
+                var newFileName = $"weekend-{saturday:yyyyMMdd}.txt";
+                var newFilePath = Path.Combine(_logFolder, newFileName);
+
+                if (File.Exists(newFilePath))
                 {
-                    using (StreamWriter writer = new StreamWriter(fs))
-                    {
-                        writer.WriteLine(log);
-                        writer.Close();
-                    }
-                    fs.Close();
+                    File.Delete(newFilePath);
                 }
 
+                File.Move(weekendLogPath, newFilePath);
+                _writer = new FileWriter(weekendLogPath);
             }
         }
+        else
+        {
+            _writer = new FileWriter(weekendLogPath);
+        }
+    }
+
+    private static DateTime GetLastSaturday(DateTime dateTime)
+    {
+        return dateTime.AddDays(-(int)dateTime.DayOfWeek);
     }
 }

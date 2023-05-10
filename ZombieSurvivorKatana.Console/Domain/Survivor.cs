@@ -72,9 +72,7 @@ public class Survivor
             PushEvent(new SuccessfulOperationEvent($"{Name} dropped {equipment.Name}"));
         }
         else
-        {
             PushEvent(new InvalidOperationEvent($"{Name} does not have any equipment currently"));
-        }
     }
 
     public void SetEquipmentToInHand(Equipment equipmentToBeInHand)
@@ -157,9 +155,7 @@ public class Survivor
             }
         }
         else
-        {
             PushEvent(new InvalidOperationEvent("Survivor is not active."));
-        }
 
     }
 

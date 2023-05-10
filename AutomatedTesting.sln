@@ -5,6 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ADA0228B-25EF-47FA-9E40-E0A726C1DA1E}"
 	ProjectSection(SolutionItems) = preProject
+		documentation\andrew automated testing notes.txt = documentation\andrew automated testing notes.txt
 		documentation\Automated Developer Testing Technical Training.docx = documentation\Automated Developer Testing Technical Training.docx
 	EndProjectSection
 EndProject
@@ -24,13 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringCalculatorKata.Consol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringCalculatorKata.Tests", "StringCalculatorKata.Tests\StringCalculatorKata.Tests.csproj", "{3D59C309-BB84-41C5-838E-8380403FBEA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soduku.Console", "Soduku.Console\Soduku.Console.csproj", "{13F4FD3C-A3DD-4196-843B-5687AF747A35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soduku.Console", "Soduku.Console\Soduku.Console.csproj", "{13F4FD3C-A3DD-4196-843B-5687AF747A35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soduku.Tests", "Soduku.Tests\Soduku.Tests.csproj", "{54430E3C-AC4D-4A5A-906B-5663FFAC588B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soduku.Tests", "Soduku.Tests\Soduku.Tests.csproj", "{54430E3C-AC4D-4A5A-906B-5663FFAC588B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLoggerKata.Console", "FileLoggerKata.Console\FileLoggerKata.Console.csproj", "{E861546E-3556-4935-81A4-AA4390E96663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileLoggerKata.Console", "FileLoggerKata.Console\FileLoggerKata.Console.csproj", "{E861546E-3556-4935-81A4-AA4390E96663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLoggerKata.Tests", "FileLoggerKata.Tests\FileLoggerKata.Tests.csproj", "{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileLoggerKata.Tests", "FileLoggerKata.Tests\FileLoggerKata.Tests.csproj", "{B7D7220B-5142-4D0E-9F17-0B369BB6F63F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
