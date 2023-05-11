@@ -8,7 +8,6 @@ public class DoubleExp : Skill
 
     public void ApplySkill(Survivor survivor)
     {
-        survivor.DoubleExp = true;
         Applied = true;
         survivor.PushEvent(new SuccessfulOperationEvent($"{survivor.Name} has gained Double Exp Skill"));
     }

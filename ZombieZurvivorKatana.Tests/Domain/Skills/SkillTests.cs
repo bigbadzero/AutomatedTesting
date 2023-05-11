@@ -28,27 +28,25 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
 
         //yellowSkillTests
         [Fact]
-        public void PlusOneAction_IncreasesSurvivorMaxActionsBy1()
+        public void PlusOneAction__AppliedFlag_SetToTrue()
         {
             var survivor = new Survivor("nick");
 
             survivor.SkillTree.UnlockedSkills.Add(new PlusOneAction());
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.MaxActionsPerTurn.ShouldBe(4);
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
         //orangeSkillTests
         [Fact]
-        public void Hoard_IncreasesSurvivorMaxCapacityByOne()
+        public void Hoard__AppliedFlag_SetToTrue()
         {
             var survivor = new Survivor("nick");
 
             survivor.SkillTree.UnlockedSkills.Add(new Hoard());
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.MaxEquipment.ShouldBe(6);
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
@@ -60,45 +58,41 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
 
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.Dodge.ShouldBe(6);
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
         [Fact]
-        public void ToughSkill_SwapsSurvivorsToughFlag_ToTrue()
+        public void ToughSkill__AppliedFlag_SetToTrue()
         {
             var survivor = new Survivor("nick");
             survivor.SkillTree.UnlockedSkills.Add(new Tough());
 
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.Tough.ShouldBeTrue();
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
         //redSkillTests
 
         [Fact]
-        public void CheatDeathSkill_SwapsSurvivorsCheatDeathFlag_ToTrue()
+        public void CheatDeathSkill_AppliedFlag_SetToTrue()
         {
             var survivor = new Survivor("nick");
             survivor.SkillTree.UnlockedSkills.Add(new CheatDeath());
 
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.CheatDeath.ShouldBeTrue();
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
         [Fact]
-        public void DoubleExpSkill_SwapsSurvivorsDoubleExpFlag_ToTrue()
+        public void DoubleExpSkill_AppliedFlag_SetToTrue()
         {
             var survivor = new Survivor("nick");
             survivor.SkillTree.UnlockedSkills.Add(new DoubleExp());
 
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.DoubleExp.ShouldBeTrue();
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
 
@@ -110,7 +104,6 @@ namespace ZombieZurvivorKatana.Tests.Domain.Skills
 
             survivor.SkillTree.UnlockedSkills[0].ApplySkill(survivor);
 
-            survivor.MaxWounds.ShouldBe(3);
             survivor.SkillTree.UnlockedSkills[0].Applied.ShouldBe(true);
         }
         

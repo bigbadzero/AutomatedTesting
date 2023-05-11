@@ -9,7 +9,6 @@ public class Tough : Skill
     public void ApplySkill(Survivor survivor)
     {
         Applied = true;
-        survivor.Tough = true;
         survivor.PushEvent(new SuccessfulOperationEvent($"{survivor.Name} has gained the Tough Skill"));
     }
 }

@@ -35,7 +35,7 @@ namespace ZombieZurvivorKatana.Tests
 
             survivor.RecieveWound();
 
-            survivor.CurrentMaxEquipment.ShouldBe(4);
+            survivor.MaxEquipment.ShouldBe(4);
         }
 
         [Fact]

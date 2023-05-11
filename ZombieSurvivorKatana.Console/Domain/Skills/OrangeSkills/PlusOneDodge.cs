@@ -9,7 +9,6 @@ public class PlusOneDodge : Skill
     public void ApplySkill(Survivor survivor)
     {
         Applied = true;
-        survivor.Dodge++;
         survivor.PushEvent(new SuccessfulOperationEvent($"{survivor.Name} gained Plus 1 Dodge skill"));
     }
 }

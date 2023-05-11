@@ -8,7 +8,6 @@ public class Hoard : Skill
 
     public void ApplySkill(Survivor survivor)
     {
-        survivor.MaxEquipment++;
         Applied = true;
         survivor.PushEvent(new SuccessfulOperationEvent($"{survivor.Name} gained Hoard Skill"));
     }

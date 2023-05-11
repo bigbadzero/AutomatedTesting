@@ -6,7 +6,6 @@ public class PlusOneAction : Skill
     public bool Applied { get; set; } = false;
     public void ApplySkill(Survivor survivor)
     {
-        survivor.MaxActionsPerTurn++;
         Applied = true;
         survivor.PushEvent(new SuccessfulOperationEvent($"{survivor.Name} gained Plus 1 Action Skill"));
     }

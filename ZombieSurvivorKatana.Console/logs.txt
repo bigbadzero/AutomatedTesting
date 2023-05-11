@@ -565,3 +565,27 @@
 2023-05-08 18:49:25.568 -05:00 [INF] bob was added to the game!
 2023-05-08 18:49:25.568 -05:00 [INF] fred is wounded
 2023-05-08 18:49:25.568 -05:00 [INF] fred has died tragically due to their wounds.
+2023-05-11 15:48:23.030 -05:00 [INF] Zombie Survivor Game Started 5/11/2023 3:48:23 PM
+2023-05-11 15:48:23.037 -05:00 [INF] fred was added to the game!
+2023-05-11 15:48:23.037 -05:00 [INF] bob was added to the game!
+2023-05-11 15:48:23.037 -05:00 [INF] fred is wounded
+2023-05-11 15:48:23.037 -05:00 [INF] fred has died tragically due to their wounds.
+2023-05-11 15:51:15.005 -05:00 [INF] Zombie Survivor Game Started 5/11/2023 3:51:15 PM
+2023-05-11 15:51:15.013 -05:00 [INF] fred was added to the game!
+2023-05-11 15:51:15.015 -05:00 [INF] fred has leveled up to Yellow
+2023-05-11 15:51:15.015 -05:00 [INF] The Game has leveled up to Yellow!!
+2023-05-11 15:51:15.015 -05:00 [INF] fred gained Plus 1 Action Skill
+2023-05-11 15:51:19.066 -05:00 [INF] Zombie Survivor Game Started 5/11/2023 3:51:19 PM
+2023-05-11 15:51:19.074 -05:00 [INF] fred was added to the game!
+2023-05-11 15:51:19.074 -05:00 [INF] bud was added to the game!
+2023-05-11 15:51:19.076 -05:00 [INF] bud has leveled up to Yellow
+2023-05-11 15:51:19.076 -05:00 [INF] The Game has leveled up to Yellow!!
+2023-05-11 15:51:19.076 -05:00 [INF] bud gained Plus 1 Action Skill
+2023-05-11 15:51:19.077 -05:00 [INF] bud has leveled up to Orange
+2023-05-11 15:51:19.077 -05:00 [INF] The Game has leveled up to Orange!!
+2023-05-11 15:51:19.077 -05:00 [INF] bud gained Plus 1 Dodge skill
+2023-05-11 15:52:11.698 -05:00 [INF] Zombie Survivor Game Started 5/11/2023 3:52:11 PM
+2023-05-11 15:52:11.705 -05:00 [INF] fred was added to the game!
+2023-05-11 15:52:11.705 -05:00 [INF] bob was added to the game!
+2023-05-11 15:52:11.705 -05:00 [INF] fred is wounded
+2023-05-11 15:52:11.705 -05:00 [INF] fred has died tragically due to their wounds.

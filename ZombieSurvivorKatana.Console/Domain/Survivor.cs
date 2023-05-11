@@ -1,60 +1,39 @@
 ﻿using System.Runtime.CompilerServices;
 using ZombieSurvivorKatana.ConsoleApp.Domain.Skills;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills.OrangeSkills;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills.RedSkills;
+using ZombieSurvivorKatana.ConsoleApp.Domain.Skills.YellowSkills;
 
 [assembly: InternalsVisibleToAttribute("ZombieZurvivorKatana.Tests")]
 namespace ZombieSurvivorKatana.ConsoleApp.Domain;
 
 public class Survivor
 {
-    public string Name { get; set; }
+    public string Name { get; private set; }
     public int Wounds { get; internal set; }
-    internal int MaxWounds { get; set; }
-    internal int _actionsPerTurn { get; set; }
-    internal int MaxActionsPerTurn { get; set; }
-    public int ActionsPerTurn { get => _actionsPerTurn; }
+    public int MaxWounds { get; internal set; }
+    internal int ActionsPerTurn { get; private set; }
     public bool Active { get; internal set; }
     private List<Equipment> _equipment { get; set; }
     public IReadOnlyList<Equipment> Equipment => _equipment.AsReadOnly();
     internal int MaxEquipment { get; set; }
-    private int _currentMaxEquipment { get; set; }
-    public int CurrentMaxEquipment { get { return _currentMaxEquipment; } }
     private List<Action<Event>> Subscibers { get; set; } = new List<Action<Event>>();
-    private int _experience { get; set; }
-    public int Experience { get { return _experience; } }
-    private Level _level { get; set; }
-    public Level Level { get { return _level; } }
-    private SkillTree _skillTree { get; set; } = new SkillTree();
-    public SkillTree SkillTree { get { return _skillTree; } }
-    internal bool CheatDeath { get; set; }
-    internal bool DoubleExp { get; set; }
-    internal bool Tough { get; set; }
-    internal int Dodge { get; set; }
+    public int Experience { get; private set; }
+    public Level Level { get; internal set; }
+    public SkillTree SkillTree { get; private set; }
+    public int Dodge { get; private set; }
 
     public Survivor(string name)
     {
         Name = name;
-        Wounds = 0;
-        MaxActionsPerTurn = 3;
-        _actionsPerTurn = 3;
-        Active = true;
-        _equipment = new List<Equipment>();
-        MaxEquipment = 5;
-        _currentMaxEquipment = MaxEquipment;
-        _experience = 0;
-        _level = Level.Blue;
-        MaxWounds = 2;
-        CheatDeath = false;
-        DoubleExp = false;
-        Tough = false;
-        Dodge = 5;
+        SetBaseValues();
     }
 
     public void AddEquipment(Equipment newEquipment)
     {
-        if (Equipment.Count == _currentMaxEquipment)
-        {
+        var equipmentCount = SurvivorHasActiveSkill(typeof(Hoard)) ? MaxEquipment + 1 : MaxEquipment;
+        if (_equipment.Count == equipmentCount)
             PushEvent(new InvalidOperationEvent("Equipment is full"));
-        }
         else
         {
             _equipment.Add(newEquipment);
@@ -65,7 +44,7 @@ public class Survivor
 
     public void DropEquipment(Equipment equipment)
     {
-        if (Equipment.Count > 0)
+        if (_equipment.Count > 0)
         {
             _equipment.Remove(equipment);
             SpendAction();
@@ -101,33 +80,20 @@ public class Survivor
 
     public void Attack()
     {
+        CombatRound();
         if (Active)
         {
-            var dodgeModifier = 0;
-            if (IsEquipmentInHand())
-                dodgeModifier = 2;
-            var random = new Random();
-            var roll = random.Next(1, 11);
-            if (roll > Dodge + dodgeModifier & !Tough)
-                RecieveWound();
-            if (roll > Dodge + dodgeModifier & Tough)
-                Tough = false;
-            if (Active)//checks to see if active is still true;
-            {
-                PushEvent(new SurvivorKilledZombieEvent(this));
-                GainExperience();
-                if (DoubleExp)
-                    GainExperience();
-                SpendAction();
-            }
+            GainExperience();
+            SpendAction();
         }
-        else
-            PushEvent(new InvalidOperationEvent("Survivor is not active"));
     }
 
     public void ResetActionsPerTurn()
     {
-        _actionsPerTurn = MaxActionsPerTurn;
+        if (SurvivorHasActiveSkill(typeof(PlusOneAction)))
+            ActionsPerTurn = BaseSurvivor.ActionsPerTurn + 1;
+        else
+            ActionsPerTurn = 3;
     }
 
     internal void RecieveWound()
@@ -135,22 +101,23 @@ public class Survivor
         if (Active)
         {
             Wounds++;
-            if (Wounds == MaxWounds && !CheatDeath)
+            if (Wounds == MaxWounds && !SurvivorHasActiveSkill(typeof(CheatDeath)))
             {
                 Active = false;
                 PushEvent(new SurvivorDeathEvent(this));
             }
-            else if (Wounds == MaxWounds && CheatDeath)
+            else if (Wounds == MaxWounds && SurvivorHasActiveSkill(typeof(CheatDeath)))
             {
                 Wounds--;
-                CheatDeath = false;
+                var cheatDeathSkill = SkillTree.UnlockedSkills.FirstOrDefault(s => s.GetType() == typeof(Tough));
+                cheatDeathSkill.Applied = false;
                 PushEvent(new SuccessfulOperationEvent($"{this.Name} used Cheat Death Skill to avoid death"));
             }
             else
             {
-                _currentMaxEquipment = MaxEquipment - Wounds;
+                MaxEquipment = BaseSurvivor.MaxEquipment - Wounds;
                 PushEvent(new SurvivorWoundedEvent(this));
-                if (_currentMaxEquipment < _equipment.Count)
+                if (MaxEquipment < _equipment.Count)
                     MaxEquipmentExceeded();
             }
         }
@@ -176,16 +143,20 @@ public class Survivor
 
     internal void GainExperience()
     {
-        _experience++;
-        if (LevelUpCriteriaMet())
-            LevelUp();
-        if (SkillUpCriteriaMet())
+        int expMultiplier = SurvivorHasActiveSkill(typeof(DoubleExp)) ? 2 : 1;
+        for (int i = 0; i < expMultiplier; i++)
         {
-            _skillTree.SkillUp(_experience);
-            foreach (var skill in _skillTree.UnlockedSkills)
+            Experience++;
+            if (LevelUpCriteriaMet())
+                LevelUp();
+            if (SkillUpCriteriaMet())
             {
-                if (!skill.Applied)
-                    skill.ApplySkill(this);
+                SkillTree.SkillUp(Experience);
+                foreach (var skill in SkillTree.UnlockedSkills)
+                {
+                    if (!skill.Applied)
+                        skill.ApplySkill(this);
+                }
             }
         }
 
@@ -193,7 +164,7 @@ public class Survivor
 
     private bool LevelUpCriteriaMet()
     {
-        if (_experience == 7 || _experience == 19 || _experience == 43)
+        if (Experience == 7 || Experience == 19 || Experience == 43)
             return true;
         else
             return false;
@@ -201,8 +172,8 @@ public class Survivor
 
     private bool SkillUpCriteriaMet()
     {
-        if (_experience == 7 || _experience == 19 || _experience == 43 ||
-            _experience == 61 || _experience == 86 || _experience == 104 || _experience == 129)
+        if (Experience == 7 || Experience == 19 || Experience == 43 ||
+            Experience == 61 || Experience == 86 || Experience == 104 || Experience == 129)
             return true;
         else
             return false;
@@ -210,20 +181,21 @@ public class Survivor
 
     private void LevelUp()
     {
-        if (_level == Level.Blue)
-            _level = Level.Yellow;
-        else if (_level == Level.Yellow)
-            _level = Level.Orange;
-        else if (_level == Level.Orange)
-            _level = Level.Red;
+        if (Level == Level.Blue)
+            Level = Level.Yellow;
+        else if (Level == Level.Yellow)
+            Level = Level.Orange;
+        else if (Level == Level.Orange)
+            Level = Level.Red;
 
         PushEvent(new SurvivorLevelUpEvent(this));
     }
 
     private void SpendAction()
     {
-        if (_actionsPerTurn > 0)
-            _actionsPerTurn--;
+        int actions = SurvivorHasActiveSkill(typeof(PlusOneAction)) ? ActionsPerTurn + 1 : ActionsPerTurn;
+        if (actions > 0)
+            ActionsPerTurn--;
         else
             throw new InvalidOperationException("Actions Per Turn Already 0");
     }
@@ -241,7 +213,54 @@ public class Survivor
 
     private bool IsEquipmentInHand()
     {
-        var isInHand = Equipment.Any(x => x.EquipmentType == EquipmentTypeEnum.InHand);
+        var isInHand = _equipment.Any(x => x.EquipmentType == EquipmentTypeEnum.InHand);
         return isInHand;
+    }
+
+    private void SetBaseValues()
+    {
+        Wounds = BaseSurvivor.Wounds;
+        MaxWounds = BaseSurvivor.MaxWounds;
+        ActionsPerTurn = BaseSurvivor.ActionsPerTurn;
+        Active = BaseSurvivor.Active;
+        _equipment = BaseSurvivor.Equipment;
+        MaxEquipment = BaseSurvivor.MaxEquipment;
+        Experience = BaseSurvivor.Experience;
+        Level = BaseSurvivor.Level;
+        SkillTree = BaseSurvivor.SkillTree;
+        Dodge = BaseSurvivor.Dodge;
+    }
+
+    private bool SurvivorHasActiveSkill(Type skill)
+    {
+        if (SkillTree.UnlockedSkills.Any(s => s.GetType() == skill.GetType() && s.Applied))
+            return true;
+        else
+            return false;
+    }
+
+    private int Roll()
+    {
+        var random = new Random();
+        var roll = random.Next(1, 11);
+        return roll;
+    }
+
+    private void CombatRound()
+    {
+        if (!Active)
+            throw new InvalidOperationException("Survivor is not active");
+
+        var dodgeModifier = IsEquipmentInHand() ? 2 : 0;
+        var roll = Roll();
+        if (roll > Dodge + dodgeModifier && !SurvivorHasActiveSkill(typeof(Tough)))
+            RecieveWound();
+        else if (roll > Dodge + dodgeModifier && SurvivorHasActiveSkill(typeof(Tough)))
+        {
+            var toughSkill = SkillTree.UnlockedSkills.FirstOrDefault(s => s.GetType() == typeof(Tough));
+            toughSkill.Applied = false;
+        }
+
+        PushEvent(new SurvivorKilledZombieEvent(this));
     }
 }
