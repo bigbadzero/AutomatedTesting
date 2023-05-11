@@ -5,25 +5,29 @@ namespace Soduku.Tests;
 
 public class BoxValidatorTests
 {
-    [Fact]
-    public void Should_ReturnTrue_When_AllBoxesValid()
+    [Theory]
+    [InlineData(0, true)]
+    [InlineData(1, true)]
+    [InlineData(2, true)]
+    [InlineData(3, true)]
+    [InlineData(4, true)]
+    [InlineData(5, true)]
+    [InlineData(6, true)]
+    [InlineData(7, true)]
+    [InlineData(8, true)]
+    public void Should_ReturnTrue_When_AllBoxesValid(int rowIndex, bool expected)
     {
         // Arrange
         var sudokuValidator = new SudokuValidator();
         var validator = new BoxValidator();
         var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\ValidSudoku.txt";
         var board = sudokuValidator.ReadSudokuFromFile(file);
-        List<bool> boxResults = new List<bool>();
 
-        for (int i = 0; i < 9; i++)
-        {
-            // Act
-            var result = validator.Validate(board, i);
-            boxResults.Add(result);
-        }
+        // Act
+        var result = validator.Validate(board, rowIndex);
 
         // Assert
-        boxResults.ShouldBeEquivalentTo(new List<bool> { true, true, true, true, true, true, true, true, true });
+        result.ShouldBe(expected);
     }
 
     [Fact]

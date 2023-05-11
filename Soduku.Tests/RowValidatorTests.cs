@@ -4,25 +4,29 @@ namespace Soduku.Tests;
 
 public class RowValidatorTests
 {
-    [Fact]
-    public void Should_ReturnTrue_When_AllRowsValid()
+    [Theory]
+    [InlineData(0, true)]
+    [InlineData(1, true)]
+    [InlineData(2, true)]
+    [InlineData(3, true)]
+    [InlineData(4, true)]
+    [InlineData(5, true)]
+    [InlineData(6, true)]
+    [InlineData(7, true)]
+    [InlineData(8, true)]
+    public void Should_ReturnTrue_When_AllRowsValid(int rowIndex, bool expected)
     {
         // Arrange
         var sudokuValidator = new SudokuValidator();
         var validator = new RowValidator();
         var file = "G:\\projects\\AutomatedTesting\\Soduku.Tests\\ValidSudoku.txt";
         var board = sudokuValidator.ReadSudokuFromFile(file);
-        List<bool> rowResults = new List<bool>();
 
-        for (int i = 0; i < 9; i++)
-        {
-            // Act
-            var result = validator.Validate(board, i);
-            rowResults.Add(result);
-        }
+        // Act
+        var result = validator.Validate(board, rowIndex);
 
         // Assert
-        rowResults.ShouldBeEquivalentTo(new List<bool> { true, true, true, true, true, true, true, true, true });
+        result .ShouldBe(expected);
     }
 
     [Fact]
