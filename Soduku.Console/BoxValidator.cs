@@ -11,6 +11,8 @@
             for (int j = col; j < col + 3; j++)
             {
                 int num = board[i][j];
+                if (num > 9)
+                    return false;
                 if (num != 0 && !set.Add(num))
                 {
                     return false;

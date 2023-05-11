@@ -1,6 +1,3 @@
-combat round extracted out of attack method
-similar to rules in rpg combat
-default survivor
 
 sudoku 
 validate grid is 9x9

@@ -8,6 +8,8 @@ public class RowValidator : IValidator
         for (int j = 0; j < 9; j++)
         {
             int num = board[index][j];
+            if (num > 9)
+                return false;
             if (num != 0 && !set.Add(num))
             {
                 return false;

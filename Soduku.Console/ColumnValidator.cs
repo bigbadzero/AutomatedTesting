@@ -7,6 +7,8 @@
         for (int i = 0; i < 9; i++)
         {
             int num = board[i][index];
+            if (num > 9)
+                return false;
             if (num != 0 && !set.Add(num))
             {
                 return false;
