@@ -2,18 +2,23 @@
 
 public class FileWriter : IWriter
 {
-    private readonly string _filePath;
-
-    public FileWriter(string filePath)
+    public bool FileExists(string filePath)
     {
-        _filePath = filePath;
+        return File.Exists(filePath);
     }
 
-    public void Write(string message)
+    public DateTime GetCreationDateTime(string filePath)
     {
-        using (StreamWriter sw = File.AppendText(_filePath))
-        {
-            sw.WriteLine(message);
-        }
+        throw new NotImplementedException();
+    }
+
+    public void MoveWeekendFile(string oldPath, string newPath)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Write(string message, string filePath)
+    {
+        throw new NotImplementedException();
     }
 }

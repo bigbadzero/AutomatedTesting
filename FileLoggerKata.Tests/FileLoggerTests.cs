@@ -1,52 +1,41 @@
 ﻿using FileLoggerKata.Console;
 using Shouldly;
+using Moq.AutoMock;
+using Moq;
 
 namespace FileLoggerKata.Tests;
 
 public class FileLoggerTests
 {
     [Fact]
-    public void Log_LogsText_ToLogtxtFile()
+    public void IWriter_ReturnsTrue_IfFileExists()
     {
-        var test = "test";
-        var logDate = DateTime.Now.ToString("yyyyMMdd");
-        string fileLocation = $"G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log{logDate}.txt";
-        File.Delete(fileLocation);
-        var logger = new FileLogger();
+        var mocker = new AutoMocker();
+        var mockWriter = new Mock<IWriter>();
+        mocker.Use(mockWriter.Object);
+        var writer = mocker.CreateInstance<FileWriter>();
+        if (!File.Exists("log.txt"))
+            File.Create("log.txt");
 
-        logger.Log(test);
-        var fileContents = File.ReadAllText(fileLocation);
-
-        fileContents.ShouldNotBeEmpty();
-    }
-
-    [Fact]
-    public void Log_Should_Prepend_Timestamp_To_Message_In_File()
-    {
-        var logDate = DateTime.Now.ToString("yyyyMMdd");
-        string filePath = $"G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log{logDate}.txt";
-        var logger = new FileLogger();
-        File.Delete(filePath);
-
-        logger.Log("Test message");
-        var lines = File.ReadAllLines(filePath);
-
-        var lastLine = lines[lines.Length - 1];
-        var expectedPrefix = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        lastLine.ShouldStartWith(expectedPrefix);
-    }
-
-    [Fact]
-    public void Log_ShouldCreateLogFile_WithCorrectNamingConvention()
-    {
-        var logDate = DateTime.Now.ToString("yyyyMMdd");
-        string filePath = $"G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log{logDate}.txt";
-        File.Delete(filePath);
-
-        var logger = new FileLogger();
-        logger.Log("Test message");
-        var result = File.Exists(filePath);
+        var result = writer.FileExists("log.txt");
 
         result.ShouldBeTrue();
+
+    }
+
+    [Fact]
+    public void IWriter_ReturnsFalse_IfFileDoesNotExist()
+    {
+        var mocker = new AutoMocker();
+        var mockWriter = new Mock<IWriter>();
+        mocker.Use(mockWriter.Object);
+        var writer = mocker.CreateInstance<FileWriter>();
+        if (File.Exists("log.txt"))
+            File.Delete("log.txt");
+
+        var result = writer.FileExists("log.txt");
+
+        result.ShouldBeFalse();
+
     }
 }

@@ -1,3 +1,0 @@
-
-
-change all valid test on each validator to use theorys
