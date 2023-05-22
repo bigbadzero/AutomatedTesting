@@ -614,3 +614,8 @@
 2023-05-21 23:23:57.996 -05:00 [INF] adam killed the zombie
 2023-05-21 23:24:04.220 -05:00 [INF] zack has died tragically due to their wounds.
 2023-05-21 23:24:04.221 -05:00 [INF] zack killed the zombie
+2023-05-22 18:08:03.657 -05:00 [INF] Zombie Survivor Game Started 5/22/2023 6:08:03 PM
+2023-05-22 18:08:03.664 -05:00 [INF] fred was added to the game!
+2023-05-22 18:08:03.665 -05:00 [INF] bob was added to the game!
+2023-05-22 18:08:03.665 -05:00 [INF] fred is wounded
+2023-05-22 18:08:03.665 -05:00 [INF] fred has died tragically due to their wounds.

@@ -2,12 +2,8 @@
 using FileLoggerKata.Console.implementations;
 using FileLoggerKata.Tests.Mocks.IMessagePrefixMocks;
 using FileLoggerKata.Tests.Mocks.IPathSuffixMocks;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Moq;
-using Moq.AutoMock;
 using Shouldly;
-using System;
-using System.IO;
 [assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
 
 namespace FileLoggerKata.Tests;
@@ -77,7 +73,7 @@ public class LoggerTests
         var message = "test";
         var mockIPathSuffix = IgnorePathSuffix.GetIgnorePathSuffix(path);
         var mockIDateTime = new Mock<IDateTime>();
-        mockIDateTime.Setup(x => x.CurrentDateTime()).Returns(new DateTime(2023,5, 22));
+        mockIDateTime.Setup(x => x.CurrentDateTime()).Returns(new DateTime(2023, 5, 22));
         var IDateTimeHelper = new WriterDateTimeHelper(mockIDateTime.Object);
         var IMessagePrefix = new MessagePrefix(mockIDateTime.Object);
         var writer = new FileWriter(IMessagePrefix, mockIPathSuffix, IDateTimeHelper);
@@ -95,7 +91,7 @@ public class LoggerTests
         var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
         var message = "test";
         var mockIDateTime = new Mock<IDateTime>();
-        mockIDateTime.Setup(x =>x.CurrentDateTime()).Returns(new DateTime(2023,5,22));
+        mockIDateTime.Setup(x => x.CurrentDateTime()).Returns(new DateTime(2023, 5, 22));
         var mockIDateTimeHelper = new Mock<IDateTimeHelper>();
         mockIDateTimeHelper.Setup(x => x.IsWeekend()).Returns(false);
         var IPathSuffix = new PathSuffix(mockIDateTime.Object, mockIDateTimeHelper.Object);
@@ -104,7 +100,7 @@ public class LoggerTests
         var logger = new FileLogger(writer, path);
         var expectedSuffixFormat = mockIDateTime.Object.CurrentDateTime().ToString("yyyyMMdd"); ;
         var expectedPath = $"G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log{expectedSuffixFormat}.txt";
-        
+
         logger.Log(message);
 
         File.Exists(expectedPath).ShouldBeTrue();
@@ -148,7 +144,7 @@ public class LoggerTests
         var writerDateTimeHelper = new WriterDateTimeHelper(mockIDateTime.Object);
         var writer = new FileWriter(new MessagePrefix(mockIDateTime.Object), new PathSuffix(mockIDateTime.Object, writerDateTimeHelper), writerDateTimeHelper);
         var logger = new FileLogger(writer, path);
-        
+
         logger.Log(message);
 
         File.Exists("G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\Weekend.txt");
@@ -183,13 +179,13 @@ public class LoggerTests
         string fileContents = File.ReadAllText(filePath);
 
         if (string.IsNullOrWhiteSpace(fileContents))
-            return true; 
+            return true;
 
         string[] lines = fileContents.Split('\n');
         string lastLine = lines.LastOrDefault()?.Trim();
 
         if (lastLine == null)
-            return false; 
+            return false;
 
         return lastLine.Contains(text);
     }
