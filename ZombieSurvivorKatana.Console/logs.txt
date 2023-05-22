@@ -599,3 +599,18 @@
 2023-05-21 23:05:48.397 -05:00 [INF] bob was added to the game!
 2023-05-21 23:05:48.397 -05:00 [INF] fred is wounded
 2023-05-21 23:05:48.397 -05:00 [INF] fred has died tragically due to their wounds.
+2023-05-21 23:23:10.043 -05:00 [INF] Zombie Survivor Game Started 5/21/2023 11:23:10 PM
+2023-05-21 23:23:18.913 -05:00 [INF] adam was added to the game!
+2023-05-21 23:23:20.036 -05:00 [INF] zack was added to the game!
+2023-05-21 23:23:35.903 -05:00 [INF] axe added to adam's inventory
+2023-05-21 23:23:38.634 -05:00 [INF] adam is wounded
+2023-05-21 23:23:38.634 -05:00 [INF] adam killed the zombie
+2023-05-21 23:23:41.518 -05:00 [INF] adam killed the zombie
+2023-05-21 23:23:49.102 -05:00 [INF] staff added to zack's inventory
+2023-05-21 23:23:50.085 -05:00 [INF] zack is wounded
+2023-05-21 23:23:50.085 -05:00 [INF] zack killed the zombie
+2023-05-21 23:23:51.465 -05:00 [INF] zack killed the zombie
+2023-05-21 23:23:57.996 -05:00 [INF] adam has died tragically due to their wounds.
+2023-05-21 23:23:57.996 -05:00 [INF] adam killed the zombie
+2023-05-21 23:24:04.220 -05:00 [INF] zack has died tragically due to their wounds.
+2023-05-21 23:24:04.221 -05:00 [INF] zack killed the zombie

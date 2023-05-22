@@ -39,7 +39,6 @@ public class LoggerTests
     {
         var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
         var message = "test";
-        DeleteFileIfExist(path);
         var mockIPathSuffix = IgnorePathSuffix.GetIgnorePathSuffix(path);
         var mockIMessagePrefix = IgnoreMessagePrefix.GetIgnoreMessagePrefixMock(message);
         var IDateTime = new WriterDateTime();
@@ -84,7 +83,6 @@ public class LoggerTests
         var writer = new FileWriter(IMessagePrefix, mockIPathSuffix, IDateTimeHelper);
         var logger = new FileLogger(writer, path);
 
-
         logger.Log(message);
 
         var result = GetLastLine(path);
@@ -94,7 +92,6 @@ public class LoggerTests
     [Fact]
     public void FileLogger_CreatesFileWith_RequiredSuffix()
     {
-        var test = DateTime.Now;
         var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
         var message = "test";
         var mockIDateTime = new Mock<IDateTime>();
@@ -122,7 +119,6 @@ public class LoggerTests
     [InlineData(2023, 5, 26)]
     public void FileLogger_CreatesFile_ForeachNewDay(int year, int month, int day)
     {
-        DeleteAllTxtFiles();
         var mockIDateTime = new Mock<IDateTime>();
         mockIDateTime.Setup(x => x.CurrentDateTime()).Returns(new DateTime(year, month, day));
         var writerDateTimeHelper = new WriterDateTimeHelper(mockIDateTime.Object);
@@ -145,7 +141,6 @@ public class LoggerTests
     [InlineData(2023, 5, 21)]
     public void FileLogger_CreatesWeekendFile_IfCurrentDateIsWeekend(int year, int month, int day)
     {
-        DeleteAllTxtFiles();
         var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
         var message = "test";
         var mockIDateTime = new Mock<IDateTime>();
@@ -180,20 +175,6 @@ public class LoggerTests
             {
                 //create file
             }
-        }
-    }
-
-    private void DeleteFileIfExist(string path)
-    {
-        FileInfo fileInfo = new FileInfo(path);
-
-        if (fileInfo.Exists)
-        {
-            fileInfo.Delete();
-        }
-        else
-        {
-            return;
         }
     }
 
