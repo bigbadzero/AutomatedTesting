@@ -178,7 +178,7 @@ public class LoggerTests
         }
     }
 
-    public bool IsTextOnLastLine(string filePath, string text)
+    private bool IsTextOnLastLine(string filePath, string text)
     {
         string fileContents = File.ReadAllText(filePath);
 
