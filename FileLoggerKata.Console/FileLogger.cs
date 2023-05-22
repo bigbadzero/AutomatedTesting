@@ -19,6 +19,6 @@ public class FileLogger
 
     public void Log(string message)
     {
-        _writer.Write(message, _filePath);
+       _writer.Write(message, _filePath);
     }
 }
