@@ -4,15 +4,17 @@ using FileLoggerKata.Tests.Mocks.IMessagePrefixMocks;
 using FileLoggerKata.Tests.Mocks.IPathSuffixMocks;
 using Moq;
 using Shouldly;
-[assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
 
+[assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
 namespace FileLoggerKata.Tests;
 public class LoggerTests
 {
+    private readonly FileLoggerHelpers LoggerHelper = new FileLoggerHelpers();
     public LoggerTests()
     {
-        DeleteAllTxtFiles();
+        LoggerHelper.DeleteAllTxtFiles();
     }
+
     [Fact]
     public void FileLogger_AppendsMessageTo_LogFile()
     {
@@ -27,7 +29,7 @@ public class LoggerTests
 
         logger.Log(message);
 
-        IsTextOnLastLine(path, message).ShouldBeTrue();
+        LoggerHelper.IsTextOnLastLine(path, message).ShouldBeTrue();
     }
 
     [Fact]
@@ -45,7 +47,6 @@ public class LoggerTests
         logger.Log(message);
 
         File.Exists(path).ShouldBeTrue();
-
     }
 
     [Fact]
@@ -53,7 +54,7 @@ public class LoggerTests
     {
         var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
         var message = "test";
-        CreateFileIfDoesntExist(path);
+        LoggerHelper.CreateFileIfDoesntExist(path);
         var mockIPathSuffix = IgnorePathSuffix.GetIgnorePathSuffix(path);
         var mockIMessagePrefix = IgnoreMessagePrefix.GetIgnoreMessagePrefixMock(message);
         var IDateTime = new WriterDateTime();
@@ -63,7 +64,7 @@ public class LoggerTests
 
         logger.Log(message);
 
-        IsTextOnLastLine(path, message).ShouldBeTrue();
+        LoggerHelper.IsTextOnLastLine(path, message).ShouldBeTrue();
     }
 
     [Fact]
@@ -81,7 +82,7 @@ public class LoggerTests
 
         logger.Log(message);
 
-        var result = GetLastLine(path);
+        var result = LoggerHelper.GetLastLine(path);
         result.ShouldMatch(@"\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\s.+", result);
     }
 
@@ -153,83 +154,12 @@ public class LoggerTests
     [Fact]
     public void Logger_MovesOldWeekendFileContent_ToWeekendFileWithDate()
     {
-        WriteToWeekendFile(new DateTime(2023, 5, 20));
-        var oldWeekendFileContent = FileContent("G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\Weekend.txt");
-        WriteToWeekendFile(new DateTime(2023, 5, 27));
-        var newWeekendFileContent = FileContent("G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\Weekend20230520.txt");
+        LoggerHelper.WriteToWeekendFile(new DateTime(2023, 5, 20));
+        var oldWeekendFileContent = LoggerHelper.FileContent("G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\Weekend.txt");
+        LoggerHelper.WriteToWeekendFile(new DateTime(2023, 5, 27));
+        var newWeekendFileContent = LoggerHelper.FileContent("G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\Weekend20230520.txt");
 
         oldWeekendFileContent.ShouldBe(newWeekendFileContent.TrimEnd());
-    }
-
-
-    //private helper methods
-    private void CreateFileIfDoesntExist(string path)
-    {
-        if (!File.Exists(path))
-        {
-            using (FileStream fileStream = File.Create(path))
-            {
-                //create file
-            }
-        }
-    }
-
-    private bool IsTextOnLastLine(string filePath, string text)
-    {
-        string fileContents = File.ReadAllText(filePath);
-
-        if (string.IsNullOrWhiteSpace(fileContents))
-            return true;
-
-        string[] lines = fileContents.Split('\n');
-        string lastLine = lines.LastOrDefault()?.Trim();
-
-        if (lastLine == null)
-            return false;
-
-        return lastLine.Contains(text);
-    }
-
-    private string GetLastLine(string filePath)
-    {
-        string fileContents = File.ReadAllText(filePath);
-        string[] lines = fileContents.Split('\n');
-        string lastLine = lines.LastOrDefault()?.Trim();
-        return lastLine;
-    }
-
-    private void DeleteAllTxtFiles()
-    {
-        var directoryPath = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console";
-        string[] txtFiles = Directory.GetFiles(directoryPath, "*.txt");
-        foreach (string txtFile in txtFiles)
-        {
-            File.Delete(txtFile);
-        }
-    }
-
-    private void WriteToWeekendFile(DateTime date)
-    {
-        var path = "G:\\projects\\AutomatedTesting\\FileLoggerKata.Console\\log.txt";
-        var message = "test";
-        var iMockDateTime = new Mock<IDateTime>();
-        iMockDateTime.Setup(x => x.CurrentDateTime()).Returns(date);
-        var writerDateTimeHelper = new WriterDateTimeHelper(iMockDateTime.Object);
-        var messagePrefix = new MessagePrefix(iMockDateTime.Object);
-        var pathSuffix = new PathSuffix(iMockDateTime.Object, writerDateTimeHelper);
-        var writer = new FileWriter(messagePrefix, pathSuffix, writerDateTimeHelper);
-        var logger = new FileLogger(writer, path);
-
-        logger.Log(message);
-    }
-
-    private string FileContent(string path)
-    {
-        string content = string.Empty;
-
-        content = File.ReadAllText(path);
-
-        return content;
     }
 }
 
